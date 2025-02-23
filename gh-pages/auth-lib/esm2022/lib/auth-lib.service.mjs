@@ -1,0 +1,53 @@
+import { Injectable } from '@angular/core';
+import { AUTH_TOKEN_KEY, PRV_AUTH_TOKEN_KEY, COMPANIES_KEY } from './constants';
+import * as i0 from "@angular/core";
+export class AuthLibService {
+    constructor() { }
+    getToken() {
+        return localStorage.getItem(AUTH_TOKEN_KEY) ?? localStorage.getItem(PRV_AUTH_TOKEN_KEY);
+    }
+    ;
+    setToken(token, isProvisional) {
+        if (isProvisional) {
+            this.removeToken();
+            localStorage.setItem(PRV_AUTH_TOKEN_KEY, token);
+        }
+        else {
+            this.removePrvToken();
+            localStorage.setItem(AUTH_TOKEN_KEY, token);
+        }
+    }
+    removeToken() {
+        localStorage.removeItem(AUTH_TOKEN_KEY);
+    }
+    removePrvToken() {
+        localStorage.removeItem(PRV_AUTH_TOKEN_KEY);
+    }
+    logOut() {
+        this.removeToken();
+        this.removePrvToken();
+    }
+    isAuthenticated() {
+        // Verifica si el token existe en localStorage
+        return !!localStorage.getItem(AUTH_TOKEN_KEY) && !localStorage.getItem(PRV_AUTH_TOKEN_KEY);
+    }
+    isAuthenticatedMultilogin() {
+        // Verifica si el token provisional existe en localStorage
+        return !localStorage.getItem(AUTH_TOKEN_KEY) && !!localStorage.getItem(PRV_AUTH_TOKEN_KEY);
+    }
+    getCompanies() {
+        return JSON.parse(localStorage.getItem(COMPANIES_KEY));
+    }
+    setCompanies(companies) {
+        localStorage.setItem(COMPANIES_KEY, JSON.stringify(companies));
+    }
+    static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.3.12", ngImport: i0, type: AuthLibService, deps: [], target: i0.ɵɵFactoryTarget.Injectable }); }
+    static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.3.12", ngImport: i0, type: AuthLibService, providedIn: 'root' }); }
+}
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.3.12", ngImport: i0, type: AuthLibService, decorators: [{
+            type: Injectable,
+            args: [{
+                    providedIn: 'root'
+                }]
+        }], ctorParameters: () => [] });
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXV0aC1saWIuc2VydmljZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL3Byb2plY3RzL2xpYnMvYXV0aC1saWIvc3JjL2xpYi9hdXRoLWxpYi5zZXJ2aWNlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE9BQU8sRUFBRSxVQUFVLEVBQUUsTUFBTSxlQUFlLENBQUM7QUFDM0MsT0FBTyxFQUFFLGNBQWMsRUFBRSxrQkFBa0IsRUFBRSxhQUFhLEVBQUUsTUFBTSxhQUFhLENBQUM7O0FBS2hGLE1BQU0sT0FBTyxjQUFjO0lBQ3pCLGdCQUFlLENBQUM7SUFFVCxRQUFRO1FBQ2IsT0FBTyxZQUFZLENBQUMsT0FBTyxDQUFDLGNBQWMsQ0FBQyxJQUFJLFlBQVksQ0FBQyxPQUFPLENBQUMsa0JBQWtCLENBQUUsQ0FBQztJQUMzRixDQUFDO0lBQUEsQ0FBQztJQUVLLFFBQVEsQ0FBQyxLQUFhLEVBQUUsYUFBc0I7UUFDbkQsSUFBSSxhQUFhLEVBQUU7WUFDakIsSUFBSSxDQUFDLFdBQVcsRUFBRSxDQUFDO1lBQ25CLFlBQVksQ0FBQyxPQUFPLENBQUMsa0JBQWtCLEVBQUUsS0FBSyxDQUFDLENBQUM7U0FDakQ7YUFBTTtZQUNMLElBQUksQ0FBQyxjQUFjLEVBQUUsQ0FBQztZQUN0QixZQUFZLENBQUMsT0FBTyxDQUFDLGNBQWMsRUFBRSxLQUFLLENBQUMsQ0FBQztTQUM3QztJQUNILENBQUM7SUFFTSxXQUFXO1FBQ2hCLFlBQVksQ0FBQyxVQUFVLENBQUMsY0FBYyxDQUFDLENBQUM7SUFDMUMsQ0FBQztJQUVNLGNBQWM7UUFDbkIsWUFBWSxDQUFDLFVBQVUsQ0FBQyxrQkFBa0IsQ0FBQyxDQUFDO0lBQzlDLENBQUM7SUFFTSxNQUFNO1FBQ1gsSUFBSSxDQUFDLFdBQVcsRUFBRSxDQUFDO1FBQ25CLElBQUksQ0FBQyxjQUFjLEVBQUUsQ0FBQztJQUN4QixDQUFDO0lBRU0sZUFBZTtRQUNwQiw4Q0FBOEM7UUFDOUMsT0FBTyxDQUFDLENBQUMsWUFBWSxDQUFDLE9BQU8sQ0FBQyxjQUFjLENBQUMsSUFBSSxDQUFDLFlBQVksQ0FBQyxPQUFPLENBQUMsa0JBQWtCLENBQUMsQ0FBQztJQUM3RixDQUFDO0lBRU0seUJBQXlCO1FBQzlCLDBEQUEwRDtRQUMxRCxPQUFPLENBQUMsWUFBWSxDQUFDLE9BQU8sQ0FBQyxjQUFjLENBQUMsSUFBSSxDQUFDLENBQUMsWUFBWSxDQUFDLE9BQU8sQ0FBQyxrQkFBa0IsQ0FBQyxDQUFDO0lBQzdGLENBQUM7SUFFTSxZQUFZO1FBQ2pCLE9BQU8sSUFBSSxDQUFDLEtBQUssQ0FBQyxZQUFZLENBQUMsT0FBTyxDQUFDLGFBQWEsQ0FBRSxDQUFNLENBQUM7SUFDL0QsQ0FBQztJQUVNLFlBQVksQ0FBSSxTQUFZO1FBQ2pDLFlBQVksQ0FBQyxPQUFPLENBQUMsYUFBYSxFQUFFLElBQUksQ0FBQyxTQUFTLENBQUMsU0FBUyxDQUFDLENBQUMsQ0FBQztJQUNqRSxDQUFDOytHQTlDVSxjQUFjO21IQUFkLGNBQWMsY0FGYixNQUFNOzs0RkFFUCxjQUFjO2tCQUgxQixVQUFVO21CQUFDO29CQUNWLFVBQVUsRUFBRSxNQUFNO2lCQUNuQiIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IEluamVjdGFibGUgfSBmcm9tICdAYW5ndWxhci9jb3JlJztcclxuaW1wb3J0IHsgQVVUSF9UT0tFTl9LRVksIFBSVl9BVVRIX1RPS0VOX0tFWSwgQ09NUEFOSUVTX0tFWSB9IGZyb20gJy4vY29uc3RhbnRzJztcclxuXHJcbkBJbmplY3RhYmxlKHtcclxuICBwcm92aWRlZEluOiAncm9vdCdcclxufSlcclxuZXhwb3J0IGNsYXNzIEF1dGhMaWJTZXJ2aWNlIHtcclxuICBjb25zdHJ1Y3RvcigpIHt9XHJcblxyXG4gIHB1YmxpYyBnZXRUb2tlbigpOiBzdHJpbmcge1xyXG4gICAgcmV0dXJuIGxvY2FsU3RvcmFnZS5nZXRJdGVtKEFVVEhfVE9LRU5fS0VZKSA/PyBsb2NhbFN0b3JhZ2UuZ2V0SXRlbShQUlZfQVVUSF9UT0tFTl9LRVkpITtcclxuICB9O1xyXG5cclxuICBwdWJsaWMgc2V0VG9rZW4odG9rZW46IHN0cmluZywgaXNQcm92aXNpb25hbDogYm9vbGVhbik6IHZvaWQge1xyXG4gICAgaWYgKGlzUHJvdmlzaW9uYWwpIHtcclxuICAgICAgdGhpcy5yZW1vdmVUb2tlbigpO1xyXG4gICAgICBsb2NhbFN0b3JhZ2Uuc2V0SXRlbShQUlZfQVVUSF9UT0tFTl9LRVksIHRva2VuKTtcclxuICAgIH0gZWxzZSB7XHJcbiAgICAgIHRoaXMucmVtb3ZlUHJ2VG9rZW4oKTtcclxuICAgICAgbG9jYWxTdG9yYWdlLnNldEl0ZW0oQVVUSF9UT0tFTl9LRVksIHRva2VuKTtcclxuICAgIH1cclxuICB9XHJcblxyXG4gIHB1YmxpYyByZW1vdmVUb2tlbigpOiB2b2lkIHtcclxuICAgIGxvY2FsU3RvcmFnZS5yZW1vdmVJdGVtKEFVVEhfVE9LRU5fS0VZKTtcclxuICB9XHJcblxyXG4gIHB1YmxpYyByZW1vdmVQcnZUb2tlbigpOiB2b2lkIHtcclxuICAgIGxvY2FsU3RvcmFnZS5yZW1vdmVJdGVtKFBSVl9BVVRIX1RPS0VOX0tFWSk7XHJcbiAgfVxyXG5cclxuICBwdWJsaWMgbG9nT3V0KCk6IHZvaWQge1xyXG4gICAgdGhpcy5yZW1vdmVUb2tlbigpO1xyXG4gICAgdGhpcy5yZW1vdmVQcnZUb2tlbigpO1xyXG4gIH1cclxuXHJcbiAgcHVibGljIGlzQXV0aGVudGljYXRlZCgpOiBib29sZWFuIHtcclxuICAgIC8vIFZlcmlmaWNhIHNpIGVsIHRva2VuIGV4aXN0ZSBlbiBsb2NhbFN0b3JhZ2VcclxuICAgIHJldHVybiAhIWxvY2FsU3RvcmFnZS5nZXRJdGVtKEFVVEhfVE9LRU5fS0VZKSAmJiAhbG9jYWxTdG9yYWdlLmdldEl0ZW0oUFJWX0FVVEhfVE9LRU5fS0VZKTtcclxuICB9XHJcblxyXG4gIHB1YmxpYyBpc0F1dGhlbnRpY2F0ZWRNdWx0aWxvZ2luKCk6IGJvb2xlYW4ge1xyXG4gICAgLy8gVmVyaWZpY2Egc2kgZWwgdG9rZW4gcHJvdmlzaW9uYWwgZXhpc3RlIGVuIGxvY2FsU3RvcmFnZVxyXG4gICAgcmV0dXJuICFsb2NhbFN0b3JhZ2UuZ2V0SXRlbShBVVRIX1RPS0VOX0tFWSkgJiYgISFsb2NhbFN0b3JhZ2UuZ2V0SXRlbShQUlZfQVVUSF9UT0tFTl9LRVkpO1xyXG4gIH1cclxuXHJcbiAgcHVibGljIGdldENvbXBhbmllczxUPigpOiBUIHtcclxuICAgIHJldHVybiBKU09OLnBhcnNlKGxvY2FsU3RvcmFnZS5nZXRJdGVtKENPTVBBTklFU19LRVkpISkgYXMgVDtcclxuICB9XHJcblxyXG4gIHB1YmxpYyBzZXRDb21wYW5pZXM8VD4oY29tcGFuaWVzOiBUKTogdm9pZCB7XHJcbiAgICBsb2NhbFN0b3JhZ2Uuc2V0SXRlbShDT01QQU5JRVNfS0VZLCBKU09OLnN0cmluZ2lmeShjb21wYW5pZXMpKTtcclxuICB9XHJcbn1cclxuIl19
