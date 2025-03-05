@@ -11,12 +11,12 @@ module.exports = withModuleFederationPlugin({
   //   mfReport:     "http://localhost:4206/remoteEntry.js",
   // },
   remotes: {
-    mfUser:       "http://localhost:4201/remoteEntry.js",
-    mfDashBoard:  "http://localhost:4202/remoteEntry.js",
-    mfCompany:    "http://localhost:4203/remoteEntry.js",
-    mfCatalog:    "http://localhost:4204/remoteEntry.js",
+    mfUser:       "https://canchapp.github.io/canchapp/user/remoteEntry.js",
+    mfDashBoard:  "https://canchapp.github.io/canchapp/dashboard/remoteEntry.js",
+    mfCompany:    "https://canchapp.github.io/canchapp/company/remoteEntry.js",
+    mfCatalog:    "https://canchapp.github.io/canchapp/catalog/remoteEntry.js",
     mfBooking:    "https://canchapp.github.io/canchapp/booking/remoteEntry.js",
-    mfReport:     "http://localhost:4206/remoteEntry.js",
+    mfReport:     "https://canchapp.github.io/canchapp/report/remoteEntry.js",
   },  
 
   shared: {
