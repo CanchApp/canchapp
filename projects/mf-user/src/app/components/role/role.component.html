@@ -1,0 +1,38 @@
+<form [formGroup]="formRole" class="row g-3">
+    <div class="text-end">
+      <button class="btn btn-success me-2" (click)="save()">{{ 'Button.Save' | translate }}</button>
+      <button class="btn btn-outline-secondary" (click)="cancel()">{{ 'Button.Cancel' | translate }}</button>
+    </div>
+
+    <div class="col-md-12">
+        <label for="name" class="form-label">{{ 'Commons.Name' | translate }}</label>
+        <input type="text" formControlName="name" class="form-control" id="name" placeholder="{{ 'Commons.Name' | translate }}">
+        <div *ngIf="formRole.controls['name']?.invalid && formRole.controls['name']?.touched" class="text-danger">
+            <small *ngIf="formRole.controls['name']?.errors?.['required']">{{ 'Validations.FieldRequired' | translate }}</small>
+        </div>
+    </div>
+
+    <h4> {{ "Role.RoleModulePermissions" | translate }} </h4>
+
+    <div formArrayName="roleModules" class="text-center">
+        <div *ngFor="let item of roleModules.controls; let i = index" [formGroupName]="i" class="col-md-12">
+            <div formGroupName="actions">
+                <label class="col-md-2 moduleName">
+                    {{ "Modules." + item.get('moduleName')?.value | translate }}
+                </label>
+                <label class="col-md-2">
+                    <input type="checkbox" class="form-check-input" formControlName="create"> {{ 'Crud.Create' | translate }}
+                </label>
+                <label class="col-md-2">
+                    <input type="checkbox" class="form-check-input" formControlName="read"> {{ 'Crud.Read' | translate }}
+                </label>
+                <label class="col-md-2">
+                    <input type="checkbox" class="form-check-input" formControlName="update"> {{ 'Crud.Update' | translate }}
+                </label>
+                <label class="col-md-2">
+                    <input type="checkbox" class="form-check-input" formControlName="delete"> {{ 'Crud.Delete' | translate }}
+                </label>
+            </div>
+        </div>
+    </div>
+  </form>

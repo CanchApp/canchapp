@@ -1,3 +1,4 @@
 export const AUTH_TOKEN_KEY = 'TKCANCHAPP';
 export const PRV_AUTH_TOKEN_KEY = 'PRV_TKCANCHAPP';
 export const COMPANIES_KEY = 'COMPANIES';
+export const ROLES_MODULES_KEY = 'ROLES_MODULES';

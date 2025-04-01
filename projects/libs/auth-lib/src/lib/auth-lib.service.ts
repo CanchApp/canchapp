@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AUTH_TOKEN_KEY, PRV_AUTH_TOKEN_KEY, COMPANIES_KEY } from './constants';
+import { AUTH_TOKEN_KEY, PRV_AUTH_TOKEN_KEY, COMPANIES_KEY, ROLES_MODULES_KEY } from './constants';
 
 @Injectable({
   providedIn: 'root'
@@ -50,5 +50,13 @@ export class AuthLibService {
 
   public setCompanies<T>(companies: T): void {
     localStorage.setItem(COMPANIES_KEY, JSON.stringify(companies));
+  }
+
+  public getRoleModules<T>(): T {
+    return JSON.parse(localStorage.getItem(ROLES_MODULES_KEY)!) as T;
+  }
+
+  public setRoleModules<T>(rolesModules: T): void {
+    localStorage.setItem(ROLES_MODULES_KEY, JSON.stringify(rolesModules));
   }
 }

@@ -24,6 +24,7 @@ export class AuthService {
       tap<ILoginToken>(response => {
         // Almacena el token en localStorage si la autenticación fue exitosa
         this.authLibService.setCompanies(response.companies);
+        this.authLibService.setRoleModules(response.roleModules);
         this.authLibService.setToken(response.token, response.isProvisional);
         this.redirectLogin(response.isProvisional);
       })

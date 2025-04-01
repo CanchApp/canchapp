@@ -1,0 +1,28 @@
+[
+    {
+        "namei18n": "Dashboard",
+        "modules": ["Dashboard"],
+        "icon": "fa-home",
+        "route": "/dashboard"
+    },
+    {
+        "namei18n": "UserManagement",
+        "modules": ["Users", "Roles"],
+        "icon": "fa-users",
+        "route": "/user-management",
+        "subMenu": [
+            {
+                "namei18n": "Users",
+                "modules": ["Users"],
+                "icon": "fa-users",
+                "route": "/user-management/users"
+            },
+            {
+                "namei18n": "Roles",
+                "modules": ["Roles"],
+                "icon": "fa-address-book",
+                "route": "/user-management/roles"
+            }
+        ]
+    }
+]

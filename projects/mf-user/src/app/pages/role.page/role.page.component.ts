@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { UserComponent } from "../../components/user/user.component";
 import { ActivatedRoute } from '@angular/router';
 import { ActionEnum } from 'commons-lib';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { RoleComponent } from '../../components/role/role.component';
 
 @Component({
   selector: 'app-user.page',
   standalone: true,
-  imports: [UserComponent, TranslateModule],
-  templateUrl: './user.page.component.html',
-  styleUrl: './user.page.component.css'
+  imports: [RoleComponent, TranslateModule],
+  templateUrl: './role.page.component.html',
+  styleUrl: './role.page.component.css'
 })
-export class UserPageComponent implements OnInit {
-  userId!: number;
+export class RolePageComponent implements OnInit {
+  roleId!: number;
   action!: ActionEnum;
   title: string = '';
 
@@ -23,7 +23,7 @@ export class UserPageComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      this.userId = Number(params.get('id'));
+      this.roleId = Number(params.get('id'));
     });
     this.action = this.route.snapshot.data['actionState'];
 
@@ -33,10 +33,10 @@ export class UserPageComponent implements OnInit {
   setTitle(): void {
     switch(this.action) {
       case ActionEnum.Create:
-        this.title = 'User.Create';
+        this.title = 'Role.Create';
         break;
       case ActionEnum.Edit: 
-        this.title = "User.Edit";
+        this.title = "Role.Edit";
         break;
     } 
   }

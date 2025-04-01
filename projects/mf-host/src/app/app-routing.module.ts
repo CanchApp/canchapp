@@ -8,6 +8,7 @@ import { MainLayoutComponent } from './layouts/main-layout/main-layout.component
 import { RegisterComponent } from './pages/register/register.component';
 import { authGuard, authGuardMultilogin } from './guards/authGuard.guard';
 import { MultiLoginComponent } from './pages/multilogin/multilogin.component';
+import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},  
@@ -29,8 +30,13 @@ const routes: Routes = [
     path: '',
     component: MainLayoutComponent,
     children: [
+      {
+        path: 'unauthorized',
+        component: UnauthorizedComponent,
+        canActivate: [authGuard]
+      },
       { 
-        path: 'user', 
+        path: 'user-management', 
         canActivate: [authGuard],
         loadChildren: () => 
           loadRemoteModule({

@@ -23,6 +23,38 @@
     </div>	
     <div class="sidebar-wrapper scrollbar scrollbar-inner">
         <div class="sidebar-content">
+            <ul class="nav">
+                <li *ngFor="let item of sideMenuData" class="nav-item">
+                  <!-- Si el menú tiene submenús -->
+                  <ng-container *ngIf="item.subMenu && item.subMenu.length > 0; else singleItem">
+                    <a data-bs-toggle="collapse" [href]="'#' + item.route" class="collapsed" aria-expanded="false">
+                      <i class="fas" [ngClass]="item.icon"></i>
+                      <p>{{ "SideMenu."+item.namei18n | translate }}</p>
+                      <span class="caret"></span>
+                    </a>
+                    <div class="collapse" [id]="item.route">
+                      <ul class="nav nav-collapse">
+                        <li *ngFor="let sub of item.subMenu">
+                          <a [routerLink]="sub.route">
+                            <span class="sub-item">{{ "SideMenu."+sub.namei18n | translate }}</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </ng-container>
+              
+                  <!-- Si el menú no tiene submenús -->
+                  <ng-template #singleItem>
+                    <a [routerLink]="item.route">
+                      <i class="fas" [ngClass]="item.icon"></i>
+                      <p>{{ item.namei18n }}</p>
+                    </a>
+                  </ng-template>
+                </li>
+              </ul>
+
+              
+
             <ul class="nav nav-secondary">
                 <li class="nav-item active">
                     <a data-bs-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
@@ -39,6 +71,26 @@
                             </li>
                         </ul>
                     </div>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/user-management/users">
+                        <i class="fas fa-users"></i>
+                        <p>Usuarios</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/user-management/users">
+                        <i class="fas fa-users"></i>
+                        <p>Usuarios</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/user-management/roles">
+                        <i class="fas fa-pencil-square"></i>
+                        <p>Roles</p>
+                    </a>
                 </li>
                 <li class="nav-section">
                     <span class="sidebar-mini-icon">

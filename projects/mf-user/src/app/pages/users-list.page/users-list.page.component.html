@@ -1,0 +1,61 @@
+<div class="card">
+    <div class="card-header">
+        <div class="card-title">{{ 'Title.Users' | translate }}</div>
+    </div>
+    <div class="card-body">
+        <div class="mb-2">
+            <a *ngIf="allowCreate" routerLink="/user-management/user-create" class="btn btn-success" #btnFoco>{{ 'User.Create' | translate }}</a>
+        </div>
+        <table class="table table-head-bg-primary">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">{{ 'Commons.Name' | translate }}</th>
+                    <th scope="col">{{ 'Commons.Role' | translate }}</th>
+                    <th scope="col">{{ 'Commons.Email' | translate }}</th>
+                    <th scope="col">{{ 'Commons.State' | translate }}</th>
+                    <th scope="col" *ngIf="allowUpdate || allowDelete">
+                        {{ 'Commons.Action' | translate }}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (user of users; track user; let i = $index) {
+                    <tr>
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.roleName ?? 'Admin' }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>
+                            <span 
+                                class="badge btn-sm"
+                                [ngClass]="{'badge-success': user.isActive, 'badge-danger': !user.isActive}"
+                            >
+                                {{ 'Commons.'+user.isActive | translate }}
+                            </span>
+                        </td>
+                        <td *ngIf="allowUpdate || allowDelete">
+                            <lib-dropdown
+                                placeholder="{{ 'Commons.Action' | translate }}"
+                                emptyItemsLabel="{{ 'Commons.ElementsNotFound' | translate }}"
+                                [items]="loadActionItems(user.idUser)"
+                                (actionButtonClick)="handleAction($event)"
+                            ></lib-dropdown>
+                        </td>
+                    </tr>
+                }
+                @empty {
+                    <td colspan="7">
+                        <h5>{{ 'Commons.ElementsNotFound' | translate }}</h5>
+                    </td>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<lib-confirm-modal
+    [data]="confirmModalData"
+    (confirmButtonClick)="onConfirmDelete($event)"
+    #confirmDeleteModal
+></lib-confirm-modal>

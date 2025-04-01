@@ -15,6 +15,7 @@ import { FootComponent } from './components/foot/foot.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
 import { AuthLibModule } from 'auth-lib';
 import { CommonLibModule } from 'commons-lib';
 import { NgxMaskDirective, provideNgxMask, NgxMaskPipe } from 'ngx-mask';
@@ -34,7 +35,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     FootComponent,
     AuthLayoutComponent,
     MainLayoutComponent,
-    RegisterComponent
+    RegisterComponent,
+    UnauthorizedComponent
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,58 @@
-<p>user works!</p>
+<form [formGroup]="formUser" class="row g-3">
+  <div class="text-end">
+    <button class="btn btn-success me-2" (click)="save()">{{ 'Button.Save' | translate }}</button>
+    <button class="btn btn-outline-secondary" (click)="cancel()">{{ 'Button.Cancel' | translate }}</button>
+  </div>
+
+  <div [ngClass]="{'col-md-7': action == editAction, 'col-md-3': action != editAction}">
+    <label for="name" class="form-label">{{ 'Commons.Name' | translate }}</label>
+    <input type="text" formControlName="name" class="form-control" id="name" placeholder="{{ 'Commons.Name' | translate }}">
+    <div *ngIf="formUser.controls['name']?.invalid && formUser.controls['name']?.touched" class="text-danger">
+      <small *ngIf="formUser.controls['name']?.errors?.['required']">{{ 'Validations.FieldRequired' | translate }}</small>
+    </div>
+  </div>
+
+  <div class="col-md-3" *ngIf="action != editAction">
+    <label for="userEmail" class="form-label">{{ 'Commons.Email' | translate }}</label>
+    <input type="email" formControlName="email" class="form-control" id="userEmail" placeholder="{{ 'Commons.Email' | translate }}">
+    <div *ngIf="formUser.controls['email']?.invalid && formUser.controls['email']?.touched" class="text-danger">
+      <small *ngIf="formUser.controls['email']?.errors?.['required']">{{ 'Validations.FieldRequired' | translate }}</small>
+      <small *ngIf="formUser.controls['email']?.errors?.['email']">{{ 'Validations.FieldInvalidName' | translate }}</small>
+    </div>
+  </div>
+
+  <div class="col-md-2" *ngIf="action != editAction">
+    <label for="password" class="form-label">{{ 'Commons.Password' | translate }}</label>
+    <input type="password" formControlName="password" class="form-control" id="password" placeholder="{{ 'Commons.Password' | translate }}">
+    <div *ngIf="formUser.controls['password']?.invalid && formUser.controls['password']?.touched" class="text-danger">
+      <small *ngIf="formUser.controls['password']?.errors?.['required']">{{ 'Validations.FieldRequired' | translate }}</small>
+    </div>
+  </div>
+
+  <div class="col-md-2" *ngIf="action != editAction">
+    <label for="phone" class="form-label">{{ 'Commons.Phone' | translate }}</label>
+    <input type="text" formControlName="phone" class="form-control" id="phone" minlength="6" maxlength="10" placeholder="{{ 'Commons.Phone' | translate }}">
+    <div *ngIf="formUser.controls['phone']?.invalid && formUser.controls['phone']?.touched" class="text-danger">
+      <small *ngIf="formUser.controls['phone']?.errors?.['required']">{{ 'Validations.FieldRequired' | translate }}</small>
+      <small *ngIf="formUser.controls['phone']?.errors?.['pattern']">{{ 'Validations.FieldOnlyNumberMinLength6' | translate }}</small>
+    </div>
+  </div>
+
+  <div [ngClass]="{'col-md-3': action == editAction, 'col-md-2': action != editAction}">
+    <label for="exampleColorInput" class="form-label">{{ 'Commons.Role' | translate }}</label>
+    <lib-select [selectId]="selectId" formControlName="role" [useCustomItems]="true" #roleSelect></lib-select>
+    <div *ngIf="formUser.controls['role']?.touched && formUser.get('role')?.hasError('invalidRole')"  class="text-danger">
+      <small>{{ 'Validations.FieldRequired' | translate }}</small>
+    </div>
+  </div>
+
+  <div class="col-md-2" *ngIf="action == editAction">
+    <label for="exampleColorInput" class="form-label">{{ 'Commons.State' | translate }}</label>
+    <div class="form-check">
+        <input type="checkbox" formControlName="isActive" class="form-check-input" id="isActive">
+        <label class="form-check-label" for="isActive">
+          {{ formUser.controls['isActive'].value ? ('Commons.Active' | translate) : ('Commons.Inactive' | translate) }}
+        </label>
+    </div>
+  </div>
+</form>

@@ -4,7 +4,7 @@ import { CourtDTO } from '../../models/court.model';
 import { Subscription } from 'rxjs';
 import { CourtService } from '../../services/court.service';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CodeErrorEnum, NotificationService } from 'commons-lib';
 
 declare let bootstrap: any;
@@ -17,7 +17,6 @@ declare let bootstrap: any;
   styleUrl: './list-court.component.css'
 })
 export class CourtListComponent implements OnInit, AfterViewInit {
-
   @ViewChild('deleteModal', { static: true}) modalDelete!: ElementRef;
   @ViewChild('btnFoco', { static: true}) buttonFoco!: ElementRef;
 

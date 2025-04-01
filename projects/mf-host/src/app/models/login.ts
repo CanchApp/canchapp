@@ -8,6 +8,7 @@ export interface ILoginToken {
     token: string;
     isProvisional: boolean;
     companies: ICompanyLogin[];
+    roleModules: IRoleModule[];
 }
 
 export interface ICompanyLogin {
@@ -18,4 +19,18 @@ export interface ICompanyLogin {
     roleName: string | null;
     tenantId: string;
     userName: string;
+}
+
+export interface IRoleModule {
+    idModule: number;
+    moduleName: string;
+    modulePath: string;
+    actions: IModuleActions[];
+}
+
+export interface IModuleActions {
+    create: boolean;
+    read: boolean;
+    update: boolean;
+    delete: boolean;
 }

@@ -1,0 +1,48 @@
+<div class="card">
+    <div class="card-header">
+        <div class="card-title">{{ 'Title.Roles' | translate }}</div>
+    </div>
+    <div class="card-body">
+        <div class="mb-2">
+            <a *ngIf="allowCreate" routerLink="/user-management/role-create" class="btn btn-success" #btnFoco>{{ 'Role.Create' | translate }}</a>
+        </div>
+        <table class="table table-head-bg-primary">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col" style="width: 80%;">{{ 'Commons.Name' | translate }}</th>
+                    <th scope="col" *ngIf="allowUpdate || allowDelete">
+                        {{ 'Commons.Action' | translate }}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (rol of roles; track rol; let i = $index) {
+                    <tr>
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ rol.name }}</td>
+                        <td *ngIf="allowUpdate || allowDelete">
+                            <lib-dropdown
+                                placeholder="{{ 'Commons.Action' | translate }}"
+                                emptyItemsLabel="{{ 'Commons.ElementsNotFound' | translate }}"
+                                [items]="loadActionItems(rol.idRole)"
+                                (actionButtonClick)="handleAction($event)"
+                            ></lib-dropdown>
+                        </td>
+                    </tr>
+                }
+                @empty {
+                    <td colspan="7">
+                        <h5>{{ 'Commons.ElementsNotFound' | translate }}</h5>
+                    </td>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<lib-confirm-modal
+    [data]="confirmModalData"
+    (confirmButtonClick)="onConfirmDelete($event)"
+    #confirmDeleteModal
+></lib-confirm-modal>

@@ -1,7 +1,11 @@
 {
     "Commons":
     {
+        "Name": "Nombre",
+        "Role": "Rol",
         "Email":"Correo",
+        "true": "Activo",
+        "false": "Inactivo",
         "Password":"Contraseña",
         "MessageErrorNoti":"Al parecer hubo un error, intente mas tarde por favor.",
         "MessageSuccessSaveNoti":"Guardado con exito.",
@@ -22,12 +26,14 @@
         "September":"Septiembre", 
         "October":"Octubre", 
         "November":"Noviembre", 
-        "December":"Diciembre"
+        "December":"Diciembre",
+        "Phone": "Teléfono"
     },
     "Title":
     {
         "Company":"Empresa",
         "Role":"Rol",
+        "Roles":"Roles",
         "AdminRole":"Administrador",
         "Courts":"Canchas",
         "Users":"Usuarios",
@@ -150,5 +156,41 @@
         "CourtWithRecords":"La cancha no se puede eliminar, ya existen reservas asociadas.",
         "CourtNotFound":"La cancha no existe.",
         "PriceMustBeGreaterThanZero":"El precio debe ser mayor a cero."
+    },
+    "User": {
+        "Create": "Crear usuario",
+        "Edit": "Editar usuario",
+        "DeleteUser":"Eliminar usuario",
+        "ConfirmDeleteUser":"¿Está seguro de eliminar el usuario ",
+        "UserCreated":"Usuario guardado correctamente.",
+        "UserDeleted":"Usuario eliminado correctamente."
+    },
+    "Role": {
+        "Create": "Crear rol",
+        "Edit": "Editar rol",
+        "DeleteUser":"Eliminar rol",
+        "ConfirmDeleteRole":"¿Está seguro de eliminar el rol ",
+        "RoleCreated":"Rol guardado correctamente.",
+        "RoleDeleted":"Rol eliminado correctamente.",
+        "RoleDeletedError": "El rol no puede ser eliminado debido a que tiene usuarios asociados",
+        "RoleModulePermissions": "Permisos por módulo:"
+    },
+    "Crud": {
+        "Create": "Crear",
+        "Read": "Leer",
+        "Update": "Actualizar",
+        "Delete": "Eliminar"
+    },
+    "Modules": {
+        "Dashboard": "Dashboard",
+        "Courts": "Canchas",
+        "Users": "Usuarios",
+        "Roles": "Roles"
+    },
+    "SideMenu": {
+        "Dashboard": "Dashboard",
+        "UserManagement": "Administrar usuarios",
+        "Users": "Usuarios",
+        "Roles": "Roles"
     }
 }

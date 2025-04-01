@@ -4,6 +4,9 @@ export enum ApiEnum {
     DashBoard = 'http://localhost:5195/api/DashBoard/',
     Booking = 'http://localhost:5196/api/Booking/',
     Security = 'http://localhost:5197/api/Security/',
+    User = 'http://localhost:5197/api/User/',
+    Role = 'http://localhost:5197/api/Role/',
+    Module = 'http://localhost:5197/api/Module/',
     Company = 'http://localhost:5198/api/Company/',
     Browser = 'http://localhost:5199/api/Browser/',  
     Select = 'http://localhost:5199/api/Select/',
@@ -43,7 +46,8 @@ export enum BrowserIdEnum {
 	BrowserCustomer = 'BrowserCustomer'
 }
 export enum SelectIdEnum {
-	ListCourt = 'ListCourt'
+	ListCourt = 'ListCourt',
+    ListRole = 'ListRole'
 }
 export enum ActionEnum {
 	None = 0,

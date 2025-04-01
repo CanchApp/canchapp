@@ -1,0 +1,27 @@
+<div class="dropdown show">
+	<button
+        class="btn btn-primary dropdown-toggle"
+        role="button" 
+        id="dropdownMenuLink"
+        data-bs-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+        (click)="onClickMainButton()"
+    >
+		{{ placeholder }}
+    </button>
+
+	<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        @for (item of items; track item) {
+            <a
+                class="dropdown-item"
+                (click)="onClickActionButton(item)"
+            >
+                {{ item.name }}
+            </a>
+        }
+        @empty {
+            <a> {{ emptyItemsLabel }} </a>
+        }
+	</div>
+</div>
