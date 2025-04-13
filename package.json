@@ -18,7 +18,9 @@
     "build-fronts-prod": "ng build mf-booking --configuration=prod && ng build mf-catalog --configuration=prod && ng build mf-company --configuration=prod && ng build mf-dashboard --configuration=prod && ng build mf-host --configuration=prod && ng build mf-report --configuration=prod && ng build mf-user --configuration=prod",
     "build-all-dev": "npm run build-libs && npm run build-fronts-dev",
     "build-all-qa": "npm run build-libs && npm run build-fronts-qa",
-    "build-all-prod": "npm run build-libs && npm run build-fronts-prod"  },
+    "build-all-prod": "npm run build-libs && npm run build-fronts-prod",
+    "deploy-qa": "gh-pages -d dist"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^17.0.0",
