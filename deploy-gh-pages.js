@@ -1,9 +1,9 @@
 const { execSync } = require('child_process');
-const fs = require('fs-extra'); // usamos fs-extra en lugar de fs
+const fs = require('fs-extra');
 const path = require('path');
 
-const distFolder = 'dist';
-const tempFolder = '.deploy-temp';
+const distFolder = path.join(__dirname, 'dist');
+const tempFolder = path.join(__dirname, '.deploy-temp');
 
 function run(command) {
   console.log(`> ${command}`);
@@ -12,8 +12,15 @@ function run(command) {
 
 (async () => {
   try {
-    // 1. Limpiar y copiar dist/ a temporal
+    // 0. Verificar que dist existe
+    if (!fs.existsSync(distFolder)) {
+      console.error('❌ La carpeta dist/ no existe. Ejecutá primero el build (npm run build-all).');
+      process.exit(1);
+    }
+
+    console.log('🛠 Preparando carpeta temporal...');
     await fs.remove(tempFolder);
+    await fs.mkdir(tempFolder);
     await fs.copy(distFolder, tempFolder);
 
     // 2. Cambiar a rama gh-pages
