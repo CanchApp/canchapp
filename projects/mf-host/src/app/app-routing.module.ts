@@ -9,6 +9,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { authGuard, authGuardMultilogin } from './guards/authGuard.guard';
 import { MultiLoginComponent } from './pages/multilogin/multilogin.component';
 import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
+import { environment } from '../environments/environment';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},  
@@ -41,7 +42,7 @@ const routes: Routes = [
         loadChildren: () => 
           loadRemoteModule({
             type: 'module',
-            remoteEntry: 'http://localhost:4201/remoteEntry.js',
+            remoteEntry: environment.remotes.mfUser,
             exposedModule: './UserModule'
           })
           .then(m => m.UserModule)    
@@ -52,7 +53,7 @@ const routes: Routes = [
         loadChildren: () => 
           loadRemoteModule({
             type: 'module',
-            remoteEntry: 'http://localhost:4202/remoteEntry.js',
+            remoteEntry: environment.remotes.mfDashBoard,
             exposedModule: './DashboardModule'
           })
           .then(m => m.DashboardModule)        
@@ -63,7 +64,7 @@ const routes: Routes = [
         loadChildren: () => 
           loadRemoteModule({
             type: 'module',
-            remoteEntry: 'http://localhost:4203/remoteEntry.js',
+            remoteEntry: environment.remotes.mfCompany,
             exposedModule: './CompanyModule'
           })
           .then(m => m.CompanyModule)        
@@ -74,7 +75,7 @@ const routes: Routes = [
         loadChildren: () => 
           loadRemoteModule({
             type: 'module',
-            remoteEntry: 'http://localhost:4204/remoteEntry.js',
+            remoteEntry: environment.remotes.mfCatalog,
             exposedModule: './CatalogModule'
           })
           .then(m => m.CatalogModule)        
@@ -85,7 +86,7 @@ const routes: Routes = [
         loadChildren: () => 
           loadRemoteModule({
             type: 'module',
-            remoteEntry: 'http://localhost:4205/remoteEntry.js',
+            remoteEntry: environment.remotes.mfBooking,
             exposedModule: './BookingModule'
           })
           .then(m => m.BookingModule)        
@@ -96,7 +97,7 @@ const routes: Routes = [
         loadChildren: () => 
           loadRemoteModule({
             type: 'module',
-            remoteEntry: 'http://localhost:4206/remoteEntry.js',
+            remoteEntry: environment.remotes.mfReport,
             exposedModule: './ReportModule'
           })
           .then(m => m.ReportModule)        
