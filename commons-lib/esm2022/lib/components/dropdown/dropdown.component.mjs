@@ -1,0 +1,36 @@
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import * as i0 from "@angular/core";
+export class DropdownComponent {
+    constructor() {
+        this.items = [];
+        this.disabled = false;
+        this.mainButtonClick = new EventEmitter();
+        this.actionButtonClick = new EventEmitter();
+    }
+    onClickMainButton() {
+        this.mainButtonClick.emit();
+    }
+    onClickActionButton(item) {
+        this.actionButtonClick.emit(item);
+    }
+    static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.3.12", ngImport: i0, type: DropdownComponent, deps: [], target: i0.ɵɵFactoryTarget.Component }); }
+    static { this.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "17.0.0", version: "17.3.12", type: DropdownComponent, isStandalone: true, selector: "lib-dropdown", inputs: { placeholder: "placeholder", emptyItemsLabel: "emptyItemsLabel", items: "items", disabled: "disabled" }, outputs: { mainButtonClick: "mainButtonClick", actionButtonClick: "actionButtonClick" }, ngImport: i0, template: "<div class=\"dropdown show\">\r\n\t<button\r\n        class=\"btn btn-primary dropdown-toggle\"\r\n        role=\"button\" \r\n        id=\"dropdownMenuLink\"\r\n        data-bs-toggle=\"dropdown\"\r\n        aria-haspopup=\"true\"\r\n        aria-expanded=\"false\"\r\n        (click)=\"onClickMainButton()\"\r\n    >\r\n\t\t{{ placeholder }}\r\n    </button>\r\n\r\n\t<div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuLink\">\r\n        @for (item of items; track item) {\r\n            <a\r\n                class=\"dropdown-item\"\r\n                (click)=\"onClickActionButton(item)\"\r\n            >\r\n                {{ item.name }}\r\n            </a>\r\n        }\r\n        @empty {\r\n            <a> {{ emptyItemsLabel }} </a>\r\n        }\r\n\t</div>\r\n</div>", styles: [""], dependencies: [{ kind: "ngmodule", type: CommonModule }] }); }
+}
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.3.12", ngImport: i0, type: DropdownComponent, decorators: [{
+            type: Component,
+            args: [{ selector: 'lib-dropdown', standalone: true, imports: [CommonModule], template: "<div class=\"dropdown show\">\r\n\t<button\r\n        class=\"btn btn-primary dropdown-toggle\"\r\n        role=\"button\" \r\n        id=\"dropdownMenuLink\"\r\n        data-bs-toggle=\"dropdown\"\r\n        aria-haspopup=\"true\"\r\n        aria-expanded=\"false\"\r\n        (click)=\"onClickMainButton()\"\r\n    >\r\n\t\t{{ placeholder }}\r\n    </button>\r\n\r\n\t<div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuLink\">\r\n        @for (item of items; track item) {\r\n            <a\r\n                class=\"dropdown-item\"\r\n                (click)=\"onClickActionButton(item)\"\r\n            >\r\n                {{ item.name }}\r\n            </a>\r\n        }\r\n        @empty {\r\n            <a> {{ emptyItemsLabel }} </a>\r\n        }\r\n\t</div>\r\n</div>" }]
+        }], propDecorators: { placeholder: [{
+                type: Input
+            }], emptyItemsLabel: [{
+                type: Input
+            }], items: [{
+                type: Input
+            }], disabled: [{
+                type: Input
+            }], mainButtonClick: [{
+                type: Output
+            }], actionButtonClick: [{
+                type: Output
+            }] } });
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZHJvcGRvd24uY29tcG9uZW50LmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vcHJvamVjdHMvbGlicy9jb21tb25zLWxpYi9zcmMvbGliL2NvbXBvbmVudHMvZHJvcGRvd24vZHJvcGRvd24uY29tcG9uZW50LnRzIiwiLi4vLi4vLi4vLi4vLi4vLi4vcHJvamVjdHMvbGlicy9jb21tb25zLWxpYi9zcmMvbGliL2NvbXBvbmVudHMvZHJvcGRvd24vZHJvcGRvd24uY29tcG9uZW50Lmh0bWwiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxFQUFFLFNBQVMsRUFBRSxLQUFLLEVBQUUsTUFBTSxFQUFFLFlBQVksRUFBRSxNQUFNLGVBQWUsQ0FBQztBQUN2RSxPQUFPLEVBQUUsWUFBWSxFQUFFLE1BQU0saUJBQWlCLENBQUM7O0FBVS9DLE1BQU0sT0FBTyxpQkFBaUI7SUFQOUI7UUFVYSxVQUFLLEdBQXdCLEVBQUUsQ0FBQztRQUNoQyxhQUFRLEdBQVksS0FBSyxDQUFDO1FBRXpCLG9CQUFlLEdBQUcsSUFBSSxZQUFZLEVBQVEsQ0FBQztRQUMzQyxzQkFBaUIsR0FBRyxJQUFJLFlBQVksRUFBcUIsQ0FBQztLQVN2RTtJQVBHLGlCQUFpQjtRQUNiLElBQUksQ0FBQyxlQUFlLENBQUMsSUFBSSxFQUFFLENBQUM7SUFDaEMsQ0FBQztJQUVELG1CQUFtQixDQUFDLElBQXVCO1FBQ3ZDLElBQUksQ0FBQyxpQkFBaUIsQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLENBQUM7SUFDdEMsQ0FBQzsrR0FmUSxpQkFBaUI7bUdBQWpCLGlCQUFpQixtUkNYOUIsb3hCQTBCTSx5RERuQk0sWUFBWTs7NEZBSVgsaUJBQWlCO2tCQVA3QixTQUFTOytCQUNFLGNBQWMsY0FDWixJQUFJLFdBQ1AsQ0FBQyxZQUFZLENBQUM7OEJBS1osV0FBVztzQkFBbkIsS0FBSztnQkFDRyxlQUFlO3NCQUF2QixLQUFLO2dCQUNHLEtBQUs7c0JBQWIsS0FBSztnQkFDRyxRQUFRO3NCQUFoQixLQUFLO2dCQUVJLGVBQWU7c0JBQXhCLE1BQU07Z0JBQ0csaUJBQWlCO3NCQUExQixNQUFNIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgQ29tcG9uZW50LCBJbnB1dCwgT3V0cHV0LCBFdmVudEVtaXR0ZXIgfSBmcm9tICdAYW5ndWxhci9jb3JlJztcclxuaW1wb3J0IHsgQ29tbW9uTW9kdWxlIH0gZnJvbSAnQGFuZ3VsYXIvY29tbW9uJztcclxuaW1wb3J0IHsgRHJvcGRvd25JdGVtTW9kZWwgfSBmcm9tICcuLi8uLi9tb2RlbHMvZHJvcGRvd24ubW9kZWwnO1xyXG5cclxuQENvbXBvbmVudCh7XHJcbiAgc2VsZWN0b3I6ICdsaWItZHJvcGRvd24nLFxyXG4gIHN0YW5kYWxvbmU6IHRydWUsXHJcbiAgaW1wb3J0czogW0NvbW1vbk1vZHVsZV0sXHJcbiAgdGVtcGxhdGVVcmw6ICcuL2Ryb3Bkb3duLmNvbXBvbmVudC5odG1sJyxcclxuICBzdHlsZVVybDogJy4vZHJvcGRvd24uY29tcG9uZW50LmNzcycsXHJcbn0pXHJcbmV4cG9ydCBjbGFzcyBEcm9wZG93bkNvbXBvbmVudCB7XHJcbiAgICBASW5wdXQoKSBwbGFjZWhvbGRlciE6IHN0cmluZztcclxuICAgIEBJbnB1dCgpIGVtcHR5SXRlbXNMYWJlbCE6IHN0cmluZztcclxuICAgIEBJbnB1dCgpIGl0ZW1zOiBEcm9wZG93bkl0ZW1Nb2RlbFtdID0gW107XHJcbiAgICBASW5wdXQoKSBkaXNhYmxlZDogYm9vbGVhbiA9IGZhbHNlO1xyXG5cclxuICAgIEBPdXRwdXQoKSBtYWluQnV0dG9uQ2xpY2sgPSBuZXcgRXZlbnRFbWl0dGVyPHZvaWQ+KCk7XHJcbiAgICBAT3V0cHV0KCkgYWN0aW9uQnV0dG9uQ2xpY2sgPSBuZXcgRXZlbnRFbWl0dGVyPERyb3Bkb3duSXRlbU1vZGVsPigpO1xyXG5cclxuICAgIG9uQ2xpY2tNYWluQnV0dG9uKCkge1xyXG4gICAgICAgIHRoaXMubWFpbkJ1dHRvbkNsaWNrLmVtaXQoKTtcclxuICAgIH1cclxuXHJcbiAgICBvbkNsaWNrQWN0aW9uQnV0dG9uKGl0ZW06IERyb3Bkb3duSXRlbU1vZGVsKSB7XHJcbiAgICAgICAgdGhpcy5hY3Rpb25CdXR0b25DbGljay5lbWl0KGl0ZW0pO1xyXG4gICAgfVxyXG59IiwiPGRpdiBjbGFzcz1cImRyb3Bkb3duIHNob3dcIj5cclxuXHQ8YnV0dG9uXHJcbiAgICAgICAgY2xhc3M9XCJidG4gYnRuLXByaW1hcnkgZHJvcGRvd24tdG9nZ2xlXCJcclxuICAgICAgICByb2xlPVwiYnV0dG9uXCIgXHJcbiAgICAgICAgaWQ9XCJkcm9wZG93bk1lbnVMaW5rXCJcclxuICAgICAgICBkYXRhLWJzLXRvZ2dsZT1cImRyb3Bkb3duXCJcclxuICAgICAgICBhcmlhLWhhc3BvcHVwPVwidHJ1ZVwiXHJcbiAgICAgICAgYXJpYS1leHBhbmRlZD1cImZhbHNlXCJcclxuICAgICAgICAoY2xpY2spPVwib25DbGlja01haW5CdXR0b24oKVwiXHJcbiAgICA+XHJcblx0XHR7eyBwbGFjZWhvbGRlciB9fVxyXG4gICAgPC9idXR0b24+XHJcblxyXG5cdDxkaXYgY2xhc3M9XCJkcm9wZG93bi1tZW51XCIgYXJpYS1sYWJlbGxlZGJ5PVwiZHJvcGRvd25NZW51TGlua1wiPlxyXG4gICAgICAgIEBmb3IgKGl0ZW0gb2YgaXRlbXM7IHRyYWNrIGl0ZW0pIHtcclxuICAgICAgICAgICAgPGFcclxuICAgICAgICAgICAgICAgIGNsYXNzPVwiZHJvcGRvd24taXRlbVwiXHJcbiAgICAgICAgICAgICAgICAoY2xpY2spPVwib25DbGlja0FjdGlvbkJ1dHRvbihpdGVtKVwiXHJcbiAgICAgICAgICAgID5cclxuICAgICAgICAgICAgICAgIHt7IGl0ZW0ubmFtZSB9fVxyXG4gICAgICAgICAgICA8L2E+XHJcbiAgICAgICAgfVxyXG4gICAgICAgIEBlbXB0eSB7XHJcbiAgICAgICAgICAgIDxhPiB7eyBlbXB0eUl0ZW1zTGFiZWwgfX0gPC9hPlxyXG4gICAgICAgIH1cclxuXHQ8L2Rpdj5cclxuPC9kaXY+Il19
