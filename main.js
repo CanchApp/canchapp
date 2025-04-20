@@ -43,11 +43,7 @@ function getManifestPath() {
   }
   return _environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.production ? 'projects/mf-host/src/assets/module-federation.manifest.prod.json' : 'projects/mf-host/src/assets/module-federation.manifest.dev.json';
 }
-(0,_angular_architects_module_federation__WEBPACK_IMPORTED_MODULE_1__.loadManifest)(getManifestPath()).then(manifest => {
-  console.log('Manifest loaded:', _environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.envName);
-  console.log('Manifest loaded:', manifest);
-  return __webpack_require__.e(/*! import() */ 962).then(__webpack_require__.bind(__webpack_require__, /*! ./bootstrap */ 6962));
-}).catch(err => console.error('Error loading manifest or bootstrap:', err));
+(0,_angular_architects_module_federation__WEBPACK_IMPORTED_MODULE_1__.loadManifest)('assets/module-federation.manifest.qa.json').then(() => __webpack_require__.e(/*! import() */ 962).then(__webpack_require__.bind(__webpack_require__, /*! ./bootstrap */ 6962))).catch(err => console.error(err));
 
 /***/ }),
 
