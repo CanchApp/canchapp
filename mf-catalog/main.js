@@ -211,9 +211,9 @@ __webpack_require__.e(/*! import() */ 637).then(__webpack_require__.bind(__webpa
 /******/ 				register("@angular/platform-browser", "17.0.0", () => (__webpack_require__.e(436).then(() => (() => (__webpack_require__(/*! ./node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs */ 436))))));
 /******/ 				register("@angular/router", "17.0.0", () => (__webpack_require__.e(72).then(() => (() => (__webpack_require__(/*! ./node_modules/@angular/router/fesm2022/router.mjs */ 5072))))));
 /******/ 				register("@fullcalendar/angular", "6.1.15", () => (__webpack_require__.e(378).then(() => (() => (__webpack_require__(/*! ./node_modules/@fullcalendar/angular/fesm2020/fullcalendar-angular.mjs */ 7997))))));
+/******/ 				register("@fullcalendar/core/index.js", "6.1.15", () => (__webpack_require__.e(633).then(() => (() => (__webpack_require__(/*! ./node_modules/@fullcalendar/core/index.js */ 6633))))));
 /******/ 				register("@fullcalendar/core/internal.js", "6.1.15", () => (__webpack_require__.e(460).then(() => (() => (__webpack_require__(/*! ./node_modules/@fullcalendar/core/internal.js */ 2460))))));
 /******/ 				register("@fullcalendar/core/preact.js", "6.1.15", () => (__webpack_require__.e(674).then(() => (() => (__webpack_require__(/*! ./node_modules/@fullcalendar/core/preact.js */ 3674))))));
-/******/ 				register("@fullcalendar/core", "6.1.15", () => (__webpack_require__.e(633).then(() => (() => (__webpack_require__(/*! ./node_modules/@fullcalendar/core/index.js */ 6633))))));
 /******/ 				register("@fullcalendar/daygrid/internal.js", "6.1.15", () => (__webpack_require__.e(107).then(() => (() => (__webpack_require__(/*! ./node_modules/@fullcalendar/daygrid/internal.js */ 8107))))));
 /******/ 				register("@fullcalendar/daygrid", "6.1.15", () => (__webpack_require__.e(660).then(() => (() => (__webpack_require__(/*! ./node_modules/@fullcalendar/daygrid/index.js */ 5660))))));
 /******/ 				register("@fullcalendar/interaction", "6.1.15", () => (__webpack_require__.e(426).then(() => (() => (__webpack_require__(/*! ./node_modules/@fullcalendar/interaction/index.js */ 9426))))));

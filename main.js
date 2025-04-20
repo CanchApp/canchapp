@@ -13,14 +13,7 @@ __webpack_require__.r(__webpack_exports__);
 const environment = {
   production: false,
   envName: 'qa',
-  remotes: {
-    mfBooking: "mf-booking/remoteEntry.js",
-    mfCatalog: "mf-catalog/remoteEntry.js",
-    mfCompany: "mf-company/remoteEntry.js",
-    mfDashBoard: "mf-dashboard/remoteEntry.js",
-    mfReport: "mf-report/remoteEntry.js",
-    mfUser: "mf-user/remoteEntry.js"
-  },
+  federationManifest: 'assets/module-federation.manifest.qa.json',
   apiUrl: 'http://my-dev-url'
 };
 
@@ -33,17 +26,11 @@ const environment = {
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _angular_architects_module_federation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular-architects/module-federation */ 3879);
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./environments/environment */ 2086);
+/* harmony import */ var _angular_architects_module_federation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular-architects/module-federation */ 3879);
 
 
-function getManifestPath() {
-  if (_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.envName === 'qa') {
-    return 'projects/mf-host/src/assets/module-federation.manifest.qa.json';
-  }
-  return _environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.production ? 'projects/mf-host/src/assets/module-federation.manifest.prod.json' : 'projects/mf-host/src/assets/module-federation.manifest.dev.json';
-}
-(0,_angular_architects_module_federation__WEBPACK_IMPORTED_MODULE_1__.loadManifest)('assets/module-federation.manifest.qa.json').then(() => __webpack_require__.e(/*! import() */ 962).then(__webpack_require__.bind(__webpack_require__, /*! ./bootstrap */ 6962))).catch(err => console.error(err));
+(0,_angular_architects_module_federation__WEBPACK_IMPORTED_MODULE_1__.loadManifest)(_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.federationManifest).then(() => __webpack_require__.e(/*! import() */ 962).then(__webpack_require__.bind(__webpack_require__, /*! ./bootstrap */ 6962))).catch(err => console.error('Error loading manifest:', err));
 
 /***/ }),
 

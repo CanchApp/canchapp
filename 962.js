@@ -13,7 +13,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/router */ 3636);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_angular_router__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./home/home.component */ 690);
-/* harmony import */ var _angular_architects_module_federation__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular-architects/module-federation */ 3879);
+/* harmony import */ var _angular_architects_module_federation__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular-architects/module-federation */ 3879);
 /* harmony import */ var _pages_login_login_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/login/login.component */ 4897);
 /* harmony import */ var _layouts_auth_layout_auth_layout_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./layouts/auth-layout/auth-layout.component */ 9970);
 /* harmony import */ var _layouts_main_layout_main_layout_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./layouts/main-layout/main-layout.component */ 1074);
@@ -21,10 +21,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _guards_authGuard_guard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./guards/authGuard.guard */ 8983);
 /* harmony import */ var _pages_multilogin_multilogin_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/multilogin/multilogin.component */ 3851);
 /* harmony import */ var _pages_unauthorized_unauthorized_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pages/unauthorized/unauthorized.component */ 6679);
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../environments/environment */ 2086);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/core */ 3274);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_angular_core__WEBPACK_IMPORTED_MODULE_10__);
-
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/core */ 3274);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_angular_core__WEBPACK_IMPORTED_MODULE_9__);
 
 
 
@@ -68,49 +66,49 @@ const routes = [{
   }, {
     path: 'user-management',
     canActivate: [_guards_authGuard_guard__WEBPACK_IMPORTED_MODULE_6__.authGuard],
-    loadChildren: () => (0,_angular_architects_module_federation__WEBPACK_IMPORTED_MODULE_11__.loadRemoteModule)({
-      type: 'module',
-      remoteEntry: _environments_environment__WEBPACK_IMPORTED_MODULE_9__.environment.remotes.mfUser,
+    loadChildren: () => (0,_angular_architects_module_federation__WEBPACK_IMPORTED_MODULE_10__.loadRemoteModule)({
+      type: 'manifest',
+      remoteName: 'mfUser',
       exposedModule: './UserModule'
     }).then(m => m.UserModule)
   }, {
     path: 'dashboard',
     canActivate: [_guards_authGuard_guard__WEBPACK_IMPORTED_MODULE_6__.authGuard],
-    loadChildren: () => (0,_angular_architects_module_federation__WEBPACK_IMPORTED_MODULE_11__.loadRemoteModule)({
-      type: 'module',
-      remoteEntry: _environments_environment__WEBPACK_IMPORTED_MODULE_9__.environment.remotes.mfDashBoard,
+    loadChildren: () => (0,_angular_architects_module_federation__WEBPACK_IMPORTED_MODULE_10__.loadRemoteModule)({
+      type: 'manifest',
+      remoteName: 'mfDashBoard',
       exposedModule: './DashboardModule'
     }).then(m => m.DashboardModule)
   }, {
     path: 'company',
     canActivate: [_guards_authGuard_guard__WEBPACK_IMPORTED_MODULE_6__.authGuard],
-    loadChildren: () => (0,_angular_architects_module_federation__WEBPACK_IMPORTED_MODULE_11__.loadRemoteModule)({
-      type: 'module',
-      remoteEntry: _environments_environment__WEBPACK_IMPORTED_MODULE_9__.environment.remotes.mfCompany,
+    loadChildren: () => (0,_angular_architects_module_federation__WEBPACK_IMPORTED_MODULE_10__.loadRemoteModule)({
+      type: 'manifest',
+      remoteName: 'mfCompany',
       exposedModule: './CompanyModule'
     }).then(m => m.CompanyModule)
   }, {
     path: 'catalog',
     canActivate: [_guards_authGuard_guard__WEBPACK_IMPORTED_MODULE_6__.authGuard],
-    loadChildren: () => (0,_angular_architects_module_federation__WEBPACK_IMPORTED_MODULE_11__.loadRemoteModule)({
-      type: 'module',
-      remoteEntry: _environments_environment__WEBPACK_IMPORTED_MODULE_9__.environment.remotes.mfCatalog,
+    loadChildren: () => (0,_angular_architects_module_federation__WEBPACK_IMPORTED_MODULE_10__.loadRemoteModule)({
+      type: 'manifest',
+      remoteName: 'mfCatalog',
       exposedModule: './CatalogModule'
     }).then(m => m.CatalogModule)
   }, {
     path: 'booking',
     canActivate: [_guards_authGuard_guard__WEBPACK_IMPORTED_MODULE_6__.authGuard],
-    loadChildren: () => (0,_angular_architects_module_federation__WEBPACK_IMPORTED_MODULE_11__.loadRemoteModule)({
-      type: 'module',
-      remoteEntry: _environments_environment__WEBPACK_IMPORTED_MODULE_9__.environment.remotes.mfBooking,
+    loadChildren: () => (0,_angular_architects_module_federation__WEBPACK_IMPORTED_MODULE_10__.loadRemoteModule)({
+      type: 'manifest',
+      remoteName: 'mfBooking',
       exposedModule: './BookingModule'
     }).then(m => m.BookingModule)
   }, {
     path: 'report',
     canActivate: [_guards_authGuard_guard__WEBPACK_IMPORTED_MODULE_6__.authGuard],
-    loadChildren: () => (0,_angular_architects_module_federation__WEBPACK_IMPORTED_MODULE_11__.loadRemoteModule)({
-      type: 'module',
-      remoteEntry: _environments_environment__WEBPACK_IMPORTED_MODULE_9__.environment.remotes.mfReport,
+    loadChildren: () => (0,_angular_architects_module_federation__WEBPACK_IMPORTED_MODULE_10__.loadRemoteModule)({
+      type: 'manifest',
+      remoteName: 'mfReport',
       exposedModule: './ReportModule'
     }).then(m => m.ReportModule)
   }]
@@ -123,12 +121,12 @@ let AppRoutingModule = /*#__PURE__*/(() => {
       };
     }
     static {
-      this.ɵmod = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_10__["ɵɵdefineNgModule"]({
+      this.ɵmod = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵdefineNgModule"]({
         type: AppRoutingModule
       });
     }
     static {
-      this.ɵinj = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_10__["ɵɵdefineInjector"]({
+      this.ɵinj = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵdefineInjector"]({
         imports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__.RouterModule.forRoot(routes), _angular_router__WEBPACK_IMPORTED_MODULE_0__.RouterModule]
       });
     }
@@ -136,7 +134,7 @@ let AppRoutingModule = /*#__PURE__*/(() => {
   return AppRoutingModule;
 })();
 (function () {
-  (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_10__["ɵɵsetNgModuleScope"](AppRoutingModule, {
+  (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵsetNgModuleScope"](AppRoutingModule, {
     imports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__.RouterModule],
     exports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__.RouterModule]
   });
