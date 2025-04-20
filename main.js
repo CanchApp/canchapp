@@ -39,9 +39,9 @@ __webpack_require__.r(__webpack_exports__);
 
 function getManifestPath() {
   if (_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.envName === 'qa') {
-    return 'assets/module-federation.manifest.qa.json';
+    return 'projects/mf-host/src/assets/module-federation.manifest.qa.json';
   }
-  return _environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.production ? 'assets/module-federation.manifest.prod.json' : 'assets/module-federation.manifest.dev.json';
+  return _environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.production ? 'projects/mf-host/src/assets/module-federation.manifest.prod.json' : 'projects/mf-host/src/assets/module-federation.manifest.dev.json';
 }
 (0,_angular_architects_module_federation__WEBPACK_IMPORTED_MODULE_1__.loadManifest)(getManifestPath()).then(manifest => {
   console.log('Manifest loaded:', _environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.envName);
