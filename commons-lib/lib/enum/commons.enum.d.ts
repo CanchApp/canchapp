@@ -3,7 +3,7 @@ export declare enum ApiEnum {
     Report = "http://localhost:5195/api/Report/",
     DashBoard = "http://localhost:5195/api/DashBoard/",
     Booking = "http://localhost:5196/api/Booking/",
-    Security = "http://localhost:5197/api/Security/",
+    Security = "https://securityapi.azurewebsites.net/api/Security/",
     User = "http://localhost:5197/api/User/",
     Role = "http://localhost:5197/api/Role/",
     Module = "http://localhost:5197/api/Module/",

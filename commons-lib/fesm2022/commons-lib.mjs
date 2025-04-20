@@ -17,7 +17,7 @@ var ApiEnum;
     ApiEnum["Report"] = "http://localhost:5195/api/Report/";
     ApiEnum["DashBoard"] = "http://localhost:5195/api/DashBoard/";
     ApiEnum["Booking"] = "http://localhost:5196/api/Booking/";
-    ApiEnum["Security"] = "http://localhost:5197/api/Security/";
+    ApiEnum["Security"] = "https://securityapi.azurewebsites.net/api/Security/";
     ApiEnum["User"] = "http://localhost:5197/api/User/";
     ApiEnum["Role"] = "http://localhost:5197/api/Role/";
     ApiEnum["Module"] = "http://localhost:5197/api/Module/";
