@@ -172,19 +172,19 @@ function SelectComponent_option_2_Template(rf, ctx) {
   }
 }
 var ApiEnum = /*#__PURE__*/function (ApiEnum) {
-  ApiEnum["Customer"] = "http://localhost:5194/api/Customer/";
-  ApiEnum["Report"] = "http://localhost:5195/api/Report/";
-  ApiEnum["DashBoard"] = "http://localhost:5195/api/DashBoard/";
-  ApiEnum["Booking"] = "http://localhost:5196/api/Booking/";
+  ApiEnum["Customer"] = "https://customerapiqa.azurewebsites.net/api/Customer/";
+  ApiEnum["Report"] = "https://reportapiqa.azurewebsites.net/api/Report/";
+  ApiEnum["DashBoard"] = "https://reportapiqa.azurewebsites.net/api/DashBoard/";
+  ApiEnum["Booking"] = "https://bookingapiqa.azurewebsites.net/api/Booking/";
   ApiEnum["Security"] = "https://securityapi.azurewebsites.net/api/Security/";
-  ApiEnum["User"] = "http://localhost:5197/api/User/";
-  ApiEnum["Role"] = "http://localhost:5197/api/Role/";
-  ApiEnum["Module"] = "http://localhost:5197/api/Module/";
-  ApiEnum["Company"] = "http://localhost:5198/api/Company/";
-  ApiEnum["Browser"] = "http://localhost:5199/api/Browser/";
-  ApiEnum["Select"] = "http://localhost:5199/api/Select/";
-  ApiEnum["HoliDay"] = "http://localhost:5199/api/HoliDay/";
-  ApiEnum["Court"] = "http://localhost:5199/api/Court/";
+  ApiEnum["User"] = "https://securityapi.azurewebsites.net/api/User/";
+  ApiEnum["Role"] = "https://securityapi.azurewebsites.net/api/Role/";
+  ApiEnum["Module"] = "https://securityapi.azurewebsites.net/api/Module/";
+  ApiEnum["Company"] = "https://companyapiqa.azurewebsites.net/api/Company/";
+  ApiEnum["Browser"] = "https://catalogapiqa.azurewebsites.net/api/Browser/";
+  ApiEnum["Select"] = "https://catalogapiqa.azurewebsites.net/api/Select/";
+  ApiEnum["HoliDay"] = "https://catalogapiqa.azurewebsites.net/api/HoliDay/";
+  ApiEnum["Court"] = "https://catalogapiqa.azurewebsites.net/api/Court/";
   return ApiEnum;
 }(ApiEnum || {});
 var NotificationTypeEnum = /*#__PURE__*/function (NotificationTypeEnum) {
