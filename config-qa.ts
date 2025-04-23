@@ -1,0 +1,15 @@
+export enum ApiEnum {
+    Customer =  'https://customerapiqa.azurewebsites.net/api/Customer/',
+    Report =    'https://reportapiqa.azurewebsites.net/api/Report/', 
+    DashBoard = 'https://reportapiqa.azurewebsites.net/api/DashBoard/',
+    Booking =   'https://bookingapiqa.azurewebsites.net/api/Booking/',
+    Security =  'https://securityapi.azurewebsites.net/api/Security/',
+    User =      'https://securityapi.azurewebsites.net/api/User/',
+    Role =      'https://securityapi.azurewebsites.net/api/Role/',
+    Module =    'https://securityapi.azurewebsites.net/api/Module/',
+    Company =   'https://companyapiqa.azurewebsites.net/api/Company/',
+    Browser =   'https://catalogapiqa.azurewebsites.net/api/Browser/',  
+    Select =    'https://catalogapiqa.azurewebsites.net/api/Select/',
+    HoliDay =   'https://catalogapiqa.azurewebsites.net/api/HoliDay/',
+    Court =     'https://catalogapiqa.azurewebsites.net/api/Court/',    
+}
