@@ -31,4 +31,4 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           action: "upload"
           app_location: "/"  # Si todos los microfrontends están en el directorio raíz
-          output_location: "dist"  # Aquí apunta a la carpeta de salida, en este caso 'dist'
+          output_location: "dist/mf-host"  # Aquí apunta a la carpeta de salida, en este caso 'dist'
