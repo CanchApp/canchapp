@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "npm run build-all-qa",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:mf-host": "node dist/mf-host/server/server.mjs",
