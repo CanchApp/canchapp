@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BestSellersPageComponent } from './page/bestsellers.page/bestsellers.page.component';
+import { BestSellersPageComponent } from './page/bestsellers.page/bestSellers.page.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'reportUno', pathMatch: 'full'},
