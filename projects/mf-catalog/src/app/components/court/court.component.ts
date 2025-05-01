@@ -138,7 +138,7 @@ export class CourtComponent implements OnInit, AfterViewInit {
 
           const eventTmp: EventInput = { 
             id: item.idCourtRate!.toString(), 
-            title: item.price!.toString(), 
+            title: item.value!.toString(), 
             startTime:  item.timeStart,
             endTime: item.timeEnd,
             daysOfWeek: [item.day],
@@ -218,7 +218,7 @@ export class CourtComponent implements OnInit, AfterViewInit {
       this.calendar.getApi().getEvents().forEach(itemEvent => {        
           let courtRate = new CourtRateDTO();
           courtRate.idCourtRate = itemEvent.id;
-          courtRate.price = parseFloat(itemEvent.title);
+          courtRate.value = parseFloat(itemEvent.title);
           courtRate.timeStart = itemEvent.extendedProps['startTime'];
           courtRate.timeEnd = itemEvent.extendedProps['endTime'];
           courtRate.day = itemEvent.extendedProps['day'];
