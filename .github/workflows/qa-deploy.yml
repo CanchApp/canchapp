@@ -21,6 +21,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Clean dist folder
+        run: rm -rf dist
+
       - name: Build all microfrontends for QA
         run: |
           npm run build-all-qa  # Esto debería ejecutar el build de tus microfrontends de QA
