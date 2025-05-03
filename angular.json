@@ -33,7 +33,8 @@
 						"inlineStyleLanguage": "scss",
 						"assets": [
 							"projects/mf-host/src/favicon.ico",
-							"projects/mf-host/src/assets"
+							"projects/mf-host/src/assets",
+							"projects/mf-host/src/staticwebapp.config.json"
 						],
 						"styles": [
 							"projects/mf-host/src/assets/css/bootstrap.min.css",
