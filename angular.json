@@ -95,6 +95,7 @@
 							"optimization": false,
 							"extractLicenses": false,
 							"sourceMap": true,
+							"outputHashing": "all",
 							"fileReplacements": [
 								{
 									"replace": "projects/mf-host/src/environments/environment.ts",
@@ -197,6 +198,7 @@
 							"extraWebpackConfig": "projects/mf-company/webpack.prod.config.js"
 						},
 						"development": {
+							"outputHashing": "all",
 							"optimization": false,
 							"extractLicenses": false,
 							"sourceMap": true,
@@ -208,6 +210,7 @@
 							]
 						},
 						"qa": {
+							"outputHashing": "all",
 							"optimization": false,
 							"extractLicenses": false,
 							"sourceMap": true,
@@ -377,6 +380,7 @@
 							"extraWebpackConfig": "projects/mf-booking/webpack.prod.config.js"
 						},
 						"development": {
+							"outputHashing": "all",
 							"optimization": false,
 							"extractLicenses": false,
 							"sourceMap": true,
@@ -388,6 +392,7 @@
 							]
 						},
 						"qa": {
+							"outputHashing": "all",
 							"optimization": false,
 							"extractLicenses": false,
 							"sourceMap": true,
@@ -493,6 +498,7 @@
 							"extraWebpackConfig": "projects/mf-catalog/webpack.prod.config.js"
 						},
 						"development": {
+							"outputHashing": "all",
 							"optimization": false,
 							"extractLicenses": false,
 							"sourceMap": true,
@@ -504,6 +510,7 @@
 							]
 						},
 						"qa": {
+							"outputHashing": "all",
 							"optimization": false,
 							"extractLicenses": false,
 							"sourceMap": true,
@@ -609,6 +616,7 @@
 							"extraWebpackConfig": "projects/mf-report/webpack.prod.config.js"
 						},
 						"development": {
+							"outputHashing": "all",
 							"optimization": false,
 							"extractLicenses": false,
 							"sourceMap": true,
@@ -620,6 +628,7 @@
 							]
 						},
 						"qa": {
+							"outputHashing": "all",
 							"optimization": false,
 							"extractLicenses": false,
 							"sourceMap": true,
@@ -725,6 +734,7 @@
 							"extraWebpackConfig": "projects/mf-user/webpack.prod.config.js"
 						},
 						"development": {
+							"outputHashing": "all",
 							"optimization": false,
 							"extractLicenses": false,
 							"sourceMap": true,
@@ -736,6 +746,7 @@
 							]
 						},
 						"qa": {
+							"outputHashing": "all",
 							"optimization": false,
 							"extractLicenses": false,
 							"sourceMap": true,
@@ -841,6 +852,7 @@
 							"extraWebpackConfig": "projects/mf-dashboard/webpack.prod.config.js"
 						},
 						"development": {
+							"outputHashing": "all",
 							"optimization": false,
 							"extractLicenses": false,
 							"sourceMap": true,
@@ -852,6 +864,7 @@
 							]
 						},
 						"qa": {
+							"outputHashing": "all",
 							"optimization": false,
 							"extractLicenses": false,
 							"sourceMap": true,
