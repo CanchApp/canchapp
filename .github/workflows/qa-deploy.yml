@@ -34,4 +34,4 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_QA }}  # Usamos el secreto correspondiente para QA
           action: "upload"
           app_location: "/"
-          output_location: "dist/"  # Dirección de salida donde se construyeron los microfrontends
+          output_location: "dist/mf-host"  # Dirección de salida donde se construyeron los microfrontends
