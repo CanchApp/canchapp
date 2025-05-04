@@ -253,5 +253,4 @@ export class CourtComponent implements OnInit, AfterViewInit {
     }
   }
 
-
 }
