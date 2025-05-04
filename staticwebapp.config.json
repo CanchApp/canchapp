@@ -1,33 +1,7 @@
-  {
-    "routes": [
-      {
-        "route": "/mf-booking/remoteEntry.js",
-        "serve": "/mf-booking/remoteEntry.js"
-      },
-      {
-        "route": "/mf-catalog/remoteEntry.js",
-        "serve": "/mf-catalog/remoteEntry.js"
-      },
-      {
-        "route": "/mf-company/remoteEntry.js",
-        "serve": "/mf-company/remoteEntry.js"
-      },
-      {
-        "route": "/mf-dashboard/remoteEntry.js",
-        "serve": "/mf-dashboard/remoteEntry.js"
-      },
-      {
-        "route": "/mf-report/remoteEntry.js",
-        "serve": "/mf-report/remoteEntry.js"
-      },
-      {
-        "route": "/mf-user/remoteEntry.js",
-        "serve": "/mf-user/remoteEntry.js"
-      }
-    ],
+{
     "navigationFallback": {
       "rewrite": "/index.html",
-      "exclude": ["/assets/*"]
+      "exclude": ["/assets/*", "/mf-booking/*", "/mf-catalog/*", "/mf-company/*", "/mf-dashboard/*", "/mf-report/*", "/mf-user/*"]
     }
   }
   
