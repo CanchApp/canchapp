@@ -1,7 +1,45 @@
 {
-    "navigationFallback": {
-      "rewrite": "/index.html",
-      "exclude": ["/assets/*", "/mf-booking/*", "/mf-catalog/*", "/mf-company/*", "/mf-dashboard/*", "/mf-report/*", "/mf-user/*"]
+  "routes": [
+    {
+      "route": "/",
+      "rewrite": "/mf-host/index.html"
+    },
+    {
+      "route": "/mf-booking/*",
+      "rewrite": "/mf-booking/index.html"
+    },
+    {
+      "route": "/mf-catalog/*",
+      "rewrite": "/mf-catalog/index.html"
+    },
+    {
+      "route": "/mf-company/*",
+      "rewrite": "/mf-company/index.html"
+    },
+    {
+      "route": "/mf-dashboard/*",
+      "rewrite": "/mf-dashboard/index.html"
+    },
+    {
+      "route": "/mf-report/*",
+      "rewrite": "/mf-report/index.html"
+    },
+    {
+      "route": "/mf-user/*",
+      "rewrite": "/mf-user/index.html"
     }
+  ],
+  "navigationFallback": {
+    "rewrite": "/mf-host/index.html",
+    "exclude": ["/assets/*", "/*.js", "/*.css", "/mf-*/*"]
+  },
+  "responseOverrides": {
+    "404": {
+      "rewrite": "/mf-host/index.html"
+    }
+  },
+  "mimeTypes": {
+    ".js": "text/javascript",
+    ".css": "text/css"
   }
-  
+}
