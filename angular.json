@@ -161,7 +161,7 @@
 				"build": {
 					"builder": "ngx-build-plus:browser",
 					"options": {
-						"outputPath": "dist/mf-host/mf-company",
+						"outputPath": "dist/mf-company",
 						"index": "projects/mf-company/src/index.html",
 						"polyfills": [
 							"zone.js"
@@ -182,6 +182,7 @@
 					},
 					"configurations": {
 						"production": {
+							"outputPath": "dist/mf-company",
 							"budgets": [
 								{
 									"type": "initial",
@@ -198,6 +199,7 @@
 							"extraWebpackConfig": "projects/mf-company/webpack.prod.config.js"
 						},
 						"development": {
+							"outputPath": "dist/mf-company",
 							"outputHashing": "all",
 							"optimization": false,
 							"extractLicenses": false,
@@ -210,6 +212,7 @@
 							]
 						},
 						"qa": {
+							"outputPath": "dist/mf-host/mf-company",
 							"outputHashing": "all",
 							"optimization": false,
 							"extractLicenses": false,
@@ -343,7 +346,7 @@
 				"build": {
 					"builder": "ngx-build-plus:browser",
 					"options": {
-						"outputPath": "dist/mf-host/mf-booking",
+						"outputPath": "dist/mf-booking",
 						"index": "projects/mf-booking/src/index.html",
 						"polyfills": [
 							"zone.js"
@@ -364,6 +367,7 @@
 					},
 					"configurations": {
 						"production": {
+							"outputPath": "dist/mf-booking",
 							"budgets": [
 								{
 									"type": "initial",
@@ -380,6 +384,7 @@
 							"extraWebpackConfig": "projects/mf-booking/webpack.prod.config.js"
 						},
 						"development": {
+							"outputPath": "dist/mf-booking",
 							"outputHashing": "all",
 							"optimization": false,
 							"extractLicenses": false,
@@ -392,6 +397,7 @@
 							]
 						},
 						"qa": {
+							"outputPath": "dist/mf-host/mf-booking",
 							"outputHashing": "all",
 							"optimization": false,
 							"extractLicenses": false,
@@ -461,7 +467,7 @@
 				"build": {
 					"builder": "ngx-build-plus:browser",
 					"options": {
-						"outputPath": "dist/mf-host/mf-catalog",
+						"outputPath": "dist/mf-catalog",
 						"index": "projects/mf-catalog/src/index.html",
 						"polyfills": [
 							"zone.js"
@@ -482,6 +488,7 @@
 					},
 					"configurations": {
 						"production": {
+							"outputPath": "dist/mf-catalog",
 							"budgets": [
 								{
 									"type": "initial",
@@ -498,6 +505,7 @@
 							"extraWebpackConfig": "projects/mf-catalog/webpack.prod.config.js"
 						},
 						"development": {
+							"outputPath": "dist/mf-catalog",
 							"outputHashing": "all",
 							"optimization": false,
 							"extractLicenses": false,
@@ -510,6 +518,7 @@
 							]
 						},
 						"qa": {
+							"outputPath": "dist/mf-host/mf-catalog",
 							"outputHashing": "all",
 							"optimization": false,
 							"extractLicenses": false,
@@ -579,7 +588,7 @@
 				"build": {
 					"builder": "ngx-build-plus:browser",
 					"options": {
-						"outputPath": "dist/mf-host/mf-report",
+						"outputPath": "dist/mf-report",
 						"index": "projects/mf-report/src/index.html",
 						"polyfills": [
 							"zone.js"
@@ -600,6 +609,7 @@
 					},
 					"configurations": {
 						"production": {
+							"outputPath": "dist/mf-report",
 							"budgets": [
 								{
 									"type": "initial",
@@ -616,6 +626,7 @@
 							"extraWebpackConfig": "projects/mf-report/webpack.prod.config.js"
 						},
 						"development": {
+							"outputPath": "dist/mf-report",
 							"outputHashing": "all",
 							"optimization": false,
 							"extractLicenses": false,
@@ -628,6 +639,7 @@
 							]
 						},
 						"qa": {
+							"outputPath": "dist/mf-host/mf-report",
 							"outputHashing": "all",
 							"optimization": false,
 							"extractLicenses": false,
@@ -697,7 +709,7 @@
 				"build": {
 					"builder": "ngx-build-plus:browser",
 					"options": {
-						"outputPath": "dist/mf-host/mf-user",
+						"outputPath": "dist/mf-user",
 						"index": "projects/mf-user/src/index.html",
 						"polyfills": [
 							"zone.js"
@@ -718,6 +730,7 @@
 					},
 					"configurations": {
 						"production": {
+							"outputPath": "dist/mf-user",
 							"budgets": [
 								{
 									"type": "initial",
@@ -734,6 +747,7 @@
 							"extraWebpackConfig": "projects/mf-user/webpack.prod.config.js"
 						},
 						"development": {
+							"outputPath": "dist/mf-user",
 							"outputHashing": "all",
 							"optimization": false,
 							"extractLicenses": false,
@@ -746,6 +760,7 @@
 							]
 						},
 						"qa": {
+							"outputPath": "dist/mf-host/mf-user",
 							"outputHashing": "all",
 							"optimization": false,
 							"extractLicenses": false,
@@ -815,7 +830,7 @@
 				"build": {
 					"builder": "ngx-build-plus:browser",
 					"options": {
-						"outputPath": "dist/mf-host/mf-dashboard",
+						"outputPath": "dist/mf-dashboard",
 						"index": "projects/mf-dashboard/src/index.html",
 						"polyfills": [
 							"zone.js"
@@ -836,6 +851,7 @@
 					},
 					"configurations": {
 						"production": {
+							"outputPath": "dist/mf-dashboard",
 							"budgets": [
 								{
 									"type": "initial",
@@ -852,6 +868,7 @@
 							"extraWebpackConfig": "projects/mf-dashboard/webpack.prod.config.js"
 						},
 						"development": {
+							"outputPath": "dist/mf-dashboard",
 							"outputHashing": "all",
 							"optimization": false,
 							"extractLicenses": false,
@@ -864,6 +881,7 @@
 							]
 						},
 						"qa": {
+							"outputPath": "dist/mf-host/mf-dashboard",
 							"outputHashing": "all",
 							"optimization": false,
 							"extractLicenses": false,
