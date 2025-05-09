@@ -59,6 +59,7 @@ export class CourtListComponent implements OnInit, AfterViewInit {
               next: (data) => {
                 this.notificationService.SuccesNotification(this.translate.instant("Court.CourtDeleted"));
                 this.deleteModal.hide();
+                this.loadCourts();
               },
               error: (error) => {
                 // Manejo de errores con switch según el código del backend
