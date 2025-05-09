@@ -42,6 +42,7 @@ export class CourtComponent implements OnInit, AfterViewInit {
   dateEnd: string = '';
   dayTmp: number = 0;
   styleDisable: string = '';
+  isSaving: boolean = false;
   
   calendarOptions: CalendarOptions = {
     plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin],
@@ -126,7 +127,9 @@ export class CourtComponent implements OnInit, AfterViewInit {
   loadCourt(): void {
     this.subscription.add(
       this.courtService.getCourtAndRates(this.id).subscribe((court: CourtDTO) => {
+        
         this.formCourt.patchValue(court);
+        this.calendar.getApi().removeAllEvents();
 
         court.courtRates.forEach(item => {
 
@@ -205,7 +208,7 @@ export class CourtComponent implements OnInit, AfterViewInit {
   saveCourt() {
     this.formCourt.markAllAsTouched();
     if(this.formCourt.valid) {
-
+      this.isSaving = true;
       let court: CourtDTO = new CourtDTO();
       
       court.idCourt = this.formCourt.value.idCourt;
@@ -231,9 +234,10 @@ export class CourtComponent implements OnInit, AfterViewInit {
       });
 
       this.subscription.add(this.courtService.upsert(court).subscribe({
-        next: (data) => {
-          this.loadCourt();
+        next: (data) => {          
           this.notificationService.SuccesNotification(this.translate.instant("Court.CourtCreated"));
+          this.isSaving = false;
+          this.cancelCourt();
         },
         error: (error) => {
           // Manejo de errores con switch según el código del backend
@@ -248,6 +252,7 @@ export class CourtComponent implements OnInit, AfterViewInit {
           } else {
             console.error('Error sin código específico:', error.message);
           }
+          this.isSaving = false;
         }
     }));
     }
