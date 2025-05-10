@@ -38,11 +38,10 @@ export class CourtComponent implements OnInit, AfterViewInit {
   public formPrice: FormGroup = new FormGroup({});
   initialLocaleCode = 'es';
   priceModal: any;
-  dateStart: string = '';
-  dateEnd: string = '';
-  dayTmp: number = 0;
   styleDisable: string = '';
   isSaving: boolean = false;
+  colorCourt: string = '';
+  listCourtRate: CourtRateDTO[] = [];
   
   calendarOptions: CalendarOptions = {
     plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin],
@@ -57,6 +56,15 @@ export class CourtComponent implements OnInit, AfterViewInit {
     },
     eventContent: (info) => {
       return this.handleEventContent(info);
+    },
+    eventClick: (info) => {
+      this.handleEventClick(info);
+    },
+    eventDrop: (info) => {
+      this.handleEventResizeAndEventDrop(info);
+    },
+    eventResize: (info) => {
+      this.handleEventResizeAndEventDrop(info);
     },
     slotLabelFormat: [
       { hour12: true, hour: "numeric", minute: "2-digit" }
@@ -87,7 +95,11 @@ export class CourtComponent implements OnInit, AfterViewInit {
         color: ['#3788D8'],
       });
       this.formPrice = this.formBuilder.group({
+        idCourtRate: [-1],
         price: ['0', [Validators.required]],
+        startTime: [''],
+        endTime: [''],
+        day: [-1]
       });
 
       this.maskPipe.prefix = '$ ';
@@ -129,9 +141,17 @@ export class CourtComponent implements OnInit, AfterViewInit {
       this.courtService.getCourtAndRates(this.id).subscribe((court: CourtDTO) => {
         
         this.formCourt.patchValue(court);
-        this.calendar.getApi().removeAllEvents();
+        this.colorCourt = court.color;
+        this.listCourtRate = court.courtRates;
+        this.loadCourtRates(this.listCourtRate);
+        
+      })
+    );
+  }
 
-        court.courtRates.forEach(item => {
+  loadCourtRates(listCourtRate: CourtRateDTO[]): void {
+    this.calendar.getApi().removeAllEvents();
+    listCourtRate.forEach(item => {
 
           const extraData = { 
             startTime: item.timeStart,
@@ -145,14 +165,12 @@ export class CourtComponent implements OnInit, AfterViewInit {
             startTime:  item.timeStart,
             endTime: item.timeEnd,
             daysOfWeek: [item.day],
-            backgroundColor: court.color,
-            borderColor: court.color,            
+            backgroundColor: this.colorCourt,
+            borderColor: this.colorCourt,            
             extendedProps: extraData
           };
           this.calendar.getApi().addEvent(eventTmp);
         });
-      })
-    );
   }
 
   ngAfterViewInit(): void {
@@ -161,11 +179,30 @@ export class CourtComponent implements OnInit, AfterViewInit {
   }
 
   handleSelect(info: any) {
-    console.log(info);
-    this.dateStart = info.startStr;
-    this.dateEnd = info.endStr;
-    this.dayTmp = info.start.getDay();
+    const idTmp = ((new Date()).getTime() * -1).toString();
+    this.formPrice.patchValue({
+      idCourtRate: idTmp,
+      price: '0',
+      startTime: info.startStr,
+      endTime: info.endStr,
+      day: info.start.getDay()
+    });
     this.priceModal.show();
+  }
+
+  handleEventClick(info: any) {
+    this.formPrice.patchValue({
+      idCourtRate: info.event.id,
+      price: info.event.title,
+      startTime: info.event.startStr,
+      endTime: info.event.endStr,
+      day: info.event.start.getDay()
+    });
+    this.priceModal.show();
+  }
+
+  handleEventResizeAndEventDrop(info: any) {
+    this.setNewInfoCourtRate(info);
   }
 
   handleEventContent(info: any) {
@@ -175,28 +212,60 @@ export class CourtComponent implements OnInit, AfterViewInit {
     };
   }
 
+  setNewInfoCourtRate(info: any) {
+    const newStartTime = this.commonsService.getTime(info.event.start);
+    const newEndTime = this.commonsService.getTime(info.event.end);
+    const newDay = info.event.start.getDay();
+    
+    const eventRateIndex = this.listCourtRate.findIndex(e => e.idCourtRate == info.event.id);
+
+    if (eventRateIndex !== -1) {
+      this.listCourtRate[eventRateIndex] = {
+          ...this.listCourtRate[eventRateIndex],
+          timeStart: newStartTime,
+          timeEnd: newEndTime,
+          day: newDay
+      };
+      this.loadCourtRates(this.listCourtRate);
+    }
+  }
+
   savePrice() {
     this.formPrice.markAllAsTouched();
     if(this.formPrice.valid) {
 
-      let startTimeTmp = this.commonsService.getTime(this.dateStart);
-      let endTimeTmp = this.commonsService.getTime(this.dateEnd);
-      const idTmp = (new Date()).getTime().toString();
+      const idTmp = this.formPrice.value.idCourtRate;
+      const startTimeTmp = this.commonsService.getTime(this.formPrice.value.startTime);
+      const endTimeTmp = this.commonsService.getTime(this.formPrice.value.endTime);
+      const dayTmp = this.formPrice.value.day;
+      const priceTmp = this.formPrice.value.price;
+      
 
-      this.calendar.getApi().addEvent({
-        id: idTmp,
-        title: this.formPrice.value.price,
-        startTime: startTimeTmp,
-        endTime: endTimeTmp,
-        daysOfWeek: [this.dayTmp],
-        backgroundColor: this.formCourt.value.color,
-        borderColor: this.formCourt.value.color,
-        extendedProps: {
+      if (idTmp > -1) { // Actualizamos evento existente
+        const eventRateIndex = this.listCourtRate.findIndex(e => e.idCourtRate == idTmp);
+        this.listCourtRate[eventRateIndex] = {
+            ...this.listCourtRate[eventRateIndex],
+            value: priceTmp
+        };
+        this.loadCourtRates(this.listCourtRate);
+
+      } else { // Creamos nuevo evento
+
+        this.calendar.getApi().addEvent({
+          id: idTmp,
+          title: this.formPrice.value.price,
           startTime: startTimeTmp,
           endTime: endTimeTmp,
-          day: this.dayTmp
-        }
-      });
+          daysOfWeek: [dayTmp],
+          backgroundColor: this.formCourt.value.color,
+          borderColor: this.formCourt.value.color,
+          extendedProps: {
+            startTime: startTimeTmp,
+            endTime: endTimeTmp,
+            day: dayTmp
+          }
+        });
+      }
       this.priceModal.hide();
     }
   }
