@@ -4,7 +4,7 @@ import { CourtDTO } from '../../models/court.model';
 import { Subscription } from 'rxjs';
 import { CourtService } from '../../services/court.service';
 import { CommonModule } from '@angular/common';
-import { Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { CodeErrorEnum, NotificationService } from 'commons-lib';
 
 declare let bootstrap: any;

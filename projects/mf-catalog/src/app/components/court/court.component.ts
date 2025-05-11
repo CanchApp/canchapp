@@ -51,6 +51,7 @@ export class CourtComponent implements OnInit, AfterViewInit {
     selectable: true,
     selectMirror: true,
     editable: true,
+    eventOverlap: false, // evita que se superpongan eventos
     select: (info) => {
       this.handleSelect(info);
     },
@@ -96,7 +97,7 @@ export class CourtComponent implements OnInit, AfterViewInit {
       });
       this.formPrice = this.formBuilder.group({
         idCourtRate: [-1],
-        price: ['0', [Validators.required]],
+        price: [0, [Validators.required, Validators.min(1)]],
         startTime: [''],
         endTime: [''],
         day: [-1]
@@ -179,6 +180,26 @@ export class CourtComponent implements OnInit, AfterViewInit {
   }
 
   handleSelect(info: any) {
+
+    const start: Date = info.start;
+    const end: Date = info.end;
+
+    const overlapping = this.calendar.getApi().getEvents().some(ev => {
+      const evStart = ev.start;
+      const evEnd = ev.end;
+
+      if (!evStart || !evEnd) {
+        return false;
+      }
+
+      return start < evEnd && end > evStart;
+    });
+
+    if (overlapping) {
+      this.notificationService.WarningNotification(this.translate.instant("Error.PriceExistThisTime"));
+      return;
+    }
+
     const idTmp = ((new Date()).getTime() * -1).toString();
     this.formPrice.patchValue({
       idCourtRate: idTmp,
@@ -238,8 +259,7 @@ export class CourtComponent implements OnInit, AfterViewInit {
       const startTimeTmp = this.commonsService.getTime(this.formPrice.value.startTime);
       const endTimeTmp = this.commonsService.getTime(this.formPrice.value.endTime);
       const dayTmp = this.formPrice.value.day;
-      const priceTmp = this.formPrice.value.price;
-      
+      const priceTmp = this.formPrice.value.price;      
 
       if (idTmp > -1) { // Actualizamos evento existente
         const eventRateIndex = this.listCourtRate.findIndex(e => e.idCourtRate == idTmp);

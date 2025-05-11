@@ -49,6 +49,7 @@
               <input type="text" formControlName="price" class="form-control" id="price" prefix="$ " mask="separator.2" thousandSeparator="." decimalMarker=",">
               <div *ngIf="formPrice.controls['price']?.invalid && formPrice.controls['price']?.touched" class="text-danger">
                 <small *ngIf="formPrice.controls['price']?.errors?.['required']">{{ 'Validations.FieldRequired' | translate }}</small>
+                <small *ngIf="formPrice.controls['price']?.errors?.['min']">{{ 'Validations.MustBeGreaterThanZero' | translate }}</small>
               </div>
             </div>
 
