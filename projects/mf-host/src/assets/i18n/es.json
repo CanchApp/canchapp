@@ -145,7 +145,8 @@
         "FieldMax50": "Maximo 50 caracteres.",
         "FieldInvalidName": "Correo invalido.",
         "FieldMinLength6":"Al menos 6 caractres.",
-        "FieldOnlyNumberMinLength6":"Solo números y al menos 6 caracteres."
+        "FieldOnlyNumberMinLength6":"Solo números y al menos 6 caracteres.",
+        "MustBeGreaterThanZero":"El precio debe ser mayor a cero (0)."
     },
     "Error":
     {
@@ -155,7 +156,8 @@
         "BookingDateStartMustBeGreater":"La hora inicio debe ser mayor que la hora finalización.",
         "CourtWithRecords":"La cancha no se puede eliminar, ya existen reservas asociadas.",
         "CourtNotFound":"La cancha no existe.",
-        "PriceMustBeGreaterThanZero":"El precio debe ser mayor a cero."
+        "PriceMustBeGreaterThanZero":"El precio debe ser mayor a cero.",
+        "PriceExistThisTime":"Ya hay una tarifa en ese horario."        
     },
     "User": {
         "Create": "Crear usuario",

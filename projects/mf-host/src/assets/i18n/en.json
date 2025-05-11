@@ -138,7 +138,8 @@
         "FieldMax50": "Maximum 50 characters.",
         "FieldInvalidName": "Invalid email.",
         "FieldMinLength6":"At least 6 characters.",
-        "FieldOnlyNumberMinLength6":"Numbers only and at least 6 characters."
+        "FieldOnlyNumberMinLength6":"Numbers only and at least 6 characters.",
+        "MustBeGreaterThanZero":"The price must be greater than zero (0)."
     },
     "Error":
     {
@@ -148,6 +149,7 @@
         "BookingDateStartMustBeGreater":"The start time must be greater than the end time.",
         "CourtWithRecords":"The court cannot be deleted, there are already associated reservations.",
         "CourtNotFound":"The court does not exist.",
-        "PriceMustBeGreaterThanZero":"The price must be greater than zero."
+        "PriceMustBeGreaterThanZero":"The price must be greater than zero.",
+        "PriceExistThisTime":"There is already a rate at that time"
     }
 }
