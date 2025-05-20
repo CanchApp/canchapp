@@ -6,7 +6,7 @@ import { ActionEnum, BrowserComponent, BrowserIdEnum, CommonsLibService, SelectI
 import { EventDTO } from '../../models/event.model';
 import { Subscription } from 'rxjs';
 import { BookingService } from '../../services/booking.service';
-import { ValueCourtDTO } from '../../models/valueCourt.interface';
+import { DetailValueCourtDTO, ValueCourtDTO } from '../../models/valueCourt.interface';
 import { CustomerQuickDTO } from '../../models/customerQuick.interface';
 
 @Component({
@@ -52,8 +52,14 @@ export class EventComponent implements OnInit, OnChanges {
       observation: [''],
       paymentType: ['0'],
       valueCourt: ['0'],
-      totalValue: ['0']
+      totalValue: ['0'],
+      totalHours: [0],
+      detailValueCourt: this.formBuilder.array([]),
     });
+  }
+
+  get detailValueCourtData(): DetailValueCourtDTO[] {
+    return this.formEvent.get('detailValueCourt')?.value ?? [];
   }
 
   private formatTime(date: Date): string {
@@ -119,12 +125,30 @@ export class EventComponent implements OnInit, OnChanges {
 
     this.subscription.add(this.bookingService.getCourtValue(this.eventEdit.day, timeStart, timeEnd, this.eventEdit.court.id).subscribe({
       next: (data: ValueCourtDTO) => {
-        this.eventEdit.valueCourt = data.value;
-        this.eventEdit.totalValue = data.totalValue;
-        this.eventEdit.totalHours = data.totalHours;
-        this.eventEdit.hours = data.hours;
-        this.formEvent.controls['valueCourt'].setValue(data.value);
-        this.formEvent.controls['totalValue'].setValue(data.totalValue);
+
+        this.formEvent.controls['detailValueCourt'].setValue([]);
+        this.formEvent.controls['valueCourt'].setValue(data.valueCourt);
+        this.formEvent.controls['totalValue'].setValue(data.total);
+        this.formEvent.controls['totalHours'].setValue(data.totalHours);
+
+        if(data.detailValueCourt)
+        {
+          this.eventEdit.totalValue = data.valueCourt;
+          this.formEvent.setControl('detailValueCourt',
+          this.formBuilder.array(
+              data.detailValueCourt.map(d => this.formBuilder.group({
+                timeStart: [d.timeStart],
+                timeEnd: [d.timeEnd],
+                value: [d.value],
+              }))
+            )
+          );
+        }
+        else
+        {
+          this.eventEdit.valueCourt = data.valueCourt;
+          this.eventEdit.totalValue = data.total;
+        }
       },
       error: (error) => {
         console.error(error);

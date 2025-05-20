@@ -1,4 +1,5 @@
 import { PaymentStatusEnum, PaymentTypeEnum } from "commons-lib";
+import { DetailValueCourtDTO } from "./valueCourt.interface";
 
 export class BookingDTO {
     idBooking?: number;
@@ -14,4 +15,6 @@ export class BookingDTO {
     dateUpdated: string = new Date().toISOString();
     valueCourt: number = 0;
     totalValue: number = 0;
+    totalHours: number = 0;
+    detailValueCourt: string = '';
 }

@@ -1,6 +1,7 @@
 import { PaymentStatusEnum, PaymentTypeEnum } from "commons-lib";
 import { CourtDTO } from "./court.model";
 import { CustomerDTO } from "./customer.model";
+import { DetailValueCourtDTO } from "./valueCourt.interface";
 
 export class EventDTO {
     idBooking: number = -1;
@@ -20,5 +21,5 @@ export class EventDTO {
     valueCourt: number = 0;
     totalValue: number = 0;
     totalHours: number = 0;
-    hours: number = 0;
+    detailValueCourt: DetailValueCourtDTO[] = [];
 }
