@@ -1,6 +1,12 @@
 export interface ValueCourtDTO {
-    value: number;
-    totalValue: number;
+    total: number;
     totalHours: number;
-    hours: number;
+    valueCourt: number;
+    detailValueCourt: DetailValueCourtDTO[];
+}
+
+export interface DetailValueCourtDTO {
+    timeStart: string;
+    timeEnd: string;
+    value: number;
 }

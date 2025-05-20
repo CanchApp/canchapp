@@ -97,7 +97,11 @@
         "HourValue":"Valor hora",
         "NewCustomer":"Nuevo cliente",
         "NameCustomer":"Nombre",
-        "PhoneCustomer":"Número de contacto"
+        "PhoneCustomer":"Número de contacto",
+        "StartTime": "Hora inicio",
+        "EndTime": "Hora fin",
+        "ValueCourt": "Valor",
+        "ViewDetail":"Ver detalle"
     },
     "Court":{
         "Name":"Name",

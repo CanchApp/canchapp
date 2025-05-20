@@ -102,7 +102,11 @@
         "HourValue":"Hour value",
         "NewCustomer":"New customer",
         "NameCustomer":"Name",
-        "PhoneCustomer":"Contact number"
+        "PhoneCustomer":"Contact number",
+        "StartTime": "Start time",
+        "EndTime": "End time",
+        "ValueCourt": "Value court",
+        "ViewDetail":"View detail"
     },
     "Court":{
         "Name":"Nombre",

@@ -83,7 +83,37 @@
           </div>
         </div>
         <div class="card-footer">
-          <div>{{'Booking.HourValue' | translate }}: <strong>$ {{ this.eventEdit.valueCourt | number:'1.0-0' }}</strong></div>
+
+
+          <div *ngIf="detailValueCourtData?.length" class="accordion" id="accordionDetailValueCourts">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  {{ 'Booking.ViewDetail' | translate }}
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionDetailValueCourts">
+                <div class="accordion-body">
+                  <table class="table table-sm">
+                    <tr>
+                      <th scope="row">{{ 'Booking.StartTime' | translate }}</th>
+                      <th scope="row">{{ 'Booking.EndTime' | translate }}</th>
+                      <th scope="row">{{ 'Booking.ValueCourt' | translate }}</th>
+                    </tr>
+                    <tr *ngFor="let item of detailValueCourtData">
+                      <td>{{ item.timeStart }}</td>
+                      <td>{{ item.timeEnd }}</td>
+                      <td>{{ item.value | number:'1.0-0' }}</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div *ngIf="!detailValueCourtData?.length">{{'Booking.HourValue' | translate }}: <strong>$ {{ this.eventEdit.valueCourt | number:'1.0-0' }}</strong></div>
         </div>
       </div>
     </div>

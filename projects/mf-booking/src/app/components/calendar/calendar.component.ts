@@ -254,13 +254,15 @@ export class CalendarComponent implements OnInit, AfterViewInit  {
       booking.paymentType = eventTmp.paymentType;
       booking.valueCourt = eventTmp.valueCourt;
       booking.totalValue = eventTmp.totalValue;
+      booking.totalHours = eventTmp.totalHours;
+      booking.detailValueCourt = JSON.stringify(eventTmp.detailValueCourt);
       return booking;
     }
     return null;
   }
 
   public saveEvent(): void {
-    const booking: BookingDTO | null = this.getBooking();    
+    const booking: BookingDTO | null = this.getBooking();
 
     if(booking) {
 
