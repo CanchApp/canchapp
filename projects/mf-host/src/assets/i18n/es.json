@@ -136,7 +136,9 @@
         "EnterEmail":"Ingresa tu correo",
         "RememberUser":"Recuérdame la próxima vez",
         "SignIn":"Iniciar sesión",
-        "Logout":"Cerrar sesión"
+        "Logout":"Cerrar sesión",
+        "InvalidCredentialsTitle":"Credenciales inválidas",
+        "InvalidCredentialsMsg":"Verifique su correo electrónico y contraseña"
     },
     "Tooltip": {
         "RecurringBooking":"Esta reserva quedara semanal"

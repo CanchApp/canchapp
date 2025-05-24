@@ -55,7 +55,15 @@
                       </label>
                     </div>
                     <div class="text-center mt-3">
-                      <button type="button" class="btn btn-lg btn-primary" (click)="onClicklogin()">{{ 'Login.SignIn' | translate }}</button>
+                      <button
+                        type="button"
+                        class="btn btn-lg btn-primary"
+                        (click)="onClicklogin()"
+                        [disabled]="isLoading"
+                      >
+                        <span class="spinner-border spinner-border-sm" aria-hidden="true" *ngIf="isLoading"></span>
+                        {{ 'Login.SignIn' | translate }}
+                      </button>
                     </div>
                     <div class="text-center mt-3">
                       <button type="submit" class="btn btn-lg btn-primary me-1">
