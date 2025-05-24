@@ -38,9 +38,9 @@ export class RoleComponent implements OnInit, AfterViewInit {
     this.setFormGroup();
   }
 
-  ngAfterViewInit(): void {
-    this.setRoleModulesFormArray();
-    Promise.resolve().then(() => this.loadData());
+  async ngAfterViewInit(): Promise<void> {
+    await this.setRoleModulesFormArray();
+    await this.loadData();
   }
 
   get roleModules(): FormArray {
