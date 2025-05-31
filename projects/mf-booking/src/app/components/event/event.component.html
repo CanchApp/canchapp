@@ -120,13 +120,24 @@
   </div>
 
   <div class="mb-3" *ngIf="actionState == 3">
-    <label for="paymentType" class="form-label">{{ 'Booking.PaymentType' | translate }}</label>
-    <select id="paymentType" class="form-select" formControlName="paymentType" #paymentType>
-      <option value="0">{{ 'Select.SelectOption' | translate }}</option>
-      <option value="1">{{ 'Booking.Cash' | translate }}</option>
-      <option value="2">{{ 'Booking.TDebit' | translate }}</option>
-      <option value="3">{{ 'Booking.TCredit' | translate }}</option>
-    </select>
+    <div class="row">
+      <div class="col-7">
+        <label for="paymentType" class="form-label">{{ 'Booking.PaymentType' | translate }}</label>
+        <select id="paymentType" class="form-select" formControlName="paymentType" #paymentType>
+          <option value="0">{{ 'Select.SelectOption' | translate }}</option>
+          <option value="1">{{ 'Booking.Cash' | translate }}</option>
+          <option value="2">{{ 'Booking.TDebit' | translate }}</option>
+          <option value="3">{{ 'Booking.TCredit' | translate }}</option>
+        </select>
+        <div *ngIf="formEvent.controls['paymentType']?.invalid && formEvent.controls['paymentType']?.touched && formEvent.get('paymentType')?.errors?.['invalidPaymentType']" class="text-danger">
+          {{ 'Validations.FieldRequired' | translate }}
+        </div>
+      </div>
+      <div class="col-3">
+        <label for="observation">{{ 'Booking.totalValueManual' | translate }}</label>
+        <input type="text" formControlName="totalValueManual" class="form-control" id="totalValueManual" prefix="$ " mask="separator.2" thousandSeparator="." decimalMarker=",">
+      </div>
+    </div>    
   </div>
 </form>
 

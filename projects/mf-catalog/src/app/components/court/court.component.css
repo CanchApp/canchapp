@@ -28,7 +28,6 @@
     pointer-events: all; /* Bloquea todas las interacciones */
 }
   
-
-
-
-  
+::ng-deep .fc-timegrid-slot {
+  height: 35px !important;
+}  

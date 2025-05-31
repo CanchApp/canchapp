@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { ActionEnum, BrowserComponent, BrowserIdEnum, CommonsLibService, SelectIdEnum } from 'commons-lib';
 import { EventDTO } from '../../models/event.model';
@@ -8,11 +8,13 @@ import { Subscription } from 'rxjs';
 import { BookingService } from '../../services/booking.service';
 import { DetailValueCourtDTO, ValueCourtDTO } from '../../models/valueCourt.interface';
 import { CustomerQuickDTO } from '../../models/customerQuick.interface';
+import { NgxMaskDirective, NgxMaskService, provideNgxMask } from 'ngx-mask';
 
 @Component({
   selector: 'app-event',
   standalone: true,
-  imports: [CommonModule, TranslateModule, ReactiveFormsModule, BrowserComponent],
+  imports: [CommonModule, TranslateModule, ReactiveFormsModule, BrowserComponent, NgxMaskDirective],
+  providers: [provideNgxMask()],
   templateUrl: './event.component.html',
   styleUrl: './event.component.css'
 })
@@ -32,9 +34,15 @@ export class EventComponent implements OnInit, OnChanges {
   constructor(
     private readonly formBuilder: FormBuilder,
     private readonly bookingService: BookingService,
-    private readonly commonsLibService: CommonsLibService) {
+    private readonly commonsLibService: CommonsLibService,
+    private readonly maskPipe: NgxMaskService,) {
+
     this.browserId = BrowserIdEnum.BrowserCustomer;
     this.selectId = SelectIdEnum.ListCourt;
+
+    this.maskPipe.prefix = '$ ';
+    this.maskPipe.thousandSeparator = '.';
+    this.maskPipe.decimalMarker = ',';
   }
 
   ngOnInit(): void {
@@ -55,11 +63,16 @@ export class EventComponent implements OnInit, OnChanges {
       totalValue: ['0'],
       totalHours: [0],
       detailValueCourt: this.formBuilder.array([]),
+      totalValueManual: [0, [Validators.min(0)]],
     });
   }
 
   get detailValueCourtData(): DetailValueCourtDTO[] {
     return this.formEvent.get('detailValueCourt')?.value ?? [];
+  }
+
+  paymentTypeValidator(control: AbstractControl): ValidationErrors | null {
+    return control.value && control.value !== '0' ? null : { invalidPaymentType: true };
   }
 
   private formatTime(date: Date): string {
@@ -117,6 +130,14 @@ export class EventComponent implements OnInit, OnChanges {
     const formattedEndTime = this.formatTime(new Date(this.eventEdit.dateTimeEndNew));
     this.formEvent.get('timeStart')?.setValue(formattedStartTime);
     this.formEvent.get('timeEnd')?.setValue(formattedEndTime);
+
+    if(this.eventEdit.idBooking > 0) {
+      this.formEvent.get('paymentType')?.setValidators([this.paymentTypeValidator]);
+      this.formEvent.get('paymentType')?.updateValueAndValidity();
+    } else {
+      this.formEvent.get('paymentType')?.clearValidators();
+      this.formEvent.get('paymentType')?.updateValueAndValidity();
+    } 
   }
 
   getPrice(): void {

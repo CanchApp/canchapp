@@ -47,6 +47,12 @@ export class CourtComponent implements OnInit, AfterViewInit {
     plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin],
     initialView: 'timeGridWeek', // vista semanal con horas
     locale: this.initialLocaleCode,
+    slotDuration: '01:00:00',
+    slotLabelInterval: '01:00',
+    slotMinTime: '00:00:00',
+    slotMaxTime: '24:00:00',
+    contentHeight: 'auto', // deja que el calendario crezca
+    scrollTime: '00:00:00', // sin scroll automático
     allDaySlot: false,
     selectable: true,
     selectMirror: true,
@@ -70,7 +76,6 @@ export class CourtComponent implements OnInit, AfterViewInit {
     slotLabelFormat: [
       { hour12: true, hour: "numeric", minute: "2-digit" }
     ],
-    slotMinTime: '05:00:00',
     dayHeaderFormat: { weekday: 'long' },
     headerToolbar: {
       left: '',  // Sección izquierda vacía

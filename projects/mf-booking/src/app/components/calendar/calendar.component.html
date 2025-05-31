@@ -6,7 +6,9 @@
   </div>
   </div>
 </div>
-<full-calendar [options]="calendarOptions" #calendar></full-calendar>
+<div class="calendar-wrapper">
+  <full-calendar [options]="calendarOptions" #calendar></full-calendar>
+</div>
 
 <!-- Modal Reserva -->
 <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" #eventModal>
@@ -22,7 +24,7 @@
       </div>
       <div class="modal-footer">
         <button *ngIf="actionState == 1" type="button" class="btn btn-success" (click)="saveEvent()">{{ 'Button.Save' | translate }}</button>
-        <button *ngIf="actionState == 3 || actionState == 2" type="button" class="btn btn-success" (click)="updateEvent()">{{ 'Button.Edit' | translate }}</button>
+        <button *ngIf="actionState == 3 || actionState == 2" type="button" class="btn btn-success" (click)="updateEvent()">{{ 'Button.Save' | translate }}</button>
         <button *ngIf="actionState == 3" type="button" class="btn btn-danger" (click)="showEventConfirmModal()">{{ 'Button.Delete' | translate }}</button>
         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">{{ 'Button.Cancel' | translate }}</button>        
       </div>

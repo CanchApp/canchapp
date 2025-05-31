@@ -21,5 +21,6 @@ export class EventDTO {
     valueCourt: number = 0;
     totalValue: number = 0;
     totalHours: number = 0;
+    totalValueManual: number = 0;
     detailValueCourt: DetailValueCourtDTO[] = [];
 }
