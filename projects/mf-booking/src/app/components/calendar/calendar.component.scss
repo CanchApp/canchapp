@@ -3,3 +3,14 @@
   top: 0;
   z-index: 100;
 }
+
+.calendar-wrapper {
+  height: auto !important;
+  overflow: visible !important;
+  min-height: 600px; // ajusta según lo que necesites
+}
+
+::ng-deep .fc-timegrid-slot {
+  height: 35px !important;
+}
+

@@ -106,14 +106,15 @@
         "StartTime": "Start time",
         "EndTime": "End time",
         "ValueCourt": "Value court",
-        "ViewDetail":"View detail"
+        "ViewDetail":"View detail",
+        "totalValueManual": "Value manual"
     },
     "Court":{
         "Name":"Nombre",
         "Description":"Description",
         "CourtList":"List of courts",
         "Court":"Court",
-        "EventColor":"Event color",
+        "EventColor":"Court color",
         "NewCourt":"New court",
         "EditCourt":"Edición cancha",
         "DetailCourt":"Detalle cancha",

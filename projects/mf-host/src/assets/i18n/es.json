@@ -101,14 +101,15 @@
         "StartTime": "Hora inicio",
         "EndTime": "Hora fin",
         "ValueCourt": "Valor",
-        "ViewDetail":"Ver detalle"
+        "ViewDetail":"Ver detalle",
+        "totalValueManual": "Valor manual"
     },
     "Court":{
         "Name":"Name",
         "Description":"Descripción",
         "CourtList":"Lista de canchas",
         "Court":"Cancha",
-        "EventColor":"Color de evento",
+        "EventColor":"Color de la cancha",
         "NewCourt":"Nueva cancha",
         "EditCourt":"Edición cancha",
         "DetailCourt":"Detalle cancha",

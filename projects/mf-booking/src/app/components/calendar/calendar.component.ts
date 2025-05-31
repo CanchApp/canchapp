@@ -57,6 +57,13 @@ export class CalendarComponent implements OnInit, AfterViewInit  {
     plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin],
     initialView: 'timeGridWeek',
     locale: this.initialLocaleCode,
+    slotDuration: '01:00:00',
+    slotLabelInterval: '01:00',
+    slotMinTime: '00:00:00',
+    slotMaxTime: '24:00:00',
+    contentHeight: 'auto', // deja que el calendario crezca
+    scrollTime: '00:00:00', // sin scroll automático
+    eventOverlap: false, // evita que se superpongan eventos
     allDaySlot: false,
     selectable: true,
     selectMirror: true,
@@ -255,6 +262,7 @@ export class CalendarComponent implements OnInit, AfterViewInit  {
       booking.valueCourt = eventTmp.valueCourt;
       booking.totalValue = eventTmp.totalValue;
       booking.totalHours = eventTmp.totalHours;
+      booking.totalValueManual = eventTmp.totalValueManual;
       booking.detailValueCourt = JSON.stringify(eventTmp.detailValueCourt);
       return booking;
     }

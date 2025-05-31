@@ -1,5 +1,4 @@
 import { PaymentStatusEnum, PaymentTypeEnum } from "commons-lib";
-import { DetailValueCourtDTO } from "./valueCourt.interface";
 
 export class BookingDTO {
     idBooking?: number;
@@ -16,5 +15,6 @@ export class BookingDTO {
     valueCourt: number = 0;
     totalValue: number = 0;
     totalHours: number = 0;
+    totalValueManual: number = 0;
     detailValueCourt: string = '';
 }
