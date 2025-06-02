@@ -11,9 +11,10 @@ import {
 } from 'commons-lib';
 
 @Component({
-  selector: 'login',
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+    selector: 'login',
+    templateUrl: './login.component.html',
+    styleUrl: './login.component.scss',
+    standalone: false
 })
 export class LoginComponent {
 

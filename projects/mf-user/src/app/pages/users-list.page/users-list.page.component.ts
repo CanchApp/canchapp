@@ -18,17 +18,16 @@ import {
 } from 'commons-lib';
 
 @Component({
-  selector: 'users-list.page',
-  standalone: true,
-  imports: [
-    TranslateModule,
-    CommonModule,
-    DropdownComponent,
-    ConfirmModalComponent,
-    RouterLink
-],
-  templateUrl: './users-list.page.component.html',
-  styleUrl: './users-list.page.component.css'
+    selector: 'users-list.page',
+    imports: [
+        TranslateModule,
+        CommonModule,
+        DropdownComponent,
+        ConfirmModalComponent,
+        RouterLink
+    ],
+    templateUrl: './users-list.page.component.html',
+    styleUrl: './users-list.page.component.css'
 })
 export class UsersListComponent implements OnInit {
   @ViewChild('confirmDeleteModal') confirmDeleteModal!: ConfirmModalComponent;

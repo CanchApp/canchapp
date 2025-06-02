@@ -10,11 +10,10 @@ import { CodeErrorEnum, NotificationService } from 'commons-lib';
 declare let bootstrap: any;
 
 @Component({
-  selector: 'app-court-list',
-  standalone: true,
-  imports: [TranslateModule, CommonModule, RouterLink],
-  templateUrl: './list-court.component.html',
-  styleUrl: './list-court.component.css'
+    selector: 'app-court-list',
+    imports: [TranslateModule, CommonModule, RouterLink],
+    templateUrl: './list-court.component.html',
+    styleUrl: './list-court.component.css'
 })
 export class CourtListComponent implements OnInit, AfterViewInit {
   @ViewChild('deleteModal', { static: true}) modalDelete!: ElementRef;

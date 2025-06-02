@@ -24,11 +24,10 @@ import { CustomerQuickDTO } from '../../models/customerQuick.interface';
 declare let bootstrap: any;
 
 @Component({
-  selector: 'app-calendar',
-  standalone: true,
-  imports: [TranslateModule, FullCalendarModule, EventComponent, SelectComponent, CommonModule, NewCustomerComponent],
-  templateUrl: './calendar.component.html',
-  styleUrl: './calendar.component.scss',
+    selector: 'app-calendar',
+    imports: [TranslateModule, FullCalendarModule, EventComponent, SelectComponent, CommonModule, NewCustomerComponent],
+    templateUrl: './calendar.component.html',
+    styleUrl: './calendar.component.scss'
 })
 export class CalendarComponent implements OnInit, AfterViewInit  {
 

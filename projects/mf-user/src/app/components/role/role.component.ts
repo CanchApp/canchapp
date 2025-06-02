@@ -11,11 +11,10 @@ import { ModuleService } from '../../services/module.service';
 import { ModuleDTO } from '../../models/module.model';
 
 @Component({
-  selector: 'app-role',
-  standalone: true,
-  imports: [TranslateModule, ReactiveFormsModule, CommonModule],
-  templateUrl: './role.component.html',
-  styleUrl: './role.component.css'
+    selector: 'app-role',
+    imports: [TranslateModule, ReactiveFormsModule, CommonModule],
+    templateUrl: './role.component.html',
+    styleUrl: './role.component.css'
 })
 export class RoleComponent implements OnInit, AfterViewInit {
   @Input() roleId: number = 0;

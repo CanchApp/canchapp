@@ -18,17 +18,16 @@ import { RoleDTO } from '../../models/role.model';
 import { RoleService } from '../../services/role.service';
 
 @Component({
-  selector: 'roles-list.page',
-  standalone: true,
-  imports: [
-    TranslateModule,
-    CommonModule,
-    DropdownComponent,
-    ConfirmModalComponent,
-    RouterLink
-  ],
-  templateUrl: './roles-list.page.component.html',
-  styleUrl: './roles-list.page.component.css'
+    selector: 'roles-list.page',
+    imports: [
+        TranslateModule,
+        CommonModule,
+        DropdownComponent,
+        ConfirmModalComponent,
+        RouterLink
+    ],
+    templateUrl: './roles-list.page.component.html',
+    styleUrl: './roles-list.page.component.css'
 })
 export class RolesListComponent implements OnInit {
   @ViewChild('confirmDeleteModal') confirmDeleteModal!: ConfirmModalComponent;

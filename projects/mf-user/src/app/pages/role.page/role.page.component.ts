@@ -5,11 +5,10 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { RoleComponent } from '../../components/role/role.component';
 
 @Component({
-  selector: 'app-user.page',
-  standalone: true,
-  imports: [RoleComponent, TranslateModule],
-  templateUrl: './role.page.component.html',
-  styleUrl: './role.page.component.css'
+    selector: 'app-user.page',
+    imports: [RoleComponent, TranslateModule],
+    templateUrl: './role.page.component.html',
+    styleUrl: './role.page.component.css'
 })
 export class RolePageComponent implements OnInit {
   roleId!: number;

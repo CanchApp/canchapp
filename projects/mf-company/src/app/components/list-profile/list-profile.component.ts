@@ -7,11 +7,10 @@ import { ProfileService } from '../../services/profile.service';
 
 
 @Component({
-  selector: 'list-profile',
-  standalone: true,
-  imports: [CommonModule, TranslateModule, RouterModule],
-  templateUrl: './list-profile.component.html',
-  styleUrl: './list-profile.component.css'
+    selector: 'list-profile',
+    imports: [CommonModule, TranslateModule, RouterModule],
+    templateUrl: './list-profile.component.html',
+    styleUrl: './list-profile.component.css'
 })
 export class ListProfileComponent {
 

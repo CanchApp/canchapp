@@ -11,12 +11,11 @@ import { CustomerQuickDTO } from '../../models/customerQuick.interface';
 import { NgxMaskDirective, NgxMaskService, provideNgxMask } from 'ngx-mask';
 
 @Component({
-  selector: 'app-event',
-  standalone: true,
-  imports: [CommonModule, TranslateModule, ReactiveFormsModule, BrowserComponent, NgxMaskDirective],
-  providers: [provideNgxMask()],
-  templateUrl: './event.component.html',
-  styleUrl: './event.component.css'
+    selector: 'app-event',
+    imports: [CommonModule, TranslateModule, ReactiveFormsModule, BrowserComponent, NgxMaskDirective],
+    providers: [provideNgxMask()],
+    templateUrl: './event.component.html',
+    styleUrl: './event.component.css'
 })
 
 export class EventComponent implements OnInit, OnChanges {

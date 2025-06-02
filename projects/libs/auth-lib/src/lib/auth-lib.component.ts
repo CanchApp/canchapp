@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'lib-auth-lib',
-  standalone: true,
-  imports: [],
-  template: `
+    selector: 'lib-auth-lib',
+    imports: [],
+    template: `
     <p>
       auth-lib works!
     </p>
   `,
-  styles: ``
+    styles: ``
 })
 export class AuthLibComponent {
 
