@@ -3,23 +3,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
 import { BrowserModule, provideClientHydration } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app-routing.module";
-import { HttpClientModule } from "@angular/common/http";
+import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
 import { CompanyModule } from "./company.module";
 
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    CommonModule,
-    AppRoutingModule,
-    HttpClientModule,
-    CompanyModule
-  ],
-  providers: [
-    provideClientHydration()
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        CommonModule,
+        AppRoutingModule,
+        CompanyModule], providers: [
+        provideClientHydration(),
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule { }

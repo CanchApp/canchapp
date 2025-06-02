@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -24,43 +24,37 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
 }
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    LoginComponent,
-    MultiLoginComponent,
-    SidebarComponent,
-    NavbarComponent,
-    FootComponent,
-    AuthLayoutComponent,
-    MainLayoutComponent,
-    RegisterComponent,
-    UnauthorizedComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    AuthLibModule,
-    CommonLibModule,
-    NgxMaskDirective,
-    NgxMaskPipe,
-    TranslateModule.forRoot({
-      defaultLanguage: 'es',
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    })
-  ],
-  exports:[ ],
-  providers: [
-    provideClientHydration(),
-    provideNgxMask()
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        HomeComponent,
+        LoginComponent,
+        MultiLoginComponent,
+        SidebarComponent,
+        NavbarComponent,
+        FootComponent,
+        AuthLayoutComponent,
+        MainLayoutComponent,
+        RegisterComponent,
+        UnauthorizedComponent
+    ],
+    exports: [],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        AuthLibModule,
+        CommonLibModule,
+        NgxMaskDirective,
+        NgxMaskPipe,
+        TranslateModule.forRoot({
+            defaultLanguage: 'es',
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        })], providers: [
+        provideClientHydration(),
+        provideNgxMask(),
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule { }
