@@ -5,11 +5,10 @@ import { ActionEnum } from 'commons-lib';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-court.page',
-  standalone: true,
-  imports: [CourtComponent, TranslateModule],
-  templateUrl: './court.page.component.html',
-  styleUrl: './court.page.component.css'
+    selector: 'app-court.page',
+    imports: [CourtComponent, TranslateModule],
+    templateUrl: './court.page.component.html',
+    styleUrl: './court.page.component.css'
 })
 export class CourtPageComponent {
 

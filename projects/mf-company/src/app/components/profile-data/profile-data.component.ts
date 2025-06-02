@@ -5,11 +5,10 @@ import { Profile, Module, Action } from '../../models/profile.interface';
 import { ProfileService } from '../../services/profile.service';
 
 @Component({
-  selector: 'profile-data',
-  standalone: true,
-  imports: [CommonModule, TranslateModule],
-  templateUrl: './profile-data.component.html',
-  styleUrl: './profile-data.component.css'
+    selector: 'profile-data',
+    imports: [CommonModule, TranslateModule],
+    templateUrl: './profile-data.component.html',
+    styleUrl: './profile-data.component.css'
 })
 export class ProfileDataComponent {
 

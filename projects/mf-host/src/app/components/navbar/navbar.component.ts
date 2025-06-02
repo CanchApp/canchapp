@@ -3,8 +3,9 @@ import { AuthService } from '../../services/auth.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'navbar',
-  templateUrl: './navbar.component.html'
+    selector: 'navbar',
+    templateUrl: './navbar.component.html',
+    standalone: false
 })
 export class NavbarComponent {
   constructor(

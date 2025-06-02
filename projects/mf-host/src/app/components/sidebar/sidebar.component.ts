@@ -4,8 +4,9 @@ import { PermissionModule } from 'commons-lib';
 import { MenuItem } from '../../models/base-menu';
 
 @Component({
-  selector: 'sidebar',
-  templateUrl: './sidebar.component.html'
+    selector: 'sidebar',
+    templateUrl: './sidebar.component.html',
+    standalone: false
 })
 export class SidebarComponent {
   private sideMenuUrl: string = 'assets/data/side-menu.json';

@@ -10,11 +10,10 @@ import { forkJoin } from 'rxjs';
 
 
 @Component({
-  selector: 'app-company-data',
-  standalone: true,
-  imports: [TranslateModule, ReactiveFormsModule, CommonModule],
-  templateUrl: './company-data.component.html',
-  styleUrl: './company-data.component.css'
+    selector: 'app-company-data',
+    imports: [TranslateModule, ReactiveFormsModule, CommonModule],
+    templateUrl: './company-data.component.html',
+    styleUrl: './company-data.component.css'
 })
 
 export class CompanyDataComponent implements OnInit {

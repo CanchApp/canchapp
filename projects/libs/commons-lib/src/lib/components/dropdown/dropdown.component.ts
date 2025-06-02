@@ -3,11 +3,10 @@ import { CommonModule } from '@angular/common';
 import { DropdownItemModel } from '../../models/dropdown.model';
 
 @Component({
-  selector: 'lib-dropdown',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './dropdown.component.html',
-  styleUrl: './dropdown.component.css',
+    selector: 'lib-dropdown',
+    imports: [CommonModule],
+    templateUrl: './dropdown.component.html',
+    styleUrl: './dropdown.component.css'
 })
 export class DropdownComponent {
     @Input() placeholder!: string;

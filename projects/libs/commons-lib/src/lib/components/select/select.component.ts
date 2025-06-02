@@ -15,12 +15,11 @@ const VALUE_ACCESSOR = {
 type optionValue = { text: string, id: string, args?: string };
 
 @Component({
-  selector: 'lib-select',
-  standalone: true,
-  imports: [TranslateModule, CommonModule, FormsModule],
-  templateUrl: './select.component.html',
-  styleUrl: './select.component.css',
-  providers: [VALUE_ACCESSOR],
+    selector: 'lib-select',
+    imports: [TranslateModule, CommonModule, FormsModule],
+    templateUrl: './select.component.html',
+    styleUrl: './select.component.css',
+    providers: [VALUE_ACCESSOR]
 })
 export class SelectComponent implements ControlValueAccessor, OnInit {
 

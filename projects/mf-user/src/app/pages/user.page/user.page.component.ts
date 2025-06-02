@@ -5,11 +5,10 @@ import { ActionEnum } from 'commons-lib';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-user.page',
-  standalone: true,
-  imports: [UserComponent, TranslateModule],
-  templateUrl: './user.page.component.html',
-  styleUrl: './user.page.component.css'
+    selector: 'app-user.page',
+    imports: [UserComponent, TranslateModule],
+    templateUrl: './user.page.component.html',
+    styleUrl: './user.page.component.css'
 })
 export class UserPageComponent implements OnInit {
   userId!: number;

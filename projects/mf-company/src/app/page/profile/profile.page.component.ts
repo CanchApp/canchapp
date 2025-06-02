@@ -4,7 +4,6 @@ import { ProfileDataComponent } from "../../components/profile-data/profile-data
 
 @Component({
     selector: 'app-profile.page',
-    standalone: true,
     templateUrl: './profile.page.component.html',
     styleUrl: './profile.page.component.css',
     imports: [CommonModule, ProfileDataComponent]

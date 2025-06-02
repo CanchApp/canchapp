@@ -2,11 +2,10 @@ import { AfterViewInit, Component } from '@angular/core';
 import { JqueryService } from '../../service/jquery-service.service';
 
 @Component({
-  selector: 'lib-date',
-  standalone: true,
-  imports: [],
-  templateUrl: './date.component.html',
-  styleUrl: './date.component.css'
+    selector: 'lib-date',
+    imports: [],
+    templateUrl: './date.component.html',
+    styleUrl: './date.component.css'
 })
 export class DateComponent implements AfterViewInit  {
 

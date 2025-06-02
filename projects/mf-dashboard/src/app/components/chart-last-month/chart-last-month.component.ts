@@ -6,11 +6,10 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { CommonsLibService } from 'commons-lib';
 
 @Component({
-  selector: 'app-chart-last-month',
-  standalone: true,
-  imports: [TranslateModule],
-  templateUrl: './chart-last-month.component.html',
-  styleUrl: './chart-last-month.component.css'
+    selector: 'app-chart-last-month',
+    imports: [TranslateModule],
+    templateUrl: './chart-last-month.component.html',
+    styleUrl: './chart-last-month.component.css'
 })
 export class ChartLastMonthComponent implements OnInit {
  

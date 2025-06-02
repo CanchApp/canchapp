@@ -11,11 +11,10 @@ import { firstValueFrom } from 'rxjs';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-user',
-  standalone: true,
-  imports: [TranslateModule, ReactiveFormsModule, CommonModule, SelectComponent],
-  templateUrl: './user.component.html',
-  styleUrl: './user.component.css'
+    selector: 'app-user',
+    imports: [TranslateModule, ReactiveFormsModule, CommonModule, SelectComponent],
+    templateUrl: './user.component.html',
+    styleUrl: './user.component.css'
 })
 export class UserComponent implements OnInit, AfterViewInit {
   @Input() userId: number = 0;

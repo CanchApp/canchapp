@@ -5,11 +5,10 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { CustomerQuickDTO } from '../../models/customerQuick.interface';
 
 @Component({
-  selector: 'app-new-customer',
-  standalone: true,
-  imports: [CommonModule, TranslateModule, ReactiveFormsModule],
-  templateUrl: './new-customer.component.html',
-  styleUrl: './new-customer.component.css'
+    selector: 'app-new-customer',
+    imports: [CommonModule, TranslateModule, ReactiveFormsModule],
+    templateUrl: './new-customer.component.html',
+    styleUrl: './new-customer.component.css'
 })
 export class NewCustomerComponent implements OnInit {
 

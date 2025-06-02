@@ -3,9 +3,10 @@ import { AuthCredentials, ICompanyLogin } from '../../models/login';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
-  selector: 'multilogin',
-  templateUrl: './multilogin.component.html',
-  styleUrl: './multilogin.component.scss'
+    selector: 'multilogin',
+    templateUrl: './multilogin.component.html',
+    styleUrl: './multilogin.component.scss',
+    standalone: false
 })
 export class MultiLoginComponent implements OnInit {
   public companies: ICompanyLogin[] = [];

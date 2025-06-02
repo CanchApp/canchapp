@@ -6,11 +6,10 @@ import { CommonModule } from '@angular/common';
 import { DashBoardService } from '../../services/dashboard.service.service';
 
 @Component({
-  selector: 'app-totals',
-  standalone: true,
-  imports: [TranslateModule, CommonModule],
-  templateUrl: './totals.component.html',
-  styleUrl: './totals.component.css'
+    selector: 'app-totals',
+    imports: [TranslateModule, CommonModule],
+    templateUrl: './totals.component.html',
+    styleUrl: './totals.component.css'
 })
 export class TotalsComponent implements OnInit {
 

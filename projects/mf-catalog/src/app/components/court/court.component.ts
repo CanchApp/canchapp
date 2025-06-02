@@ -19,12 +19,11 @@ import { Router } from '@angular/router';
 declare let bootstrap: any;
 
 @Component({
-  selector: 'app-court',
-  standalone: true,
-  imports: [FullCalendarModule, TranslateModule, ReactiveFormsModule, NgxMaskDirective, CommonModule],
-  providers: [provideNgxMask()],
-  templateUrl: './court.component.html',
-  styleUrl: './court.component.css'
+    selector: 'app-court',
+    imports: [FullCalendarModule, TranslateModule, ReactiveFormsModule, NgxMaskDirective, CommonModule],
+    providers: [provideNgxMask()],
+    templateUrl: './court.component.html',
+    styleUrl: './court.component.css'
 })
 export class CourtComponent implements OnInit, AfterViewInit {
 

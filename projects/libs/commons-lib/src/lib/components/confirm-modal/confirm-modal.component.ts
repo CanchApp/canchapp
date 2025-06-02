@@ -5,11 +5,10 @@ import { ConfirmModalModel } from '../../models/confirm-modal.model';
 declare let bootstrap: any;
 
 @Component({
-  selector: 'lib-confirm-modal',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './confirm-modal.component.html',
-  styleUrl: './confirm-modal.component.css',
+    selector: 'lib-confirm-modal',
+    imports: [CommonModule],
+    templateUrl: './confirm-modal.component.html',
+    styleUrl: './confirm-modal.component.css'
 })
 export class ConfirmModalComponent implements AfterViewInit {
     @ViewChild('confirmModal', { static: true}) modalDelete!: ElementRef;

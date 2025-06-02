@@ -14,12 +14,11 @@ const VALUE_ACCESSOR = {
 };
 
 @Component({
-  selector: 'lib-browser',
-  standalone: true,
-  imports: [TranslateModule, CommonModule],
-  templateUrl: './browser.component.html',
-  styleUrl: './browser.component.css',
-  providers: [VALUE_ACCESSOR],
+    selector: 'lib-browser',
+    imports: [TranslateModule, CommonModule],
+    templateUrl: './browser.component.html',
+    styleUrl: './browser.component.css',
+    providers: [VALUE_ACCESSOR]
 })
 export class BrowserComponent implements ControlValueAccessor {
 
