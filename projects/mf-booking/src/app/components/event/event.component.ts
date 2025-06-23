@@ -149,7 +149,7 @@ export class EventComponent implements OnInit, OnChanges {
   }
 
   getPrice(): void {
-    const timeStart = this.commonsLibService.getTime(this.eventEdit.dateTimeStart, true);
+    const timeStart = this.commonsLibService.getTime(this.eventEdit.dateTimeStart);
     const timeEnd = this.commonsLibService.getTime(this.eventEdit.dateTimeEnd);
 
     this.subscription.add(this.bookingService.getCourtValue(this.eventEdit.day, timeStart, timeEnd, this.eventEdit.court.id).subscribe({
