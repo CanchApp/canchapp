@@ -92,6 +92,7 @@ export class CourtComponent implements OnInit, AfterViewInit {
     private readonly notificationService: NotificationService,
     private readonly router: Router,
     private readonly cdr: ChangeDetectorRef) {
+      
       this.formCourt = this.formBuilder.group({
         idCourt: [0],
         name: ['', [Validators.required]],

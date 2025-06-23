@@ -27,14 +27,18 @@
           </div>
           <div class="col-12 col-md-4 p-0">
             <input type="time" class="form-control w-100" formControlName="timeStart" id="timeStart" />
-            <div *ngIf="formEvent.controls['timeStart']?.invalid && formEvent.controls['timeStart']?.touched" class="text-danger">
-              <small *ngIf="formEvent.controls['timeStart']?.errors?.['required']">{{ 'Validations.FieldRequired' | translate }}</small>
+            <div *ngIf="formEvent.controls['timeStart']?.invalid && formEvent.controls['timeStart']?.touched"
+              class="text-danger">
+              <small *ngIf="formEvent.controls['timeStart']?.errors?.['required']">{{ 'Validations.FieldRequired' |
+                translate }}</small>
             </div>
           </div>
           <div class="col-12 col-md-4 p-0">
             <input type="time" class="form-control w-100" formControlName="timeEnd" id="timeEnd" />
-            <div *ngIf="formEvent.controls['timeEnd']?.invalid && formEvent.controls['timeEnd']?.touched" class="text-danger">
-              <small *ngIf="formEvent.controls['timeEnd']?.errors?.['required']">{{ 'Validations.FieldRequired' | translate }}</small>
+            <div *ngIf="formEvent.controls['timeEnd']?.invalid && formEvent.controls['timeEnd']?.touched"
+              class="text-danger">
+              <small *ngIf="formEvent.controls['timeEnd']?.errors?.['required']">{{ 'Validations.FieldRequired' |
+                translate }}</small>
             </div>
           </div>
         </div>
@@ -49,9 +53,12 @@
     <div class="col-7">
       <div class="mb-3">
         <label for="CustomerBooking" class="form-label">{{ 'Booking.CustomerBooking' | translate }}</label>
-        <lib-browser formControlName="customer" [browserId]="browserId" [addItem]="true" (onItemSelected)="clicItemSelected($event)"></lib-browser>
-        <div *ngIf="formEvent.controls['customer']?.invalid && formEvent.controls['customer']?.touched" class="text-danger">
-          <small *ngIf="formEvent.controls['customer']?.errors?.['required']">{{ 'Validations.FieldRequired' | translate }}</small>
+        <lib-browser formControlName="customer" [browserId]="browserId" [addItem]="true"
+          (onItemSelected)="clicItemSelected($event)"></lib-browser>
+        <div *ngIf="formEvent.controls['customer']?.invalid && formEvent.controls['customer']?.touched"
+          class="text-danger">
+          <small *ngIf="formEvent.controls['customer']?.errors?.['required']">{{ 'Validations.FieldRequired' | translate
+            }}</small>
         </div>
       </div>
       <div class="mb-2">
@@ -60,12 +67,14 @@
       </div>
       <div>
         <div class="form-check form-switch" title="{{'Tooltip.RecurringBooking' | translate }}">
-          <input formControlName="isRecurrent" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" aria-checked="false" />
-          <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'Booking.IsRecurringBooking' | translate }}</label>
+          <input formControlName="isRecurrent" class="form-check-input" type="checkbox" role="switch"
+            id="flexSwitchCheckDefault" aria-checked="false" />
+          <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'Booking.IsRecurringBooking' | translate
+            }}</label>
         </div>
       </div>
     </div>
-    <div class="col-5">      
+    <div class="col-5">
       <div class="card card-stats card-info card-round">
         <div class="card-body">
           <div class="row">
@@ -83,12 +92,11 @@
           </div>
         </div>
         <div class="card-footer">
-
-
           <div *ngIf="detailValueCourtData?.length" class="accordion" id="accordionDetailValueCourts">
             <div class="accordion-item">
               <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                  aria-expanded="true" aria-controls="collapseOne">
                   {{ 'Booking.ViewDetail' | translate }}
                 </button>
               </h2>
@@ -110,11 +118,11 @@
               </div>
             </div>
           </div>
-
-
-
-          <div *ngIf="!detailValueCourtData?.length">{{'Booking.HourValue' | translate }}: <strong>$ {{ this.eventEdit.valueCourt | number:'1.0-0' }}</strong></div>
-        </div>
+          <div *ngIf="!detailValueCourtData?.length">{{'Booking.HourValue' | translate }}: <strong>$ {{ this.eventEdit.valueCourt | number:'1.0-0' }}</strong></div>          
+        </div>        
+      </div>
+      <div class="custom-alert custom-alert-warning" role="alert" *ngIf="eventEdit.totalValue == 0">
+        {{'Booking.EmptyTotalValueCourt' | translate }}  <a class="alert-link" target="_blank" [routerLink]="['/catalog/court-edit', eventEdit.court.id]">({{'Booking.ConfigNowTotalValue' | translate }})</a>.
       </div>
     </div>
   </div>
@@ -129,19 +137,17 @@
           <option value="2">{{ 'Booking.TDebit' | translate }}</option>
           <option value="3">{{ 'Booking.TCredit' | translate }}</option>
         </select>
-        <div *ngIf="formEvent.controls['paymentType']?.invalid && formEvent.controls['paymentType']?.touched && formEvent.get('paymentType')?.errors?.['invalidPaymentType']" class="text-danger">
+        <div
+          *ngIf="formEvent.controls['paymentType']?.invalid && formEvent.controls['paymentType']?.touched && formEvent.get('paymentType')?.errors?.['invalidPaymentType']"
+          class="text-danger">
           {{ 'Validations.FieldRequired' | translate }}
         </div>
       </div>
       <div class="col-3">
         <label for="observation">{{ 'Booking.totalValueManual' | translate }}</label>
-        <input type="text" formControlName="totalValueManual" class="form-control" id="totalValueManual" prefix="$ " mask="separator.2" thousandSeparator="." decimalMarker=",">
+        <input type="text" formControlName="totalValueManual" class="form-control" id="totalValueManual" prefix="$ "
+          mask="separator.2" thousandSeparator="." decimalMarker=",">
       </div>
-    </div>    
+    </div>
   </div>
 </form>
-
-
-
-
-

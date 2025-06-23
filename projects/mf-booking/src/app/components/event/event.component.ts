@@ -2,17 +2,18 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
-import { ActionEnum, BrowserComponent, BrowserIdEnum, CommonsLibService, SelectIdEnum } from 'commons-lib';
+import { ActionEnum, ApiEnum, BrowserComponent, BrowserIdEnum, CommonsLibService, SelectIdEnum, TypeWebSocketEnum, WebSocketService } from 'commons-lib';
 import { EventDTO } from '../../models/event.model';
 import { Subscription } from 'rxjs';
 import { BookingService } from '../../services/booking.service';
 import { DetailValueCourtDTO, ValueCourtDTO } from '../../models/valueCourt.interface';
 import { CustomerQuickDTO } from '../../models/customerQuick.interface';
 import { NgxMaskDirective, NgxMaskService, provideNgxMask } from 'ngx-mask';
+import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-event',
-    imports: [CommonModule, TranslateModule, ReactiveFormsModule, BrowserComponent, NgxMaskDirective],
+    imports: [CommonModule, RouterModule, TranslateModule, ReactiveFormsModule, BrowserComponent, NgxMaskDirective],
     providers: [provideNgxMask()],
     templateUrl: './event.component.html',
     styleUrl: './event.component.css'
@@ -34,14 +35,22 @@ export class EventComponent implements OnInit, OnChanges {
     private readonly formBuilder: FormBuilder,
     private readonly bookingService: BookingService,
     private readonly commonsLibService: CommonsLibService,
-    private readonly maskPipe: NgxMaskService,) {
+    private readonly maskPipe: NgxMaskService,
+    private readonly wsService: WebSocketService) {
 
-    this.browserId = BrowserIdEnum.BrowserCustomer;
-    this.selectId = SelectIdEnum.ListCourt;
+      const apiUrl: string = ApiEnum.Court;
+      this.wsService.connect(apiUrl, TypeWebSocketEnum.SaveCourt).subscribe(data => {
+        if(data == this.eventEdit.court.id) {
+          this.getPrice();
+        }
+      });
 
-    this.maskPipe.prefix = '$ ';
-    this.maskPipe.thousandSeparator = '.';
-    this.maskPipe.decimalMarker = ',';
+      this.browserId = BrowserIdEnum.BrowserCustomer;
+      this.selectId = SelectIdEnum.ListCourt;
+
+      this.maskPipe.prefix = '$ ';
+      this.maskPipe.thousandSeparator = '.';
+      this.maskPipe.decimalMarker = ',';
   }
 
   ngOnInit(): void {
@@ -146,12 +155,12 @@ export class EventComponent implements OnInit, OnChanges {
     this.subscription.add(this.bookingService.getCourtValue(this.eventEdit.day, timeStart, timeEnd, this.eventEdit.court.id).subscribe({
       next: (data: ValueCourtDTO) => {
 
-        this.formEvent.controls['detailValueCourt'].setValue([]);
+        this.formEvent.setControl('detailValueCourt', this.formBuilder.array([]));
         this.formEvent.controls['valueCourt'].setValue(data.valueCourt);
         this.formEvent.controls['totalValue'].setValue(data.total);
         this.formEvent.controls['totalHours'].setValue(data.totalHours);
 
-        if(data.detailValueCourt)
+        if(data.detailValueCourt && data.detailValueCourt.length > 0)
         {
           this.eventEdit.totalValue = data.valueCourt;
           this.formEvent.setControl('detailValueCourt',

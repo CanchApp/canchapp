@@ -24,6 +24,7 @@ export * from './lib/commons-lib.component';
 export * from './lib/notification.service';
 export * from './lib/commons-lib.service';
 export * from './lib/service/permission.service';
+export * from './lib/service/web-socket.service';
 
 // Guard
 export * from './lib/guards/permission.guard';
