@@ -19,12 +19,12 @@ export class CommonsLibService {
     return localISOString;
   }
 
-  getTime(date: Date | string): string {
+  getTime(date: Date | string, addLastSecond: boolean = false): string {
 
     let _date = new Date(date);
     const hours = _date.getHours().toString().padStart(2, '0');
     const minutes = _date.getMinutes().toString().padStart(2, '0');
-    return `${hours}:${minutes}:00`;
+    return addLastSecond ? `${hours}:${minutes}:01` : `${hours}:${minutes}:00`;
   }
 
   getMonthText(numberMonth: number) {
