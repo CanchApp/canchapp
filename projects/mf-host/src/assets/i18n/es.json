@@ -102,7 +102,9 @@
         "EndTime": "Hora fin",
         "ValueCourt": "Valor",
         "ViewDetail":"Ver detalle",
-        "totalValueManual": "Valor manual"
+        "totalValueManual": "Valor manual",
+        "EmptyTotalValueCourt":"Esta hora no tiene valor.",
+        "ConfigNowTotalValue":"configurar ahora"
     },
     "Court":{
         "Name":"Name",

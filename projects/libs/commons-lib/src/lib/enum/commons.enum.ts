@@ -77,3 +77,6 @@ export enum DayEnum {
     Saturday = 6,
     Sunday = 7
 }
+export enum TypeWebSocketEnum {
+	SaveCourt = 100
+}

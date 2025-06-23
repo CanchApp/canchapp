@@ -1,3 +1,49 @@
 a {
     cursor: pointer;
 }
+
+//
+// Base styles
+//
+
+// 🎨 Colores base tipo Bootstrap
+$alert-colors: (
+  "primary":   (#084298, #cfe2ff, #b6d4fe),
+  "secondary":(#41464b, #e2e3e5, #d3d6d8),
+  "success":  (#0f5132, #d1e7dd, #badbcc),
+  "danger":   (#842029, #f8d7da, #f5c2c7),
+  "warning":  (#664d03, #fff3cd, #ffecb5),
+  "info":     (#055160, #cff4fc, #b6effb),
+  "light":    (#636464, #fefefe, #fdfdfe),
+  "dark":     (#141619, #d3d3d4, #bcbebf)
+);
+
+// 🧱 Clase base
+.custom-alert {
+  position: relative;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  line-height: 1.5;
+
+  // 🔗 Estilo para enlaces dentro del alert
+  a {
+    font-weight: 700 !important;
+    text-decoration: underline !important;
+  }
+
+  // 🌀 Tipos de alertas
+  @each $type, $colors in $alert-colors {
+    &-#{$type} {
+      color: nth($colors, 1);
+      background-color: nth($colors, 2);
+      border-color: nth($colors, 3);
+
+      a {
+        color: nth($colors, 1);
+      }
+    }
+  }
+}
