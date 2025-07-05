@@ -1,6 +1,6 @@
 import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { FullCalendarComponent, FullCalendarModule } from '@fullcalendar/angular';
-import { CalendarOptions, EventInput } from '@fullcalendar/core';
+import { CalendarOptions, DateSelectArg, EventInput } from '@fullcalendar/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -184,11 +184,7 @@ export class CourtComponent implements OnInit, AfterViewInit {
     this.setConfigByState();
   }
 
-  handleSelect(info: any) {
-
-    const start: Date = info.start;
-    const end: Date = info.end;
-
+  private validateExistPrice(start: Date, end: Date): boolean {
     const overlapping = this.calendar.getApi().getEvents().some(ev => {
       const evStart = ev.start;
       const evEnd = ev.end;
@@ -202,6 +198,17 @@ export class CourtComponent implements OnInit, AfterViewInit {
 
     if (overlapping) {
       this.notificationService.WarningNotification(this.translate.instant("Error.PriceExistThisTime"));
+      return false;
+    }
+    return true;
+  }
+
+  handleSelect(info: DateSelectArg) {
+
+    const start: Date = info.start;
+    const end: Date = info.end;
+
+    if (!this.validateExistPrice(start, end)) {
       return;
     }
 

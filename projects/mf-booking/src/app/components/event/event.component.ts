@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges} from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { ActionEnum, ApiEnum, BrowserComponent, BrowserIdEnum, CommonsLibService, SelectIdEnum, TypeWebSocketEnum, WebSocketService } from 'commons-lib';
@@ -19,9 +19,9 @@ import { RouterModule } from '@angular/router';
     styleUrl: './event.component.css'
 })
 
-export class EventComponent implements OnInit, OnChanges {
+export class EventComponent implements OnInit, OnChanges, OnDestroy {
   
-  private readonly subscription: Subscription = new Subscription();
+  private readonly subscription: Subscription[] = [];
   public formEvent: FormGroup = new FormGroup({});
   msgSave: string = '';
   browserId: BrowserIdEnum;
@@ -152,7 +152,7 @@ export class EventComponent implements OnInit, OnChanges {
     const timeStart = this.commonsLibService.getTime(this.eventEdit.dateTimeStart);
     const timeEnd = this.commonsLibService.getTime(this.eventEdit.dateTimeEnd);
 
-    this.subscription.add(this.bookingService.getCourtValue(this.eventEdit.day, timeStart, timeEnd, this.eventEdit.court.id).subscribe({
+    this.subscription.push(this.bookingService.getCourtValue(this.eventEdit.day, timeStart, timeEnd, this.eventEdit.court.id).subscribe({
       next: (data: ValueCourtDTO) => {
 
         this.formEvent.setControl('detailValueCourt', this.formBuilder.array([]));
@@ -194,7 +194,8 @@ export class EventComponent implements OnInit, OnChanges {
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.subscription.forEach((subscription) => subscription.unsubscribe());
+    this.wsService.disconnect(ApiEnum.Court);
   }
 
 }
