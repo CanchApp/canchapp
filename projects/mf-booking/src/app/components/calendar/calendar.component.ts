@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FullCalendarComponent, FullCalendarModule } from '@fullcalendar/angular';
-import { CalendarOptions } from '@fullcalendar/core';
+import { CalendarOptions, DateSelectArg } from '@fullcalendar/core';
 
 import timeGridPlugin from '@fullcalendar/timegrid';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -165,7 +165,7 @@ export class CalendarComponent implements OnInit, AfterViewInit  {
     return res;
   }
 
-  handleSelect(info: any) {
+  handleSelect(info: DateSelectArg) {
     if(this.courtIdSelected == -1)
       return;
 
