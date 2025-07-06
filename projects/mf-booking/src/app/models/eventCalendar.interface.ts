@@ -16,4 +16,9 @@ export interface EventCalendarDTO {
     isRecurrent: boolean;
     observation: string;
     color: string;
+    detailValueCourt?: string;
+    ValueCourt: number;
+    TotalValue: number;
+    TotalHours: number;
+    TotalValueManual: number;
 }

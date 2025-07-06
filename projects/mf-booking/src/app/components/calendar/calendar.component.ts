@@ -119,7 +119,6 @@ export class CalendarComponent implements OnInit, AfterViewInit  {
 
     this.modalElement.nativeElement.addEventListener('hidden.bs.modal', () => {
       this.actionState = ActionEnum.None;
-      this.loadEvents(-1);
     });
   }
 
@@ -151,8 +150,10 @@ export class CalendarComponent implements OnInit, AfterViewInit  {
   }
 
   onChangeCourt({ target }: any) {
-    if(target.value == '-1')
+    if(target.value == '-1') {
+      this.loadEvents(-1);
       return;
+    }
     
     this.courtIdSelected = target.value as number;
     this.courtNameSelected = target.selectedOptions[0].text;
@@ -230,6 +231,12 @@ export class CalendarComponent implements OnInit, AfterViewInit  {
       eventDetail.court = new CourtDTO();
       eventDetail.court.id = eventTmp.extendedProps['idCourt'];
       eventDetail.court.text = eventTmp.extendedProps['nameCourt'];
+      
+      eventDetail.valueCourt = eventTmp.extendedProps['valueCourt'];
+      eventDetail.totalValue = eventTmp.extendedProps['totalValue'];
+      eventDetail.totalHours = eventTmp.extendedProps['totalHours'];
+      eventDetail.totalValueManual = eventTmp.extendedProps['totalValueManual'];
+      eventDetail.detailValueCourt = eventTmp.extendedProps['detailValueCourt'] ? JSON.parse(eventTmp.extendedProps['detailValueCourt']) : [];
       return eventDetail;
     }
 
@@ -246,8 +253,8 @@ export class CalendarComponent implements OnInit, AfterViewInit  {
     this.eventConfirmModal.show();
   }
 
-  getBooking(): BookingDTO | null {
-    const eventTmp: EventDTO | null = this.eventComponent.getEvent();
+  getBooking(isDelete: boolean = false): BookingDTO | null {
+    const eventTmp: EventDTO | null = this.eventComponent.getEvent(isDelete);
     if(eventTmp) {
       let booking = new BookingDTO();
       booking.idBooking = eventTmp.idBooking;
@@ -335,7 +342,7 @@ export class CalendarComponent implements OnInit, AfterViewInit  {
   }
 
   deleteEvent(): void {
-    const booking: BookingDTO | null = this.getBooking();
+    const booking: BookingDTO | null = this.getBooking(true);
     if(booking!.idBooking) {
       this.subscription.add(this.bookingService.delete(booking!.idBooking).subscribe({
         next: (data) => {
