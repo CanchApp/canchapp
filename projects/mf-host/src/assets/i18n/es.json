@@ -46,6 +46,7 @@
     },
     "Select":
     {
+        "ViewAll":"Ver todos",
         "SelectOption":"Selecciona una opción",
         "SelectCustomer":"Selecciona cancha"        
     },

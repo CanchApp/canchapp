@@ -269,7 +269,7 @@ export class CourtComponent implements OnInit, AfterViewInit {
 
       const idTmp = this.formPrice.value.idCourtRate;
       const startTimeTmp = this.commonsService.getTime(this.formPrice.value.startTime);
-      const endTimeTmp = this.commonsService.getTime(this.formPrice.value.endTime);
+      let endTimeTmp = this.commonsService.getTime(this.formPrice.value.endTime);
       const dayTmp = this.formPrice.value.day;
       const priceTmp = this.formPrice.value.price;      
 
@@ -282,6 +282,10 @@ export class CourtComponent implements OnInit, AfterViewInit {
         this.loadCourtRates(this.listCourtRate);
 
       } else { // Creamos nuevo evento
+
+        if(endTimeTmp == '00:00:00') {
+          endTimeTmp = '23:59:59'; // Si es medianoche, lo cambiamos a 23:59:59
+        }
 
         this.calendar.getApi().addEvent({
           id: idTmp,

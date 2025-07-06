@@ -113,11 +113,17 @@ export class EventComponent implements OnInit, OnChanges, OnDestroy {
     return this.formEvent.get('court') as FormControl;
   }
 
-  getEvent(): EventDTO | null {
+  getEvent(isDelete: boolean = false): EventDTO | null {
+
+    let eventTmp: EventDTO = this.formEvent.getRawValue() as EventDTO;
+    eventTmp.idBooking = this.eventEdit.idBooking;
+
+    if(isDelete)
+      return eventTmp;
+
     this.formEvent.markAllAsTouched();
     if(this.formEvent.valid) {
-      let eventTmp: EventDTO = this.formEvent.getRawValue() as EventDTO;
-      eventTmp.idBooking = this.eventEdit.idBooking;
+            
       eventTmp.paymentType = Number(eventTmp.paymentType);
       if(this.actionState == ActionEnum.Edit) {
 
@@ -132,7 +138,20 @@ export class EventComponent implements OnInit, OnChanges, OnDestroy {
 
   loadEvent(event: EventDTO): void {
     this.eventEdit = event;
-    this.getPrice();    
+    
+    if(this.eventEdit.idBooking > 0) {
+      let valueCourtEdit: ValueCourtDTO = {
+        valueCourt: this.eventEdit.valueCourt,
+        total: this.eventEdit.totalValue,
+        totalHours: this.eventEdit.totalHours,
+        detailValueCourt: typeof this.eventEdit.detailValueCourt === 'string'
+          ? JSON.parse(this.eventEdit.detailValueCourt)
+          : (this.eventEdit.detailValueCourt || [])
+      };
+      this.setPrice(valueCourtEdit);
+    } else {
+      this.getPrice();
+    }
     this.formEvent.patchValue(event);
     const formattedStartTime = this.formatTime(new Date(this.eventEdit.dateTimeStartNew));
     const formattedEndTime = this.formatTime(new Date(this.eventEdit.dateTimeEndNew));
@@ -148,36 +167,39 @@ export class EventComponent implements OnInit, OnChanges, OnDestroy {
     } 
   }
 
+  setPrice(data: ValueCourtDTO): void {
+    this.formEvent.setControl('detailValueCourt', this.formBuilder.array([]));
+    this.formEvent.controls['valueCourt'].setValue(data.valueCourt);
+    this.formEvent.controls['totalValue'].setValue(data.total);
+    this.formEvent.controls['totalHours'].setValue(data.totalHours);
+
+    if(data.detailValueCourt && data.detailValueCourt.length > 0)
+    {
+      this.eventEdit.totalValue = data.valueCourt;
+      this.formEvent.setControl('detailValueCourt',
+      this.formBuilder.array(
+          data.detailValueCourt.map(d => this.formBuilder.group({
+            timeStart: [d.timeStart],
+            timeEnd: [d.timeEnd],
+            value: [d.value],
+          }))
+        )
+      );
+    }
+    else
+    {
+      this.eventEdit.valueCourt = data.valueCourt;
+      this.eventEdit.totalValue = data.total;
+    }
+  }
+
   getPrice(): void {
     const timeStart = this.commonsLibService.getTime(this.eventEdit.dateTimeStart);
     const timeEnd = this.commonsLibService.getTime(this.eventEdit.dateTimeEnd);
 
     this.subscription.push(this.bookingService.getCourtValue(this.eventEdit.day, timeStart, timeEnd, this.eventEdit.court.id).subscribe({
       next: (data: ValueCourtDTO) => {
-
-        this.formEvent.setControl('detailValueCourt', this.formBuilder.array([]));
-        this.formEvent.controls['valueCourt'].setValue(data.valueCourt);
-        this.formEvent.controls['totalValue'].setValue(data.total);
-        this.formEvent.controls['totalHours'].setValue(data.totalHours);
-
-        if(data.detailValueCourt && data.detailValueCourt.length > 0)
-        {
-          this.eventEdit.totalValue = data.valueCourt;
-          this.formEvent.setControl('detailValueCourt',
-          this.formBuilder.array(
-              data.detailValueCourt.map(d => this.formBuilder.group({
-                timeStart: [d.timeStart],
-                timeEnd: [d.timeEnd],
-                value: [d.value],
-              }))
-            )
-          );
-        }
-        else
-        {
-          this.eventEdit.valueCourt = data.valueCourt;
-          this.eventEdit.totalValue = data.total;
-        }
+        this.setPrice(data);
       },
       error: (error) => {
         console.error(error);

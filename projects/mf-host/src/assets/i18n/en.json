@@ -39,6 +39,7 @@
     },
     "Select":
     {
+        "ViewAll":"View all",
         "SelectOption":"Select option",
         "SelectCustomer":"Selecciona court"        
     },
