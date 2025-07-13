@@ -1,0 +1,110 @@
+<form class="row g-3" [formGroup]="formCompany">
+<div class="card">
+  <div class="card-header">
+    <div class="card-title">{{ 'Title.Company' | translate }}</div>
+  </div>
+  <div class="card-body">
+      <div class="mb-2">
+          <label for="companyName" class="form-label">{{ 'Company.Name' | translate }}</label>
+          <input type="text" formControlName="name" class="form-control" id="companyName" placeholder="{{ 'Company.EnterName' | translate }}">
+          <div *ngIf="formCompany.controls['name']?.invalid && formCompany.controls['name']?.touched" class="text-danger">
+            <small *ngIf="formCompany.controls['name']?.errors?.['required']">{{ 'Validations.FieldRequired' | translate }}</small>
+          </div>
+      </div>
+
+      <div class="mb-2">
+          <label for="companyAddress" class="form-label">{{ 'Company.Direction' | translate }}</label>
+          <input type="text" formControlName="direction" class="form-control" id="companyAddress" placeholder="{{ 'Company.EnterDirection' | translate }}">
+          <div *ngIf="formCompany.controls['direction']?.invalid && formCompany.controls['direction']?.touched" class="text-danger">
+            <small *ngIf="formCompany.controls['direction']?.errors?.['required']">{{ 'Validations.FieldRequired' | translate }}</small>
+          </div>
+      </div>
+
+      <div class="mb-2">
+          <label for="companyEmail" class="form-label">{{ 'Company.Email' | translate }}</label>
+          <input type="email" formControlName="email" class="form-control" id="companyEmail" placeholder="{{ 'Company.EnterEmail' | translate }}">
+          <div *ngIf="formCompany.controls['email']?.invalid && formCompany.controls['email']?.touched" class="text-danger">
+            <small *ngIf="formCompany.controls['email']?.errors?.['required']">{{ 'Validations.FieldRequired' | translate }}</small>
+            <small *ngIf="formCompany.controls['email']?.errors?.['email']">{{ 'Validations.FieldInvalidName' | translate }}</small>
+          </div>
+      </div>
+
+      <div class="mb-2">
+        <div class="row">
+          <div class="col-2 d-flex align-items-center">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" formControlName="isSpecificValueHours" id="isSpecificValueHours" #fullRate>
+              <label class="form-check-label" for="isSpecificValueHours">
+                {{ 'Company.FullRate' | translate }}
+              </label>
+            </div>
+          </div>
+          <div class="col-10 d-flex align-items-center">
+            <div class="card cardRate">
+              <div class="card-body">
+                <p *ngIf="formCompany.get('isSpecificValueHours')?.value; else noRate" class="card-text">{{ 'Company.SpecificValueHoursYes' | translate }}</p>
+                <ng-template #noRate>
+                  <p class="card-text">{{ 'Company.SpecificValueHoursNo' | translate }}</p>
+                </ng-template>
+              </div>
+            </div>                      
+          </div>
+        </div>                 
+      </div>
+
+      <div class="mb-2">
+        <div class="row">
+          <div class="col col-lg-7">
+            <label for="companyPhone" class="form-label me-2">{{ 'Company.Phones' | translate }}</label>
+            <div class="d-flex align-items-center">          
+              <input type="text" formControlName="phone" class="form-control me-2 w-25" id="companyPhone" autocomplete="off" placeholder="{{ 'Company.EnterPhone' | translate }}">
+              <button type="button" class="btn btn-icon btn-round btn-info" (click)="addPhone()">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+            <div *ngIf="formCompany.controls['phone']?.invalid && formCompany.controls['phone']?.touched" class="text-danger">
+              <small *ngIf="formCompany.controls['phone']?.errors?.['pattern']">{{ 'Validations.FieldOnlyNumberMinLength6' | translate }}</small>
+            </div>
+          </div>
+        </div>
+
+        <div formArrayName="phoneArray">
+          <div class="row mt-1"  *ngFor="let phone of phoneArray.controls; let i = index" [formGroupName]="i">
+            <div class="col col-lg-7">
+              <div class="d-flex align-items-center">          
+                <input type="text" formControlName="number" class="form-control me-2 w-25" id="phone-{{ i }}" placeholder="{{ 'Company.EnterPhone' | translate }}">
+                <button type="button" class="btn btn-icon btn-round btn-danger" (click)="removePhone(i)">
+                  <i class="far fa-trash-alt"></i>
+                </button>
+              </div>
+              <div *ngIf="phone.get('number')?.invalid && phone.get('number')?.touched" class="text-danger">
+                <small *ngIf="phone.get('number')?.errors?.['required']">{{ 'Validations.FieldRequired' | translate }}</small>
+                <small *ngIf="phone.get('number')?.errors?.['pattern']">{{ 'Validations.FieldOnlyNumberMinLength6' | translate }}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mb-3">
+        <div class="container mt-4">
+          <div class="row">
+            <div class="col col-lg-2">
+              <label for="allowedUsers" class="form-label">{{ 'Company.AllowedUsers' | translate }}</label>
+              <input type="text" formControlName="allowedUsers" class="form-control w-50" id="allowedUsers" readonly>
+            </div>
+            <div class="col col-lg-2">
+              <label for="allowedCourt" class="form-label">{{ 'Company.AllowedCourt' | translate }}</label>
+              <input type="text" formControlName="allowedCourt" class="form-control w-50" id="allowedCourt" readonly>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="card-action text-end">
+    <button class="btn btn-success me-2" (click)="onUpdate()">{{ 'Button.Save' | translate }}</button>
+    <button class="btn btn-outline-secondary">{{ 'Button.Cancel' | translate }}</button>
+  </div>
+</div>
+</form>

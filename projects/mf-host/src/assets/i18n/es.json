@@ -72,7 +72,11 @@
         "EnterDirection":"Ingrese la dirección",
         "EnterPhones":"Ingrese los teléfonos",
         "EnterPhone":"Ingrese el teléfono",
-        "EnterEmail":"Ingrese el correo electrónico"
+        "EnterEmail":"Ingrese el correo electrónico",
+        "FullRate":"¿Tarifa plena?",
+        "SpecificValueHoursYes":"El valor de la hora será el mismo para todas las horas.",
+        "SpecificValueHoursNo":"El valor de la hora será diferente para cada hora."
+
     },
     "Booking":{
         "CustomerCreated":"Cliente guardado correctamente.",
