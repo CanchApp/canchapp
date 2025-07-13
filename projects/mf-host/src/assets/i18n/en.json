@@ -77,7 +77,10 @@
         "EnterDirection":"Enter the address",
         "EnterPhones":"Enter the phones",
         "EnterPhone":"Enter phone",
-        "EnterEmail":"Enter the email"
+        "EnterEmail":"Enter the email",
+        "FullRate":"Full rate?",
+        "SpecificValueHoursYes":"The hourly rate will be the same for all hours.",
+        "SpecificValueHoursNo":"The hourly rate will be different for each hour."
     },
     "Booking":{
         "CustomerCreated":"Customer saved successfully.",
