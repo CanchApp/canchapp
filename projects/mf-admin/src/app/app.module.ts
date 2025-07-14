@@ -1,0 +1,22 @@
+import { AppComponent } from './app.component';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { AdminModule } from './admin.module';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
+
+@NgModule({ declarations: [
+    AppComponent
+  ],
+  bootstrap: [AppComponent], imports: [BrowserModule,
+    CommonModule,
+    AppRoutingModule,
+    AdminModule,
+    NgxMaskDirective ], providers: [
+    provideClientHydration(),
+    provideNgxMask(),
+    provideHttpClient(withInterceptorsFromDi())
+  ] })
+export class AppModule { }

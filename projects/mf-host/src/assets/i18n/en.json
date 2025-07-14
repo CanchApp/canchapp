@@ -66,6 +66,18 @@
         "SignIn":"Sign in",
         "Logout":"Log out"
     },
+    "LoginAdmin":
+    {
+        "WelcomeCanchapp": "Welcome Administrator Canchapp",
+        "MultiloginWelcome":"Select the company to log in",
+        "SignInContinue": "Sign in to your account to continue",
+        "ForgotPassword": "Forgot password?",
+        "EnterPassword": "Enter your password",
+        "EnterEmail":"Enter your email",
+        "RememberUser":"Remember me next time",
+        "SignIn":"Sign in",
+        "Logout":"Log out"
+    },
     "Company":{
         "Name":"Company Name",
         "Direction":"Address",

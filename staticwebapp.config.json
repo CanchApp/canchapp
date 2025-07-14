@@ -1,7 +1,7 @@
 {
     "navigationFallback": {
       "rewrite": "/index.html",
-      "exclude": ["/assets/*", "/mf-booking/*", "/mf-catalog/*", "/mf-company/*", "/mf-dashboard/*", "/mf-report/*", "/mf-user/*"]
+      "exclude": ["/assets/*", "/mf-admin/*", "/mf-booking/*", "/mf-catalog/*", "/mf-company/*", "/mf-dashboard/*", "/mf-report/*", "/mf-user/*"]
     }
   }
   
