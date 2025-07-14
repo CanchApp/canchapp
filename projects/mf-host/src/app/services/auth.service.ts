@@ -31,6 +31,16 @@ export class AuthService {
     );
   }
 
+  LoginAdmin(auth: AuthCredentials) {
+    return this.http.post<any>(`${this.apiUrl}LoginAdmin`, auth).pipe(
+      tap<ILoginToken>(response => {
+        // Almacena el token en localStorage si la autenticación fue exitosa
+        this.authLibService.setToken(response.token, response.isProvisional);
+        this.router.navigate(['/admin']);
+      })
+    );
+  }
+
   redirectLogin(isProvisionalToken: boolean): void {
     // Redirige al multilogin si el token es provisional
     isProvisionalToken

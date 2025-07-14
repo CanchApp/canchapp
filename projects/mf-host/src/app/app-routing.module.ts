@@ -1,25 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
 import { loadRemoteModule } from '@angular-architects/module-federation';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
-import { RegisterComponent } from './pages/register/register.component';
 import { authGuard, authGuardMultilogin } from './guards/authGuard.guard';
 import { MultiLoginComponent } from './pages/multilogin/multilogin.component';
 import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
 import { environment } from '../environments/environment';
+import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full'},  
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   {
     path: '',
     component: AuthLayoutComponent,
     children: [
-      { path: 'home', component: HomeComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'register', component: RegisterComponent },
+      { path: 'loginAdmin', component: LoginAdminComponent },
       {
         path: 'multilogin',
         component: MultiLoginComponent,
@@ -35,6 +33,17 @@ const routes: Routes = [
         path: 'unauthorized',
         component: UnauthorizedComponent,
         canActivate: [authGuard]
+      },
+      { 
+        path: 'admin', 
+        canActivate: [authGuard],
+        loadChildren: () => 
+          loadRemoteModule({
+            type: 'module',
+            remoteEntry: environment.remotes.mfAdmin,
+            exposedModule: './AdminModule'
+          })
+          .then(m => m.AdminModule)    
       },
       { 
         path: 'user-management', 

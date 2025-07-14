@@ -6,7 +6,6 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MultiLoginComponent } from './pages/multilogin/multilogin.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -14,11 +13,11 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FootComponent } from './components/foot/foot.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
-import { RegisterComponent } from './pages/register/register.component';
 import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
 import { AuthLibModule } from 'auth-lib';
 import { CommonLibModule } from 'commons-lib';
 import { NgxMaskDirective, provideNgxMask, NgxMaskPipe } from 'ngx-mask';
+import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
@@ -26,7 +25,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 
 @NgModule({ declarations: [
         AppComponent,
-        HomeComponent,
         LoginComponent,
         MultiLoginComponent,
         SidebarComponent,
@@ -34,8 +32,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         FootComponent,
         AuthLayoutComponent,
         MainLayoutComponent,
-        RegisterComponent,
-        UnauthorizedComponent
+        UnauthorizedComponent,
+        LoginAdminComponent
     ],
     exports: [],
     bootstrap: [AppComponent], imports: [BrowserModule,

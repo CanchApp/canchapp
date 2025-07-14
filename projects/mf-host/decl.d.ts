@@ -1,3 +1,4 @@
+declare module 'mfAdmin/AdminModule';
 declare module 'mfDashBoard/DashboardModule';
 declare module 'mfCompany/CompanyModule';
 declare module 'mfBooking/BookingModule';

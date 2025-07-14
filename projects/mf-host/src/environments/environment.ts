@@ -1,6 +1,7 @@
 export const environment = {
     production: true,
     remotes: {
+        mfAdmin:      "http://localhost:4100/remoteEntry.js",
         mfBooking:    "http://localhost:4205/remoteEntry.js",
         mfCatalog:    "http://localhost:4204/remoteEntry.js",
         mfCompany:    "http://localhost:4203/remoteEntry.js",

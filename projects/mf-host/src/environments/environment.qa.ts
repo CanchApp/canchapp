@@ -1,6 +1,7 @@
 export const environment = {
     production: false,
     remotes: {
+      mfAdmin:      "https://calm-sky-02f242510.6.azurestaticapps.net/mf-admin/remoteEntry.js",
       mfBooking:    "https://calm-sky-02f242510.6.azurestaticapps.net/mf-booking/remoteEntry.js",
       mfCatalog:    "https://calm-sky-02f242510.6.azurestaticapps.net/mf-catalog/remoteEntry.js",
       mfCompany:    "https://calm-sky-02f242510.6.azurestaticapps.net/mf-company/remoteEntry.js",

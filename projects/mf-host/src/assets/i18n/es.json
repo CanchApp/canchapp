@@ -148,6 +148,20 @@
         "InvalidCredentialsTitle":"Credenciales inválidas",
         "InvalidCredentialsMsg":"Verifique su correo electrónico y contraseña"
     },
+    "LoginAdmin":
+    {
+        "WelcomeCanchapp":"Bienvenido administrador a Canchapp",
+        "MultiloginWelcome":"Selecciona una empresa para iniciar sesión",
+        "SignInContinue":"Inicie sesión en su cuenta para continuar",
+        "ForgotPassword": "¿Has olvidado tu contraseña?",
+        "EnterPassword": "Ingresa tu contraseña",
+        "EnterEmail":"Ingresa tu correo",
+        "RememberUser":"Recuérdame la próxima vez",
+        "SignIn":"Iniciar sesión",
+        "Logout":"Cerrar sesión",
+        "InvalidCredentialsTitle":"Credenciales inválidas",
+        "InvalidCredentialsMsg":"Verifique su correo electrónico y contraseña"
+    },
     "Tooltip": {
         "RecurringBooking":"Esta reserva quedara semanal"
     },
