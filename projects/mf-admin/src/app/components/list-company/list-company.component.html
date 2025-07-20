@@ -1,1 +1,36 @@
-<p>list-company works!</p>
+<div class="card">
+    <div class="card-header">
+        <div class="card-title">{{ 'Court.CourtList' | translate }}</div>
+    </div>
+    <div class="card-body">
+        <div class="mb-2">
+            <a routerLink="/admin/company" class="btn btn-success" #btnFoco>{{ 'Company.NewCompany' | translate }}</a>
+        </div>
+        <table class="table table-head-bg-info table-hover">
+            <thead>
+                <tr>
+                    <th scope="col" class="index-column">#</th>
+                    <th scope="col">{{ 'Company.Name' | translate }}</th>
+                    <th scope="col">{{ 'Company.Direction' | translate }}</th>
+                    <th scope="col">{{ 'Company.AllowedCourt' | translate }}</th>
+                    <th scope="col">{{ 'Company.AllowedUsers' | translate }}</th>
+                    <th scope="col" class="action-column text-center">{{ 'Commons.Action' | translate }}</th>                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let company of companies, let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ company.name }}</td>
+                    <td>{{ company.direction }}</td>
+                    <td class="action-column text-center">{{ company.allowedCourt }}</td>
+                    <td class="action-column text-center">{{ company.allowedUsers }}</td>
+                    <td class="text-center">
+                        <a class="link-secondary me-1" routerLink="/admin/company/{{company.idCompany}}">
+                            {{ 'Button.Edit' | translate }}
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

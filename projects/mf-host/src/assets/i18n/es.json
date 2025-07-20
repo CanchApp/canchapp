@@ -32,6 +32,7 @@
     "Title":
     {
         "Company":"Empresa",
+        "Companies":"Empresas",
         "Role":"Rol",
         "Roles":"Roles",
         "AdminRole":"Administrador",
@@ -62,6 +63,7 @@
         "No":"No"
     },
     "Company":{
+        "NewCompany":"Nueva compañía",
         "Name":"Nombre de la Compañía",
         "Direction":"Dirección",
         "Email":"Correo Electrónico",
