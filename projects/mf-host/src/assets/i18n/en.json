@@ -26,6 +26,7 @@
     "Title":
     {
         "Company":"Company",
+        "Companies":"Companies",
         "Role":"Role",
         "AdminRole":"Administrator",
         "Courts":"Courts",
@@ -79,6 +80,7 @@
         "Logout":"Log out"
     },
     "Company":{
+        "NewCompany":"New company",
         "Name":"Company Name",
         "Direction":"Address",
         "Email":"Email",

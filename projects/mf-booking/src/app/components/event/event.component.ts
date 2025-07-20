@@ -195,7 +195,11 @@ export class EventComponent implements OnInit, OnChanges, OnDestroy {
 
   getPrice(): void {
     const timeStart = this.commonsLibService.getTime(this.eventEdit.dateTimeStart);
-    const timeEnd = this.commonsLibService.getTime(this.eventEdit.dateTimeEnd);
+    let timeEnd = this.commonsLibService.getTime(this.eventEdit.dateTimeEnd);
+
+    if(timeEnd == '00:00:00') {
+      timeEnd = '23:59:59'; // Si es medianoche, lo cambiamos a 23:59:59
+    }
 
     this.subscription.push(this.bookingService.getCourtValue(this.eventEdit.day, timeStart, timeEnd, this.eventEdit.court.id).subscribe({
       next: (data: ValueCourtDTO) => {
