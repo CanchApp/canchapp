@@ -67,6 +67,8 @@ export enum CodeErrorEnum {
     /* Error Canchas  */
 	CourtWithRecords = 201,
     CourtNotFound = 202,
+    /* Error Holiday  */
+    HolidayAlreadyExists = 300,
 }
 export enum DayEnum {
 	Monday = 1,

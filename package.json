@@ -21,7 +21,16 @@
     "build-all-prod": "npm run replace-apis-pro && npm run build-libs && npm run build-fronts-prod",
     "replace-apis-dev": "node replace-apis-dev.js",
     "replace-apis-qa": "node replace-apis-qa.js",
-    "replace-apis-pro": "node replace-apis-pro.js"
+    "replace-apis-pro": "node replace-apis-pro.js",
+    "start-all": "concurrently \"npm run start-host\" \"npm run start-admin\" \"npm run start-booking\" \"npm run start-catalog\" \"npm run start-company\" \"npm run start-dashboard\" \"npm run start-report\" \"npm run start-user\"",
+    "start-host": "ng serve mf-host",
+    "start-admin": "ng serve mf-admin",
+    "start-booking": "ng serve mf-booking",
+    "start-catalog": "ng serve mf-catalog",
+    "start-company": "ng serve mf-company",
+    "start-dashboard": "ng serve mf-dashboard",
+    "start-report": "ng serve mf-report",
+    "start-user": "ng serve mf-user"
   },
   "private": true,
   "dependencies": {
@@ -60,6 +69,7 @@
     "@types/express": "^4.17.17",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^18.18.0",
+    "concurrently": "^9.2.0",
     "fs-extra": "^11.3.0",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
