@@ -1,0 +1,87 @@
+<div class="card">
+    <div class="card-header">
+        <div class="card-title">{{ 'Holiday.HolidayList' | translate }}</div>
+    </div>
+    <div class="card-body">
+        <div class="mb-2">
+            <button type="button" (click)="showHolidayModal()" class="btn btn-success">{{ 'Holiday.NewHoliday' | translate }}</button>
+        </div>
+        <table class="table table-head-bg-info table-hover">
+            <thead>
+                <tr>
+                    <th scope="col" class="index-column">#</th>
+                    <th scope="col">{{ 'Holiday.Date' | translate }}</th>
+                    <th scope="col">{{ 'Holiday.EveryYear' | translate }}</th>
+                    <th scope="col" class="action-column text-center">{{ 'Commons.Action' | translate }}</th>                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let holiday of listHolidays, let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ holiday.day | date: 'dd-MM-yyyy' }}</td>
+                    <td>{{ holiday.isEveryYear ? ('Commons.Yes' | translate) : ('Commons.No' | translate) }}</td>
+                    <td class="text-center">
+                        <a class="link-secondary" (click)="showDeleteModal(holiday)">
+                            {{ 'Button.Delete' | translate }}
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" [formGroup]="formHoliday" #holidayModal>
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">{{ 'Court.DeleteCourt' | translate }}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="mb-2">
+                <label for="holidayDate" class="form-label">{{ 'Holiday.Date' | translate }}</label>
+                <input type="date" formControlName="day" class="form-control" id="holidayDate" placeholder="{{ 'Holiday.EnterDate' | translate }}">
+                <div *ngIf="formHoliday.controls['day']?.invalid && formHoliday.controls['day']?.touched" class="text-danger">
+                    <small *ngIf="formHoliday.controls['day']?.errors?.['required']">{{ 'Validations.FieldRequired' | translate }}</small>
+                </div>
+            </div>
+
+            <div class="mb-2">
+                <div class="form-check">
+                <input class="form-check-input" type="checkbox" (change)="onChangeIsEveryYear($event)" id="holidayEveryYear">
+                <label class="form-check-label" for="holidayEveryYear">
+                    {{ 'Holiday.EveryYear' | translate }}
+                </label>
+                </div>                
+            </div>
+            
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="saveHoliday()">{{ 'Button.Save' | translate }}</button> 
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">{{ 'Button.Cancel' | translate }}</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" #deleteModal>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{{ 'Holiday.DeleteHoliday' | translate }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>{{ 'Holiday.ConfirmDeleteHoliday' | translate }} <strong>{{ holidaySelected?.day | date: 'dd - MM - yyyy' }}</strong> ? </p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="deleteHoliday()">{{ 'Button.Yes' | translate }}</button> 
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">{{ 'Button.No' | translate }}</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+

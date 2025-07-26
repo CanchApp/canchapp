@@ -21,7 +21,9 @@
         "September":"September", 
         "October":"October", 
         "November":"November", 
-        "December":"December"
+        "December":"December",
+        "Yes":"Yes",
+        "No":"No"
     },
     "Title":
     {
@@ -136,14 +138,26 @@
         "Court":"Court",
         "EventColor":"Court color",
         "NewCourt":"New court",
-        "EditCourt":"Edición cancha",
-        "DetailCourt":"Detalle cancha",
+        "EditCourt":"Edit court",
+        "DetailCourt":"Detail court",
         "DeleteCourt":"Delete court",
         "PricePerHour":"Price per hour",
         "Price":"Price",
         "CourtCreated":"Court saved successfully.",
         "CourtDeleted":"Court deleted successfully.",
         "ConfirmDeleteCourt":"Are you sure you want to delete the "
+    },
+    "Holiday":{
+        "HolidayList":"List holidays",
+        "Date":"Date",
+        "EveryYear":"Every year",
+        "EnterDate":"Enter the date",
+        "NewHoliday":"New holiday",
+        "EditHoliday":"Edit holiday",
+        "DeleteHoliday":"Delete holiday",
+        "HolidayCreated":"Holiday saved successfully.",
+        "HolidayDeleted":"Holiday deleted successfully.",
+        "ConfirmDeleteHoliday":"Are you sure you want to delete the "
     },
     "Reports":{
         
@@ -175,6 +189,7 @@
         "CourtWithRecords":"The court cannot be deleted, there are already associated reservations.",
         "CourtNotFound":"The court does not exist.",
         "PriceMustBeGreaterThanZero":"The price must be greater than zero.",
-        "PriceExistThisTime":"There is already a rate at that time"
+        "PriceExistThisTime":"There is already a rate at that time",
+        "HolidayAlreadyExists":"The holiday already exists."
     }
 }

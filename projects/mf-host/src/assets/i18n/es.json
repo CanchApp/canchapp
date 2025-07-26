@@ -27,7 +27,9 @@
         "October":"Octubre", 
         "November":"Noviembre", 
         "December":"Diciembre",
-        "Phone": "Teléfono"
+        "Phone": "Teléfono",
+        "Yes":"Si",
+        "No":"No"
     },
     "Title":
     {
@@ -129,6 +131,18 @@
         "CourtDeleted":"Cancha eliminada correctamente.",
         "ConfirmDeleteCourt":"¿Está seguro de eliminar la cancha "
     },
+    "Holiday":{
+        "HolidayList":"Lista de dias festivos",
+        "Date":"Fecha",
+        "EveryYear":"Cada año",
+        "EnterDate":"Ingrese la fecha",
+        "NewHoliday":"Nuevo dia festivo",
+        "EditHoliday":"Edición dia festivo",
+        "DeleteHoliday":"Eliminar dia festivo",
+        "HolidayCreated":"Dia festivo guardado correctamente.",
+        "HolidayDeleted":"Dia festivo eliminado correctamente.",
+        "ConfirmDeleteHoliday":"¿Está seguro de eliminar el día festivo "
+    },
     "Reports":{
         
     },
@@ -187,7 +201,8 @@
         "CourtWithRecords":"La cancha no se puede eliminar, ya existen reservas asociadas.",
         "CourtNotFound":"La cancha no existe.",
         "PriceMustBeGreaterThanZero":"El precio debe ser mayor a cero.",
-        "PriceExistThisTime":"Ya hay una tarifa en ese horario."        
+        "PriceExistThisTime":"Ya hay una tarifa en ese horario.",
+        "HolidayAlreadyExists":"El día festivo ya existe."
     },
     "User": {
         "Create": "Crear usuario",
