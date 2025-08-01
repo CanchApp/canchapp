@@ -15,6 +15,7 @@ import { ActionEnum, CodeErrorEnum, CommonsLibService, NotificationService } fro
 import { CourtService } from '../../services/court.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { CompanyService } from '../../services/company.service';
 
 declare let bootstrap: any;
 
@@ -32,6 +33,8 @@ export class CourtComponent implements OnInit, AfterViewInit {
 
   @ViewChild('priceModal', { static: true}) modalElement!: ElementRef;
   @ViewChild('calendar') calendar!: FullCalendarComponent;
+  @ViewChild('btnSaveCourt', { static: true}) btnSaveCourt!: ElementRef;
+
   private readonly subscription: Subscription = new Subscription();
   public formCourt: FormGroup = new FormGroup({});
   public formPrice: FormGroup = new FormGroup({});
@@ -39,6 +42,7 @@ export class CourtComponent implements OnInit, AfterViewInit {
   priceModal: any;
   styleDisable: string = '';
   isSaving: boolean = false;
+  isAllowCreate: boolean = true;
   colorCourt: string = '';
   listCourtRate: CourtRateDTO[] = [];
   
@@ -91,6 +95,7 @@ export class CourtComponent implements OnInit, AfterViewInit {
     private readonly courtService: CourtService,
     private readonly notificationService: NotificationService,
     private readonly router: Router,
+    private readonly companyService: CompanyService,
     private readonly cdr: ChangeDetectorRef) {
       
       this.formCourt = this.formBuilder.group({
@@ -120,7 +125,9 @@ export class CourtComponent implements OnInit, AfterViewInit {
         itemEvent.setProp('backgroundColor', newColor);
         itemEvent.setProp('borderColor', newColor);
       });
-    });   
+    });
+
+    this.allowCourt();
   }
 
   setConfigByState() {
@@ -140,6 +147,16 @@ export class CourtComponent implements OnInit, AfterViewInit {
         break;
     }
     this.cdr.detectChanges();
+  }
+
+  allowCourt(): void {
+    if (this.actionState === ActionEnum.Create) {
+      this.subscription.add(
+        this.companyService.getAllowCourt().subscribe((allowed: boolean) => {
+            this.isAllowCreate = !allowed;
+        })
+      );
+    }
   }
 
   loadCourt(): void {
@@ -312,7 +329,7 @@ export class CourtComponent implements OnInit, AfterViewInit {
 
   saveCourt() {
     this.formCourt.markAllAsTouched();
-    if(this.formCourt.valid) {
+    if(this.formCourt.valid && this.isAllowCreate) {
       this.isSaving = true;
       let court: CourtDTO = new CourtDTO();
       

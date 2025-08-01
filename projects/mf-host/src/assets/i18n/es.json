@@ -202,7 +202,8 @@
         "CourtNotFound":"La cancha no existe.",
         "PriceMustBeGreaterThanZero":"El precio debe ser mayor a cero.",
         "PriceExistThisTime":"Ya hay una tarifa en ese horario.",
-        "HolidayAlreadyExists":"El día festivo ya existe."
+        "HolidayAlreadyExists":"El día festivo ya existe.",
+        "CourtLimitReached":"Has alcanzado el límite máximo de canchas permitidas. No es posible crear más."
     },
     "User": {
         "Create": "Crear usuario",

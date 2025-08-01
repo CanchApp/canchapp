@@ -29,5 +29,4 @@ export class CourtService {
     delete(idCourt: number): Observable<number> {
         return this.http.delete<number>(`${this.apiUrl}Delete/${idCourt}`);
     }
-
 }
