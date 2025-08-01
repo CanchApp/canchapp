@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { CourtDTO } from '../../models/court.model';
 import { Subscription } from 'rxjs';
@@ -6,6 +6,7 @@ import { CourtService } from '../../services/court.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { CodeErrorEnum, NotificationService } from 'commons-lib';
+import { CompanyService } from '../../services/company.service';
 
 declare let bootstrap: any;
 
@@ -15,22 +16,26 @@ declare let bootstrap: any;
     templateUrl: './list-court.component.html',
     styleUrl: './list-court.component.css'
 })
-export class CourtListComponent implements OnInit, AfterViewInit {
+export class CourtListComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('deleteModal', { static: true}) modalDelete!: ElementRef;
-  @ViewChild('btnFoco', { static: true}) buttonFoco!: ElementRef;
+  @ViewChild('btnNewCourt', { static: true}) btnNewCourt!: ElementRef;
 
   private readonly subscription: Subscription = new Subscription();
+
   courts: CourtDTO[] | undefined;
   deleteModal: any;
   idCourtSelected: number = -1;
   courtNameSelected: string = '';
+  allowedCourt: boolean = false;
 
   constructor(
     public translate: TranslateService,
     private readonly courtService: CourtService,
+    private readonly companyService: CompanyService,
     private readonly notificationService: NotificationService) { }
 
   ngOnInit(): void {
+    this.allowCourt();
     this.loadCourts();
   }
 
@@ -44,6 +49,15 @@ export class CourtListComponent implements OnInit, AfterViewInit {
         this.courts = [];
         this.courts = courts;
     }));
+  }
+
+  allowCourt(): void {
+    this.subscription.add(
+      this.companyService.getAllowCourt().subscribe((allowed: boolean) => {
+        this.btnNewCourt.nativeElement.classList.toggle('disabled', !allowed);
+        this.allowedCourt = !allowed;
+      })
+    );
   }
 
   showDeleteModal(idCourt: number, nameCourt: string): void {
@@ -77,8 +91,7 @@ export class CourtListComponent implements OnInit, AfterViewInit {
             }));
   }
 
-  undescribe(): void {
+  ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
-
 }

@@ -1,7 +1,14 @@
 <form [formGroup]="formCourt" class="row g-3">
   <div class="text-end">
-    <button *ngIf="actionState != 3" class="btn btn-success me-2" [disabled]="isSaving" (click)="saveCourt()">{{ 'Button.Save' | translate }}</button>
+    <button 
+      *ngIf="actionState != 3" 
+      class="btn btn-success me-2"
+      [disabled]="isSaving || isAllowCreate" 
+      (click)="saveCourt()"  
+      #btnSaveCourt>{{ 'Button.Save' | translate }}
+    </button>
     <button class="btn btn-outline-secondary" (click)="cancelCourt()">{{ 'Button.Cancel' | translate }}</button>
+    <p *ngIf="isAllowCreate" class="text-danger">{{ 'Error.CourtLimitReached' | translate }}</p>
   </div>
   <div class="col-md-8">
     <label for="name" class="form-label">{{'Court.Name' | translate}}</label>

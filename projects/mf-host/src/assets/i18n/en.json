@@ -1,13 +1,18 @@
 {
     "Commons":
     {
+        "Name": "Name",
+        "Role": "Role",
         "Email":"Email",
+        "true": "Active",
+        "false": "Inactive",
         "Password":"Password",
-        "MessageSuccessSaveNoti":"Successfully saved.",
-        "MessageSuccessRemoveNoti":"Successfully removed.",
-        "ElementsNotFound":"Elements not found.",
+        "MessageErrorNoti":"An error occurred, please try again later.",
+        "MessageSuccessSaveNoti":"Saved successfully.",
+        "MessageSuccessRemoveNoti":"Deleted successfully.",
+        "ElementsNotFound":"No items found.",
         "Action":"Actions",
-        "State":"State",
+        "State":"Status",
         "Active":"Active",
         "Inactive":"Inactive",
         "January":"January", 
@@ -22,6 +27,7 @@
         "October":"October", 
         "November":"November", 
         "December":"December",
+        "Phone": "Phone",
         "Yes":"Yes",
         "No":"No"
     },
@@ -30,6 +36,7 @@
         "Company":"Company",
         "Companies":"Companies",
         "Role":"Role",
+        "Roles":"Roles",
         "AdminRole":"Administrator",
         "Courts":"Courts",
         "Users":"Users",
@@ -37,14 +44,14 @@
     },
     "Browser":
     {
-        "LookFor":"Look for",
-        "SearchForCustomer":"Search for client"        
+        "LookFor":"Search",
+        "SearchForCustomer":"Search customer"        
     },
     "Select":
     {
         "ViewAll":"View all",
-        "SelectOption":"Select option",
-        "SelectCustomer":"Selecciona court"        
+        "SelectOption":"Select an option",
+        "SelectCustomer":"Select court"        
     },
     "Button":
     {
@@ -57,42 +64,18 @@
         "Yes":"Yes",
         "No":"No"
     },
-    "Login":
-    {
-        "WelcomeCanchapp": "Welcome Canchapp",
-        "MultiloginWelcome":"Select the company to log in",
-        "SignInContinue": "Sign in to your account to continue",
-        "ForgotPassword": "Forgot password?",
-        "EnterPassword": "Enter your password",
-        "EnterEmail":"Enter your email",
-        "RememberUser":"Remember me next time",
-        "SignIn":"Sign in",
-        "Logout":"Log out"
-    },
-    "LoginAdmin":
-    {
-        "WelcomeCanchapp": "Welcome Administrator Canchapp",
-        "MultiloginWelcome":"Select the company to log in",
-        "SignInContinue": "Sign in to your account to continue",
-        "ForgotPassword": "Forgot password?",
-        "EnterPassword": "Enter your password",
-        "EnterEmail":"Enter your email",
-        "RememberUser":"Remember me next time",
-        "SignIn":"Sign in",
-        "Logout":"Log out"
-    },
     "Company":{
         "NewCompany":"New company",
-        "Name":"Company Name",
+        "Name":"Company name",
         "Direction":"Address",
         "Email":"Email",
         "Phones":"Phones",
-        "AllowedUsers":"Allowed Users",
-        "AllowedCourt":"Allowed Courts",
+        "AllowedUsers":"Allowed users",
+        "AllowedCourt":"Allowed courts",
         "EnterName":"Enter the company name",
         "EnterDirection":"Enter the address",
         "EnterPhones":"Enter the phones",
-        "EnterPhone":"Enter phone",
+        "EnterPhone":"Enter the phone",
         "EnterEmail":"Enter the email",
         "FullRate":"Full rate?",
         "SpecificValueHoursYes":"The hourly rate will be the same for all hours.",
@@ -100,55 +83,55 @@
     },
     "Booking":{
         "CustomerCreated":"Customer saved successfully.",
-        "CustomerBooking":"Reservation client",
-        "Comment":"Comment",
-        "DateTimeReservation":"Date and time of reservation",
-        "DateTimeReservationNew":"New date and time of reservation",
+        "CustomerBooking":"Booking customer",
+        "Comment":"Comments",
+        "DateTimeReservation":"Reservation date and time",
+        "DateTimeReservationNew":"New reservation date and time",
         "IsRecurringBooking":"Recurring booking?",
-        "BookingCreated":"Reservation saved successfully.",
-        "BookingDeleted":"Reservation deleted successfully.",
-        "BookingPaid":"Reservation payment updated.",
+        "BookingCreated":"Booking saved successfully.",
+        "BookingDeleted":"Booking deleted successfully.",
+        "BookingPaid":"Booking payment updated.",
         "TitleModalNew":"New booking",
         "TitleModalEdit":"Edit booking",
-        "TitleModalDetail":"Detail booking",
-        "TitleModalPayBooking":"Reservation payment",
-        "ConfirmDeleteBooking":"Are you sure you want to delete this reservation?",
-        "PaymentType":"Payment type",
+        "TitleModalDetail":"Booking detail",
+        "TitleModalPayBooking":"Booking payment",
+        "ConfirmDeleteBooking":"Are you sure you want to delete this booking?",
+        "PaymentType":"Payment method",
         "Cash":"Cash",
-        "TDebit":"T. Debit",
-        "TCredit":"T. Credit",
-        "StartTimeMustBeGreater":"The start time must be greater than the end time.",
+        "TDebit":"Debit Card",
+        "TCredit":"Credit Card",
+        "StartTimeMustBeGreater":"Start time must be greater than end time.",
         "TotalValue":"Total value",
-        "HourValue":"Hour value",
+        "HourValue":"Hourly rate",
         "NewCustomer":"New customer",
         "NameCustomer":"Name",
         "PhoneCustomer":"Contact number",
         "StartTime": "Start time",
         "EndTime": "End time",
-        "ValueCourt": "Value court",
+        "ValueCourt": "Value",
         "ViewDetail":"View detail",
-        "totalValueManual": "Value manual",
+        "totalValueManual": "Manual value",
         "EmptyTotalValueCourt":"This hour has no value.",
         "ConfigNowTotalValue":"configure now"
     },
     "Court":{
-        "Name":"Nombre",
+        "Name":"Name",
         "Description":"Description",
-        "CourtList":"List of courts",
+        "CourtList":"Courts list",
         "Court":"Court",
         "EventColor":"Court color",
         "NewCourt":"New court",
         "EditCourt":"Edit court",
-        "DetailCourt":"Detail court",
+        "DetailCourt":"Court detail",
         "DeleteCourt":"Delete court",
         "PricePerHour":"Price per hour",
         "Price":"Price",
-        "CourtCreated":"Court saved successfully.",
+        "CourtCreated":"Court saved successfully.",        
         "CourtDeleted":"Court deleted successfully.",
-        "ConfirmDeleteCourt":"Are you sure you want to delete the "
+        "ConfirmDeleteCourt":"Are you sure you want to delete the court "
     },
     "Holiday":{
-        "HolidayList":"List holidays",
+        "HolidayList":"Holiday list",
         "Date":"Date",
         "EveryYear":"Every year",
         "EnterDate":"Enter the date",
@@ -157,22 +140,48 @@
         "DeleteHoliday":"Delete holiday",
         "HolidayCreated":"Holiday saved successfully.",
         "HolidayDeleted":"Holiday deleted successfully.",
-        "ConfirmDeleteHoliday":"Are you sure you want to delete the "
+        "ConfirmDeleteHoliday":"Are you sure you want to delete the holiday "
     },
-    "Reports":{
-        
-    },
+    "Reports":{},
     "Metrics":{
         "SalesToday":"Sales today",
         "ReportTotalValuePerMonthAnnually": "Monthly sales"
     },
+    "Login":
+    {
+        "WelcomeCanchapp":"Welcome to Canchapp",
+        "MultiloginWelcome":"Select a company to log in",
+        "SignInContinue":"Log in to your account to continue",
+        "ForgotPassword": "Forgot your password?",
+        "EnterPassword": "Enter your password",
+        "EnterEmail":"Enter your email",
+        "RememberUser":"Remember me next time",
+        "SignIn":"Sign in",
+        "Logout":"Log out",
+        "InvalidCredentialsTitle":"Invalid credentials",
+        "InvalidCredentialsMsg":"Check your email and password"
+    },
+    "LoginAdmin":
+    {
+        "WelcomeCanchapp":"Welcome admin to Canchapp",
+        "MultiloginWelcome":"Select a company to log in",
+        "SignInContinue":"Log in to your account to continue",
+        "ForgotPassword": "Forgot your password?",
+        "EnterPassword": "Enter your password",
+        "EnterEmail":"Enter your email",
+        "RememberUser":"Remember me next time",
+        "SignIn":"Sign in",
+        "Logout":"Log out",
+        "InvalidCredentialsTitle":"Invalid credentials",
+        "InvalidCredentialsMsg":"Check your email and password"
+    },
     "Tooltip": {
-        "RecurringBooking":"This reservation will remain weekly"
+        "RecurringBooking":"This booking will be weekly"
     },
     "Validations":
     {
         "FieldRequired": "Required field.",
-        "FieldOnlyNumber": "Just numbers.",
+        "FieldOnlyNumber": "Numbers only.",
         "FieldMax80": "Maximum 80 characters.",
         "FieldMax50": "Maximum 50 characters.",
         "FieldInvalidName": "Invalid email.",
@@ -182,14 +191,51 @@
     },
     "Error":
     {
-        "BookingNotAvailable":"The reservation is not available.",
-        "BookingNotFound":"The reservation does not exist.",
-        "BookingPaid":"The reservation has already been paid, it is not possible to delete it.",
-        "BookingDateStartMustBeGreater":"The start time must be greater than the end time.",
-        "CourtWithRecords":"The court cannot be deleted, there are already associated reservations.",
+        "BookingNotAvailable":"The booking is not available.",
+        "BookingNotFound":"The booking does not exist.",
+        "BookingPaid":"The booking has already been paid and cannot be deleted.",
+        "BookingDateStartMustBeGreater":"Start time must be greater than end time.",
+        "CourtWithRecords":"The court cannot be deleted, there are associated bookings.",
         "CourtNotFound":"The court does not exist.",
         "PriceMustBeGreaterThanZero":"The price must be greater than zero.",
-        "PriceExistThisTime":"There is already a rate at that time",
-        "HolidayAlreadyExists":"The holiday already exists."
+        "PriceExistThisTime":"There is already a rate for that time.",
+        "HolidayAlreadyExists":"The holiday already exists.",
+        "CourtLimitReached":"You have reached the maximum number of allowed courts. No more can be created."
+    },
+    "User": {
+        "Create": "Create user",
+        "Edit": "Edit user",
+        "DeleteUser":"Delete user",
+        "ConfirmDeleteUser":"Are you sure you want to delete the user ",
+        "UserCreated":"User saved successfully.",
+        "UserDeleted":"User deleted successfully."
+    },
+    "Role": {
+        "Create": "Create role",
+        "Edit": "Edit role",
+        "DeleteUser":"Delete role",
+        "ConfirmDeleteRole":"Are you sure you want to delete the role ",
+        "RoleCreated":"Role saved successfully.",
+        "RoleDeleted":"Role deleted successfully.",
+        "RoleDeletedError": "The role cannot be deleted because it has associated users",
+        "RoleModulePermissions": "Module permissions:"
+    },
+    "Crud": {
+        "Create": "Create",
+        "Read": "Read",
+        "Update": "Update",
+        "Delete": "Delete"
+    },
+    "Modules": {
+        "Dashboard": "Dashboard",
+        "Courts": "Courts",
+        "Users": "Users",
+        "Roles": "Roles"
+    },
+    "SideMenu": {
+        "Dashboard": "Dashboard",
+        "UserManagement": "User management",
+        "Users": "Users",
+        "Roles": "Roles"
     }
 }

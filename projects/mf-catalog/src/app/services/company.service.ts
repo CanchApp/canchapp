@@ -32,4 +32,8 @@ export class CompanyService {
   update(company: CompanyDTO): Observable<CompanyDTO> {
     return this.http.put<CompanyDTO>(`${this.apiUrl}UpdateCustomer`, company);
   }
+
+  getAllowCourt(): Observable<boolean> {
+        return this.http.get<boolean>(`${this.apiUrl}AllowCourt`);
+    }
 }

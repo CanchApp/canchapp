@@ -4,7 +4,8 @@
     </div>
     <div class="card-body">
         <div class="mb-2">
-            <a routerLink="/catalog/court-new" class="btn btn-success" #btnFoco>{{ 'Court.NewCourt' | translate }}</a>
+            <a routerLink="/catalog/court-new" class="btn btn-success" #btnNewCourt>{{ 'Court.NewCourt' | translate }}</a>
+            <p *ngIf="allowedCourt" class="text-danger">{{ 'Error.CourtLimitReached' | translate }}</p>
         </div>
         <table class="table table-head-bg-info table-hover">
             <thead>
