@@ -11,12 +11,12 @@ export class CompanyService {
 
   apiUrl: string = ApiEnum.Company;
 
-  constructor(private http: HttpClient) {
+  constructor(private readonly http: HttpClient) {
   }
 
   get(): Observable<CompanyDTO> {
     
-    return this.http.post<CompanyDTO>(`${this.apiUrl}Get`, null).pipe(
+    return this.http.get<CompanyDTO>(`${this.apiUrl}Get`).pipe(
       map((response: CompanyDTO) => {
         // Transformar el campo 'phones' a un arreglo
         return {
