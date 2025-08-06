@@ -289,7 +289,7 @@ export class CalendarComponent implements OnInit, AfterViewInit  {
         next: (data) => {
           this.notificationService.SuccesNotification(this.translate.instant("Booking.BookingCreated"));
           this.actionState = ActionEnum.None;
-          this.loadEvents(-1);
+          this.loadEvents(this.courtIdSelected);
           this.eventModal.hide();
         },
         error: (error) => {
@@ -317,7 +317,7 @@ export class CalendarComponent implements OnInit, AfterViewInit  {
         next: (data) => {
           this.notificationService.SuccesNotification(this.translate.instant("Booking.BookingCreated"));
           this.actionState = ActionEnum.None;
-          this.loadEvents(-1);
+          this.loadEvents(this.courtIdSelected);
           this.eventModal.hide();
         },
         error: (error) => {
