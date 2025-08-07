@@ -3,6 +3,8 @@ export enum ModulesEnum {
     Users = "Users",
     Roles = "Roles",
     Courts = "Courts",
+    Booking = "Booking",
+    Catalog = "Catalog",
 }
 
 export enum ModuleActionsEnum {

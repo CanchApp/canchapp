@@ -47,44 +47,13 @@
                   <ng-template #singleItem>
                     <a [routerLink]="item.route">
                       <i class="fas" [ngClass]="item.icon"></i>
-                      <p>{{ item.namei18n }}</p>
+                      <p>{{ "SideMenu."+item.namei18n | translate }}</p>
                     </a>
                   </ng-template>
                 </li>
               </ul>
 
-              
-
             <ul class="nav nav-secondary">
-
-                <li class="nav-item">
-                    <a href="/user-management/users">
-                        <i class="fas fa-users"></i>
-                        <p>Usuarios</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="/user-management/roles">
-                        <i class="fas fa-pencil-square"></i>
-                        <p>Roles</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="/booking/booking">
-                        <i class="fas fa-users"></i>
-                        <p>Reservas</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="/catalog/list">
-                        <i class="fas fa-users"></i>
-                        <p>Catalogos</p>
-                    </a>
-                </li>
-
                 <li class="nav-item">
                     <a href="/admin/modules">
                         <i class="fas fa-users"></i>

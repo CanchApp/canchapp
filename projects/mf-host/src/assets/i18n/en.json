@@ -230,12 +230,16 @@
         "Dashboard": "Dashboard",
         "Courts": "Courts",
         "Users": "Users",
-        "Roles": "Roles"
+        "Roles": "Roles",
+        "Booking": "Bookings",
+        "Catalog": "Catalog"
     },
     "SideMenu": {
         "Dashboard": "Dashboard",
         "UserManagement": "User management",
         "Users": "Users",
-        "Roles": "Roles"
+        "Roles": "Roles",
+        "Booking": "Bookings",
+        "Catalog": "Catalog"
     }
 }

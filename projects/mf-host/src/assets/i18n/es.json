@@ -233,12 +233,16 @@
         "Dashboard": "Dashboard",
         "Courts": "Canchas",
         "Users": "Usuarios",
-        "Roles": "Roles"
+        "Roles": "Roles",
+        "Booking": "Reservas",
+        "Catalog": "Catálogo"
     },
     "SideMenu": {
         "Dashboard": "Dashboard",
         "UserManagement": "Administrar usuarios",
         "Users": "Usuarios",
-        "Roles": "Roles"
+        "Roles": "Roles",
+        "Booking": "Reservas",
+        "Catalog": "Catálogo"
     }
 }

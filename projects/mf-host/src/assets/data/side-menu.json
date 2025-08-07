@@ -24,5 +24,18 @@
                 "route": "/user-management/roles"
             }
         ]
+    },
+    {
+        "namei18n": "Booking",
+        "modules": ["Booking"],
+        "icon": "fa-pencil-square",
+        "route": "/booking/booking",
+        "actionsAllowed": ["Read"]
+    },
+    {
+        "namei18n": "Catalog",
+        "modules": ["Catalog"],
+        "icon": "fa-calendar-check",
+        "route": "/catalog/list"
     }
 ]
