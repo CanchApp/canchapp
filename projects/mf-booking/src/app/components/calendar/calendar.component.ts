@@ -12,7 +12,7 @@ import { EventDTO } from '../../models/event.model';
 import { BookingDTO } from '../../models/booking.model';
 import { BookingService } from '../../services/booking.service';
 import { Subscription } from 'rxjs';
-import { ActionEnum, CodeErrorEnum, NotificationService, SelectComponent, SelectIdEnum } from 'commons-lib';
+import { ActionEnum, CodeErrorEnum, ModuleActionsEnum, ModulesEnum, NotificationService, PermissionLibService, SelectComponent, SelectIdEnum } from 'commons-lib';
 import { HoliDayService } from '../../services/holiDay.service';
 import { CustomerDTO } from '../../models/customer.model';
 import { CourtDTO } from '../../models/court.model';
@@ -99,13 +99,35 @@ export class CalendarComponent implements OnInit, AfterViewInit  {
     dayHeaderFormat: { weekday: 'long', day: 'numeric' }
   };
 
+  /* actions permission */
+  public allowRead: boolean = false;
+  public allowCreate: boolean = false;
+  public allowUpdate: boolean = false;
+  public allowDelete: boolean = false;
+
   constructor(
     public translate: TranslateService,
     private readonly bookingService: BookingService,
     private readonly holiDayService: HoliDayService,
-    private readonly notificationService: NotificationService) {
+    private readonly notificationService: NotificationService,
+    private readonly permissionLibService: PermissionLibService,
+  ) {
       this.titleModal = '';
       this.selectId = SelectIdEnum.ListCourt;
+      [
+        this.allowRead,
+        this.allowCreate,
+        this.allowUpdate,
+        this.allowDelete
+      ] = this.permissionLibService.hasMultiplePermissionToComponent(
+        ModulesEnum.Booking,
+        [
+          ModuleActionsEnum.Read,
+          ModuleActionsEnum.Create,
+          ModuleActionsEnum.Update,
+          ModuleActionsEnum.Delete
+        ]
+      );
   }
 
   ngOnInit(): void {    
@@ -238,7 +260,19 @@ export class CalendarComponent implements OnInit, AfterViewInit  {
     return null;
   }
 
-  showEventmodal(event: EventDTO) {
+  hasPermissions(event: EventDTO): boolean {
+    if(event.idBooking > 0) {
+      // Edición
+      return this.allowRead || this.allowUpdate || this.allowUpdate;
+    } else {
+      // Creación
+      return this.allowCreate;
+    }
+  }
+
+  showEventmodal(event: EventDTO) {    
+    if (!this.hasPermissions(event))
+      return;
     this.eventComponent.loadEvent(event);
     this.eventModal.show();
   }
