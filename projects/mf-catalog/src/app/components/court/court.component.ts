@@ -42,7 +42,7 @@ export class CourtComponent implements OnInit, AfterViewInit {
   priceModal: any;
   styleDisable: string = '';
   isSaving: boolean = false;
-  isAllowCreate: boolean = true;
+  isAllowCreate: boolean = false;
   colorCourt: string = '';
   listCourtRate: CourtRateDTO[] = [];
   
@@ -150,7 +150,7 @@ export class CourtComponent implements OnInit, AfterViewInit {
   }
 
   allowCourt(): void {
-    if (this.actionState === ActionEnum.Create) {
+    if (this.actionState === ActionEnum.Create.valueOf()) {
       this.subscription.add(
         this.companyService.getAllowCourt().subscribe((allowed: boolean) => {
             this.isAllowCreate = !allowed;
@@ -329,7 +329,7 @@ export class CourtComponent implements OnInit, AfterViewInit {
 
   saveCourt() {
     this.formCourt.markAllAsTouched();
-    if(this.formCourt.valid && this.isAllowCreate) {
+    if(this.formCourt.valid && !this.isAllowCreate) {
       this.isSaving = true;
       let court: CourtDTO = new CourtDTO();
       
