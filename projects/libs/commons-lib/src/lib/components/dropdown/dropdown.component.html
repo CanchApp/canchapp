@@ -12,7 +12,7 @@
     </button>
 
 	<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        @for (item of items; track item) {
+        @for (item of items; track i; let i = $index) {
             <a
                 class="dropdown-item"
                 (click)="onClickActionButton(item)"

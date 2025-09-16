@@ -69,6 +69,10 @@ export enum CodeErrorEnum {
     CourtNotFound = 202,
     /* Error Holiday  */
     HolidayAlreadyExists = 300,
+    /* Error Customer  */
+    CustomerNotFound = 400,
+    /* Error Security  */
+    CustomerRegisterExist = 500,
 }
 export enum DayEnum {
 	Monday = 1,
