@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UsersListComponent } from './pages/users-list.page/users-list.page.component';
-import { UserPageComponent } from './pages/user.page/user.page.component';
+import { UsersListComponent } from './pages/users-list/users-list.page.component';
+import { UserPageComponent } from './pages/user/user.page.component';
 import { ActionEnum, ModulesEnum, ModuleActionsEnum, permissionGuard } from 'commons-lib';
-import { RolesListComponent } from './pages/roles-list.page/roles-list.page.component';
-import { RolePageComponent } from './pages/role.page/role.page.component';
+import { RolesListComponent } from './pages/roles-list/roles-list.page.component';
+import { RolePageComponent } from './pages/role/role.page.component';
 
 const routes: Routes = [
   { 

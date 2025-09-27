@@ -29,7 +29,9 @@
         "December":"December",
         "Phone": "Phone",
         "Yes":"Yes",
-        "No":"No"
+        "No":"No",
+        "Hello":"Hello",
+        "MyProfile":"My Profile"
     },
     "Title":
     {
