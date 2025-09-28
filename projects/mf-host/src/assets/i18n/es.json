@@ -196,7 +196,7 @@
         "InvalidPasswordTitle": "Contraseña inválida",
         "InvalidPasswordMsg": "Las contraseñas no coinciden o no cumplen con los requisitos.",
         "ErrorResetPasswordTitle": "Error al restablecer la contraseña",
-        "ErrorResetPasswordMsg": "Intente de nuevo en unos minutos.",
+        "ErrorResetPasswordMsg": "Verifique que el enlace no haya expirado.",
         "ResetPasswordSuccess":"Contraseña restablecida con éxito",
         "ResetPasswordSuccessMsg":"Ahora puede iniciar sesión con su nueva contraseña.",
         "ResetPassword": "Restablecer contraseña"
