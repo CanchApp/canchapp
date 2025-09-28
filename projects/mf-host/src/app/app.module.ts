@@ -18,6 +18,8 @@ import { AuthLibModule } from 'auth-lib';
 import { CommonLibModule } from 'commons-lib';
 import { NgxMaskDirective, provideNgxMask, NgxMaskPipe } from 'ngx-mask';
 import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
+import { RecoverPasswordComponent } from './pages/recover-password/recover-password.component';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
@@ -26,6 +28,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 @NgModule({ declarations: [
         AppComponent,
         LoginComponent,
+        RecoverPasswordComponent,
+        ResetPasswordComponent,
         MultiLoginComponent,
         SidebarComponent,
         NavbarComponent,

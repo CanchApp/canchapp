@@ -16,6 +16,7 @@ import {
   ModulesEnum,
   ModuleActionsEnum
 } from 'commons-lib';
+import { CompanyService } from '../../services/company.service';
 
 @Component({
     selector: 'users-list.page',
@@ -50,21 +51,9 @@ export class UsersListComponent implements OnInit {
       private readonly userService: UserService,
       private readonly notificationService: NotificationService,
       private readonly permissionLibService: PermissionLibService,
+      private readonly companyService: CompanyService,
       private readonly router: Router
     ) {
-      /*this.allowCreate = this.permissionLibService.hasPermissionToComponent(
-        ModulesEnum.Users,
-        ModuleActionsEnum.Create
-      );
-      this.allowUpdate = this.permissionLibService.hasPermissionToComponent(
-        ModulesEnum.Users,
-        ModuleActionsEnum.Update
-      );
-      this.allowDelete = this.permissionLibService.hasPermissionToComponent(
-        ModulesEnum.Users,
-        ModuleActionsEnum.Delete
-      );*/
-
       [this.allowCreate, this.allowUpdate, this.allowDelete] = this.permissionLibService.hasMultiplePermissionToComponent(
         ModulesEnum.Users,
         [
@@ -76,9 +65,18 @@ export class UsersListComponent implements OnInit {
     }
   
     ngOnInit(): void {
+      this.setAllowCreate();
       this.loadUsers();
       this.loadActions();
       this.loadConfirmModalData();
+    }
+
+    setAllowCreate() {
+      if(this.allowCreate) {
+        this.companyService.getAllowUsers().subscribe((allowUsers: boolean) => {
+          this.allowCreate = allowUsers;
+        });
+      }
     }
 
     loadConfirmModalData(): void {

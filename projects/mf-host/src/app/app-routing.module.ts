@@ -9,6 +9,8 @@ import { MultiLoginComponent } from './pages/multilogin/multilogin.component';
 import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
 import { environment } from '../environments/environment';
 import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
+import { RecoverPasswordComponent } from './pages/recover-password/recover-password.component';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -18,6 +20,8 @@ const routes: Routes = [
     children: [
       { path: 'login', component: LoginComponent },
       { path: 'loginAdmin', component: LoginAdminComponent },
+      { path: 'recover-password', component: RecoverPasswordComponent },
+      { path: 'reset-password/:token', component: ResetPasswordComponent },
       {
         path: 'multilogin',
         component: MultiLoginComponent,
