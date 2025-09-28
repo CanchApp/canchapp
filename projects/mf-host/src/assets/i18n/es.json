@@ -180,6 +180,27 @@
         "InvalidCredentialsTitle":"Credenciales inválidas",
         "InvalidCredentialsMsg":"Verifique su correo electrónico y contraseña"
     },
+    "RecoverPassword":
+    {
+        "Title":"Recuperación de contraseña Canchapp",
+        "InstructionsMsg":"Le enviaremos un correo electrónico con instrucciones para restablecer su contraseña.",
+        "SendLink":"Enviar enlace",
+        "BackToLogin":"Volver al inicio de sesión",
+        "EmailSentTitle":"Correo enviado",
+        "EmailSentMsg":"Si el correo electrónico existe en nuestro sistema, recibirá un mensaje con instrucciones para restablecer su contraseña.",
+        "ErrorEmailSentTitle":"Error al enviar el correo",
+        "ErrorEmailSentMsg":"Intente de nuevo en unos minutos.",
+        "Password": "Ingrese su nueva contraseña",
+        "ConfirmPassword": "Confirmar contraseña",
+        "ConfirmPasswordMsg": "Ingrese de nuevo la contraseña",
+        "InvalidPasswordTitle": "Contraseña inválida",
+        "InvalidPasswordMsg": "Las contraseñas no coinciden o no cumplen con los requisitos.",
+        "ErrorResetPasswordTitle": "Error al restablecer la contraseña",
+        "ErrorResetPasswordMsg": "Intente de nuevo en unos minutos.",
+        "ResetPasswordSuccess":"Contraseña restablecida con éxito",
+        "ResetPasswordSuccessMsg":"Ahora puede iniciar sesión con su nueva contraseña.",
+        "ResetPassword": "Restablecer contraseña"
+    },
     "Tooltip": {
         "RecurringBooking":"Esta reserva quedara semanal"
     },
