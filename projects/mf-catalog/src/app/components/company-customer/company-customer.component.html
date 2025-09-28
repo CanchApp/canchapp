@@ -101,6 +101,21 @@
           </div>
         </div>
       </div>
+
+      <div class="mb-2">
+        <label for="companyLogo" class="form-label">{{ 'Company.Logo' | translate }}</label>
+        <div class="input-group">
+          <input type="file" id="companyLogo" class="form-control" (change)="onFileSelected($event)">
+          <button type="button" class="btn btn-primary" (click)="onUploadLogo()" [disabled]="!selectedFile">
+            {{ 'Button.Upload' | translate }}
+          </button>
+        </div>
+        <div *ngIf="uploadedLogoUrl" class="mt-2">
+          <img [src]="uploadedLogoUrl" alt="logo preview" class="img-thumbnail" style="max-height: 120px;">
+        </div>
+      </div>
+
+
   </div>
   <div class="card-action text-end">
     <button class="btn btn-success me-2" (click)="onUpdate()">{{ 'Button.Save' | translate }}</button>

@@ -34,6 +34,10 @@ export class CompanyService {
   }
 
   getAllowCourt(): Observable<boolean> {
-        return this.http.get<boolean>(`${this.apiUrl}AllowCourt`);
-    }
+    return this.http.get<boolean>(`${this.apiUrl}AllowCourt`);
+  }
+
+  upFile(file: FormData ): Observable<number> {
+    return this.http.post<number>(`${this.apiUrl}upload`, file);
+  }
 }
