@@ -7,7 +7,7 @@ import { ApiEnum } from 'commons-lib';
 })
 export class RecoverPasswordService {
 
-  apiUrl: string = ApiEnum.Security; //'https://securityapi.azurewebsites.net/api/Security/';
+  apiUrl: string = ApiEnum.Security;
 
   constructor(
     private readonly http: HttpClient
