@@ -8,6 +8,7 @@ export interface CompanyDTO {
     allowedUsers: number,
     allowedCourt: number
     isSpecificValueHours: boolean;
+    imageUrl?: string;
 }
 
 export interface PhoneDTO {

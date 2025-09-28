@@ -21,6 +21,8 @@ export class CompanyCustomerComponent implements OnInit {
   public formCompany: FormGroup = new FormGroup({});
   msgSave: string = '';
   msgError: string = '';
+  selectedFile: File | null = null;
+  uploadedLogoUrl: string | null = null;
 
   constructor(
     public translate: TranslateService,
@@ -52,6 +54,7 @@ export class CompanyCustomerComponent implements OnInit {
       isSpecificValueHours: [false],
       allowedUsers: [''],
       allowedCourt: [''],
+      logo: [null]
     });
     this.loadCompany();
   }
@@ -90,6 +93,7 @@ export class CompanyCustomerComponent implements OnInit {
   loadCompany(): void {
     this.companyService.get().subscribe({
       next: (company: CompanyDTO) => {
+        this.uploadedLogoUrl = company.imageUrl || null;
         this.setPhones(company.phoneArray);
         this.formCompany.patchValue(company);
       },
@@ -117,6 +121,31 @@ export class CompanyCustomerComponent implements OnInit {
 
   onCancel(): void {
     this.router.navigate(['company/list']);
+  }
+  
+  onFileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.selectedFile = input.files[0];
+    }
+  }
+
+  onUploadLogo() {
+    if (!this.selectedFile) return;
+
+    const formData = new FormData();
+    formData.append("file", this.selectedFile);
+
+    this.companyService.upFile(formData).subscribe({
+      next: (res: number) => {
+        this.loadCompany();
+        this.notificationService.SuccesNotification(this.msgSave);
+      },
+      error: err => { 
+        this.notificationService.ErrorNotification(this.msgError);
+        console.error('Observable [companyService.update()] emitted an error: ' + err)
+      }
+    });
   }
 
 }

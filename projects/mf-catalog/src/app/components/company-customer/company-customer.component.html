@@ -101,6 +101,47 @@
           </div>
         </div>
       </div>
+
+      <div class="mb-3">
+        <label for="companyLogo" class="form-label">
+          {{ 'Company.Logo' | translate }}
+        </label>
+        <div class="row g-3 align-items-center">
+          <!-- Columna del input y botón -->
+          <div class="col-12 col-md-8">
+            <div class="input-group">
+              <input
+                type="file"
+                id="companyLogo"
+                class="form-control"
+                (change)="onFileSelected($event)"
+              />
+              <button
+                type="button"
+                class="btn btn-primary"
+                (click)="onUploadLogo()"
+                [disabled]="!selectedFile"
+              >
+                {{ 'Button.Upload' | translate }}
+              </button>
+            </div>
+          </div>
+
+          <!-- Columna de la imagen -->
+          <div class="col-12 col-md-4" *ngIf="uploadedLogoUrl">
+            <img
+              [src]="uploadedLogoUrl"
+              alt="logo preview"
+              class="img-fluid img-thumbnail"
+              style="max-height: 120px;"
+            />
+          </div>
+        </div>
+      </div>
+
+
+
+
   </div>
   <div class="card-action text-end">
     <button class="btn btn-success me-2" (click)="onUpdate()">{{ 'Button.Save' | translate }}</button>

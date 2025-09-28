@@ -64,7 +64,8 @@
         "Cancel":"Cancelar",
         "Pay":"Pago",
         "Yes":"Si",
-        "No":"No"
+        "No":"No",
+        "Upload":"Subir"
     },
     "Company":{
         "NewCompany":"Nueva compañía",
@@ -81,7 +82,8 @@
         "EnterEmail":"Ingrese el correo electrónico",
         "FullRate":"¿Tarifa plena?",
         "SpecificValueHoursYes":"El valor de la hora será el mismo para todas las horas.",
-        "SpecificValueHoursNo":"El valor de la hora será diferente para cada hora."
+        "SpecificValueHoursNo":"El valor de la hora será diferente para cada hora.",
+        "Logo":"Logo de la empresa"
 
     },
     "Booking":{
