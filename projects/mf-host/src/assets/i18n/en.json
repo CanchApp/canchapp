@@ -64,7 +64,8 @@
         "Cancel":"Cancel",
         "Pay":"Pay",
         "Yes":"Yes",
-        "No":"No"
+        "No":"No",
+        "Upload":"Upload"
     },
     "Company":{
         "NewCompany":"New company",
@@ -81,7 +82,8 @@
         "EnterEmail":"Enter the email",
         "FullRate":"Full rate?",
         "SpecificValueHoursYes":"The hourly rate will be the same for all hours.",
-        "SpecificValueHoursNo":"The hourly rate will be different for each hour."
+        "SpecificValueHoursNo":"The hourly rate will be different for each hour.",
+        "Logo":"Company logo"
     },
     "Booking":{
         "CustomerCreated":"Customer saved successfully.",

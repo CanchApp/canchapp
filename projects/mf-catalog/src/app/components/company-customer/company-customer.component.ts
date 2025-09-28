@@ -93,6 +93,7 @@ export class CompanyCustomerComponent implements OnInit {
   loadCompany(): void {
     this.companyService.get().subscribe({
       next: (company: CompanyDTO) => {
+        this.uploadedLogoUrl = company.imageUrl || null;
         this.setPhones(company.phoneArray);
         this.formCompany.patchValue(company);
       },
@@ -136,7 +137,8 @@ export class CompanyCustomerComponent implements OnInit {
     formData.append("file", this.selectedFile);
 
     this.companyService.upFile(formData).subscribe({
-      next: (res: number) => {         
+      next: (res: number) => {
+        this.loadCompany();
         this.notificationService.SuccesNotification(this.msgSave);
       },
       error: err => { 
