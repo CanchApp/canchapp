@@ -83,8 +83,8 @@
         "FullRate":"¿Tarifa plena?",
         "SpecificValueHoursYes":"El valor de la hora será el mismo para todas las horas.",
         "SpecificValueHoursNo":"El valor de la hora será diferente para cada hora.",
-        "Logo":"Logo de la empresa"
-
+        "Logo":"Logo de la empresa",
+        "Location":"Ubicación"
     },
     "Booking":{
         "CustomerCreated":"Cliente guardado correctamente.",
