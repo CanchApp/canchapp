@@ -83,7 +83,8 @@
         "FullRate":"Full rate?",
         "SpecificValueHoursYes":"The hourly rate will be the same for all hours.",
         "SpecificValueHoursNo":"The hourly rate will be different for each hour.",
-        "Logo":"Company logo"
+        "Logo":"Company logo",
+        "Location":"Location"
     },
     "Booking":{
         "CustomerCreated":"Customer saved successfully.",

@@ -7,11 +7,12 @@ import { NotificationService } from 'commons-lib';
 import { forkJoin } from 'rxjs';
 import { CompanyService } from '../../services/company.service';
 import { CompanyDTO, PhoneDTO } from '../../models/company.model';
+import { LocationPickerComponent } from "../location-picker/location-picker.component";
 
 
 @Component({
     selector: 'app-company-customer',
-    imports: [TranslateModule, ReactiveFormsModule, CommonModule],
+    imports: [TranslateModule, ReactiveFormsModule, CommonModule, LocationPickerComponent],
     templateUrl: './company-customer.component.html',
     styleUrl: './company-customer.component.css'
 })
@@ -23,6 +24,8 @@ export class CompanyCustomerComponent implements OnInit {
   msgError: string = '';
   selectedFile: File | null = null;
   uploadedLogoUrl: string | null = null;
+  initialLocation: { lat: number; lng: number; address?: string | null } | null = null;
+  refresh: boolean = true;
 
   constructor(
     public translate: TranslateService,
@@ -54,12 +57,13 @@ export class CompanyCustomerComponent implements OnInit {
       isSpecificValueHours: [false],
       allowedUsers: [''],
       allowedCourt: [''],
-      logo: [null]
+      logo: [null],
+      latitude: [],
+      longitude: [],
     });
     this.loadCompany();
   }
 
-  // Getter para acceder al FormArray de 'phones'
   get phoneArray(): FormArray {
     return this.formCompany.get('phoneArray') as FormArray;
   }
@@ -93,9 +97,11 @@ export class CompanyCustomerComponent implements OnInit {
   loadCompany(): void {
     this.companyService.get().subscribe({
       next: (company: CompanyDTO) => {
+        this.initialLocation = (company.latitude && company.longitude) ? { lat: company.latitude, lng: company.longitude, address: company.direction } : null;
         this.uploadedLogoUrl = company.imageUrl || null;
         this.setPhones(company.phoneArray);
         this.formCompany.patchValue(company);
+        
       },
       error: err => console.error('Observable [companyService.get()] emitted an error: ' + err)
     });
@@ -117,7 +123,14 @@ export class CompanyCustomerComponent implements OnInit {
         }
       });
     }
-  }  
+  }
+
+  onSetLocation(event: { lat: number; lng: number; }) {
+    this.formCompany.patchValue({
+      latitude: event.lat,
+      longitude: event.lng
+    });
+  }
 
   onCancel(): void {
     this.router.navigate(['company/list']);

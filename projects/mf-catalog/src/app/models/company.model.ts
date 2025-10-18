@@ -9,6 +9,8 @@ export interface CompanyDTO {
     allowedCourt: number
     isSpecificValueHours: boolean;
     imageUrl?: string;
+    latitude?: number;
+    longitude?: number;
 }
 
 export interface PhoneDTO {

@@ -1,0 +1,16 @@
+<div class="location-picker">
+  <input
+    #searchInput
+    type="text"
+    class="form-control mb-3"
+    placeholder="Buscar ubicación..."
+  />
+
+  <div #mapContainer class="map-container mb-3"></div>
+
+  <div *ngIf="selectedLocation() as loc" class="alert alert-info">
+    <strong>Latitud:</strong> {{ loc.lat }} <br />
+    <strong>Longitud:</strong> {{ loc.lng }}
+  </div>
+
+</div>

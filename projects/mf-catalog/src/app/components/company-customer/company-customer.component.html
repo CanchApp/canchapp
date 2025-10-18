@@ -140,6 +140,12 @@
       </div>
 
 
+      <div class="mb-">
+        <label class="form-label">{{ 'Company.Location' | translate }}</label>
+        <div class="row">
+          <app-location-picker [initialLocation]="initialLocation" (locationChange)="onSetLocation($event)"></app-location-picker>
+        </div>        
+      </div>
 
 
   </div>
