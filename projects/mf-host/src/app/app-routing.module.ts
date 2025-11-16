@@ -19,7 +19,7 @@ const routes: Routes = [
     component: AuthLayoutComponent,
     children: [
       { path: 'login', component: LoginComponent },
-      { path: 'loginAdmin', component: LoginAdminComponent },
+      { path: 'login-admin', component: LoginAdminComponent },
       { path: 'recover-password', component: RecoverPasswordComponent },
       { path: 'reset-password/:token', component: ResetPasswordComponent },
       {

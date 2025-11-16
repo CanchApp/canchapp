@@ -31,7 +31,8 @@
         "Yes":"Si",
         "No":"No",
         "Hello":"Hola",
-        "MyProfile":"Mi Perfil"
+        "MyProfile":"Mi Perfil",
+        "City":"Ciudad"
     },
     "Title":
     {
@@ -53,7 +54,8 @@
     {
         "ViewAll":"Ver todos",
         "SelectOption":"Selecciona una opción",
-        "SelectCustomer":"Selecciona cancha"        
+        "SelectCustomer":"Selecciona una cancha",
+        "SelectCity":"Seleccione una ciudad"
     },
     "Button":
     {
@@ -170,7 +172,7 @@
     },
     "LoginAdmin":
     {
-        "WelcomeCanchapp":"Bienvenido administrador a Canchapp",
+        "WelcomeCanchapp":"Administrador",
         "MultiloginWelcome":"Selecciona una empresa para iniciar sesión",
         "SignInContinue":"Inicie sesión en su cuenta para continuar",
         "ForgotPassword": "¿Has olvidado tu contraseña?",

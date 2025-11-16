@@ -27,6 +27,7 @@ export class SelectComponent implements ControlValueAccessor, OnInit {
   @Input() placeHolder: string = 'Select.SelectOption';
   @Input() empty: boolean = true;
   @Input() useCustomItems: boolean = false;
+  @Input() withTenant: boolean = true;
 
   public items: optionValue[] = [];
   error: string | null = null;
@@ -47,7 +48,7 @@ export class SelectComponent implements ControlValueAccessor, OnInit {
 
   ngOnInit(): void {
     if(!this.useCustomItems) {
-      const apiUrl = `${ApiEnum.Select}GetSelect/${this.selectId}`;
+      const apiUrl = this.withTenant ? `${ApiEnum.Select}GetSelect/${this.selectId}` : `${ApiEnum.Select}GetSelectNotTenant/${this.selectId}`;
       this.selectSubscription = this.http.get<any[]>(apiUrl).subscribe((response) => {
         this.items = response;
         if(!this.empty && this.items.length > 0) {

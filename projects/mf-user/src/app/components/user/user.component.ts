@@ -93,8 +93,6 @@ export class UserComponent implements OnInit, AfterViewInit {
 
   save(): void {
     this.formUser.markAllAsTouched();
-    
-    console.log(this.formUser);
 
     if (!this.formUser.valid) {
       return;
@@ -110,8 +108,6 @@ export class UserComponent implements OnInit, AfterViewInit {
           phone: this.formUser.value.phone,
           RoleId: Number(this.formUser.value.role.id)
         };
-
-        console.log('payload:' , payload);
 
         this.userService.create(payload).subscribe(e => {
           this.redirectToList();
