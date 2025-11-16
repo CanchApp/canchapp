@@ -47,7 +47,8 @@ export enum BrowserIdEnum {
 }
 export enum SelectIdEnum {
 	ListCourt = 'ListCourt',
-    ListRole = 'ListRole'
+    ListRole = 'ListRole',
+    ListCity = 'ListCity'
 }
 export enum ActionEnum {
 	None = 0,

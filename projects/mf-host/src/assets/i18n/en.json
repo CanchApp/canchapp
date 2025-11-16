@@ -31,7 +31,8 @@
         "Yes":"Yes",
         "No":"No",
         "Hello":"Hello",
-        "MyProfile":"My Profile"
+        "MyProfile":"My Profile",
+        "City":"City"
     },
     "Title":
     {
@@ -53,7 +54,8 @@
     {
         "ViewAll":"View all",
         "SelectOption":"Select an option",
-        "SelectCustomer":"Select court"        
+        "SelectCustomer":"Select court",
+        "SelectCity":"Select city"
     },
     "Button":
     {
@@ -168,7 +170,7 @@
     },
     "LoginAdmin":
     {
-        "WelcomeCanchapp":"Welcome admin to Canchapp",
+        "WelcomeCanchapp":"Administrator",
         "MultiloginWelcome":"Select a company to log in",
         "SignInContinue":"Log in to your account to continue",
         "ForgotPassword": "Forgot your password?",

@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { FormGroup, ReactiveFormsModule, Validators, FormBuilder, FormArray } from '@angular/forms';
+import { FormGroup, ReactiveFormsModule, Validators, FormBuilder, FormArray, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CompanyService } from '../../services/company.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CompanyDTO, PhoneDTO } from '../../models/company.model';
-import { NotificationService } from 'commons-lib';
+import { NotificationService, SelectComponent, SelectIdEnum } from 'commons-lib';
 import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-company',
-  imports: [TranslateModule, ReactiveFormsModule, CommonModule],
+  imports: [TranslateModule, ReactiveFormsModule, CommonModule, SelectComponent],
   templateUrl: './company.component.html',
   styleUrl: './company.component.scss'
 })
@@ -20,6 +20,7 @@ export class CompanyComponent implements OnInit {
   msgSave: string = '';
   msgError: string = '';
   idCompmany!: any;
+  selectId: SelectIdEnum;
   
   constructor(
     public translate: TranslateService,
@@ -30,6 +31,23 @@ export class CompanyComponent implements OnInit {
     private readonly notificationService: NotificationService) {
 
     this.idCompmany = this.route.snapshot.paramMap.get('id')!;
+    this.selectId = SelectIdEnum.ListCity;
+  }
+
+  ngOnInit(): void {
+
+    this.formCompany = this.formBuilder.group({
+      idCompany: [''],
+      city: [{ id: '-1' }, [Validators.required, this.invalidCityValidator()]],
+      name: ['', [Validators.required]],      
+      direction: ['', [Validators.required]],
+      phoneArray: this.formBuilder.array([]),
+      phone: ['', [Validators.pattern(/^\d{6,10}$/)]],
+      email: ['', [Validators.required, Validators.email]],
+      allowedUsers: [0],
+      allowedCourt: [0],
+      isSpecificValueHours: [true],
+    });
 
     forkJoin({
       msg1: this.translate.get('Commons.MessageErrorNoti'),
@@ -38,24 +56,19 @@ export class CompanyComponent implements OnInit {
       this.msgError = resultados.msg1;
       this.msgSave = resultados.msg2;
     });
-  }
-
-  ngOnInit(): void {
-
-    this.formCompany = this.formBuilder.group({
-      idCompany: [''],
-      name: [''],
-      direction: [''],
-      phoneArray: this.formBuilder.array([]),
-      phone: [''],
-      email: [''],
-      allowedUsers: [0],
-      allowedCourt: [0],
-      isSpecificValueHours: [false],
-    });
 
     if (this.idCompmany)
       this.loadCompany();
+  }
+
+  // Validador personalizado para verificar si el id es "-1"
+  invalidCityValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      if (control.value && control.value.id === '-1') {
+        return { invalidCity: true }; // Retorna un error si el id es '-1'
+      }
+      return null; // Retorna null si el valor es válido
+    };
   }
 
   // Getter para acceder al FormArray de 'phones'
@@ -106,6 +119,11 @@ export class CompanyComponent implements OnInit {
   onUpdate() {
     if(this.formCompany.valid) {
       let companyTmp: CompanyDTO = this.formCompany.value;
+      companyTmp.phones = companyTmp.phoneArray.map((phone: { number: string }) => phone.number).join('|');
+      const localizationTmp = this.getlocalization(this.formCompany.value.city);
+      companyTmp.idCity = localizationTmp.idCity;
+      companyTmp.latitude = localizationTmp.latitude;
+      companyTmp.longitude = localizationTmp.longitude;
       
       this.companyService.update(companyTmp).subscribe({
         next: (company: CompanyDTO) => {
@@ -121,9 +139,14 @@ export class CompanyComponent implements OnInit {
   }
 
   onCreate() {
+    this.formCompany.markAllAsTouched();
     if(this.formCompany.valid) {
       let companyTmp: CompanyDTO = this.formCompany.value;
       companyTmp.phones = companyTmp.phoneArray.map((phone: { number: string }) => phone.number).join('|');
+      const localizationTmp = this.getlocalization(this.formCompany.value.city);
+      companyTmp.idCity = localizationTmp.idCity;
+      companyTmp.latitude = localizationTmp.latitude;
+      companyTmp.longitude = localizationTmp.longitude;
       
       this.companyService.create(companyTmp).subscribe({
         next: (company: CompanyDTO) => {
@@ -140,6 +163,12 @@ export class CompanyComponent implements OnInit {
 
   onCancel(): void {
     this.router.navigate(['admin/list-companies']);
+  }
+
+  getlocalization(dataCity: any) {
+    
+    const localization = JSON.parse(dataCity.args)[0];
+    return { idCity: dataCity.id, latitude: localization.Latitude, longitude: localization.Longitude  };
   }
 
 }
