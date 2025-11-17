@@ -19,9 +19,14 @@ export class NavbarComponent {
     private readonly router: Router,
     private readonly authService: AuthService) {
 
-    this.userName = this.authService.getCompaniesLogin()[0].email ?? '';
-    this.roleName = this.authService.getCompaniesLogin()[0].roleName ?? '';
-    this.idUser = this.authService.getCompaniesLogin()[0].idUser ?? 0;
+      if(this.authService.isAdmin()){
+        this.userName = 'Admin';
+        this.roleName = 'Administrator';
+      } else {        
+        this.userName = this.authService.getCompaniesLogin()[0].email ?? '';
+        this.roleName = this.authService.getCompaniesLogin()[0].roleName ?? '';
+        this.idUser = this.authService.getCompaniesLogin()[0].idUser ?? 0;
+      }
   }
 
   onClicklogOut() {
