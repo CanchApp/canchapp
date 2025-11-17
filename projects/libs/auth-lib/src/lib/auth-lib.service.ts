@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AUTH_TOKEN_KEY, PRV_AUTH_TOKEN_KEY, COMPANIES_KEY, ROLES_MODULES_KEY } from './constants';
+import { AUTH_TOKEN_KEY, PRV_AUTH_TOKEN_KEY, COMPANIES_KEY, ROLES_MODULES_KEY, ADMIN } from './constants';
 
 @Injectable({
   providedIn: 'root'
@@ -29,9 +29,24 @@ export class AuthLibService {
     localStorage.removeItem(PRV_AUTH_TOKEN_KEY);
   }
 
+  public removeIsAdmin(): void {
+    localStorage.removeItem(ADMIN);
+  }
+
+  public removeCompanies(): void {
+    localStorage.removeItem(COMPANIES_KEY);
+  }
+
+  public removeRoles(): void {
+    localStorage.removeItem(ROLES_MODULES_KEY);
+  }
+
   public logOut(): void {
     this.removeToken();
     this.removePrvToken();
+    this.removeIsAdmin();
+    this.removeCompanies();
+    this.removeRoles();
   }
 
   public isAuthenticated(): boolean {
@@ -58,5 +73,13 @@ export class AuthLibService {
 
   public setRoleModules<T>(rolesModules: T): void {
     localStorage.setItem(ROLES_MODULES_KEY, JSON.stringify(rolesModules));
+  }
+
+  public setAdmin<T>(isAdmin: T): void {
+    localStorage.setItem(ADMIN, JSON.stringify(isAdmin));
+  }
+
+  public isAdmin(): boolean {
+    return JSON.parse(localStorage.getItem(ADMIN) ?? 'false');
   }
 }

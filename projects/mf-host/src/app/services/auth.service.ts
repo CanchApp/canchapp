@@ -26,6 +26,7 @@ export class AuthService {
         this.authLibService.setCompanies(response.companies);
         this.authLibService.setRoleModules(response.roleModules);
         this.authLibService.setToken(response.token, response.isProvisional);
+        this.authLibService.setAdmin(false);
         this.redirectLogin(response.isProvisional);
       })
     );
@@ -36,6 +37,7 @@ export class AuthService {
       tap<ILoginToken>(response => {
         // Almacena el token en localStorage si la autenticación fue exitosa
         this.authLibService.setToken(response.token, response.isProvisional);
+        this.authLibService.setAdmin(true);
         this.router.navigate(['/admin']);
       })
     );
@@ -64,5 +66,9 @@ export class AuthService {
 
   getCompaniesLogin(): ICompanyLogin[] {
     return this.authLibService.getCompanies<ICompanyLogin[]>();
+  }
+
+  isAdmin(): boolean {
+    return this.authLibService.isAdmin();
   }
 }
