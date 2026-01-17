@@ -184,8 +184,10 @@ export class CalendarComponent implements OnInit, AfterViewInit  {
   }
 
   handleSelect(info: DateSelectArg) {
-    if(this.courtIdSelected == -1)
+    if(this.courtIdSelected == -1){
+      this.notificationService.WarningNotification(this.translate.instant("Validations.RequiredCourt"));
       return;
+    }
 
     this.titleModal = this.translate.instant("Booking.TitleModalNew");
     this.actionState = ActionEnum.Create;
