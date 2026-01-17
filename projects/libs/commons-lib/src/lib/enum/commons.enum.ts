@@ -75,7 +75,9 @@ export enum CodeErrorEnum {
     /* Error Security  */
     CustomerRegisterExist = 500,
     CustomerNotFoundSecurity = 501,
-    InvalidCredentials = 502
+    InvalidCredentials = 502,
+    /* Error Company  */
+    CompanyNotFound = 600
 }
 export enum DayEnum {
 	Monday = 1,

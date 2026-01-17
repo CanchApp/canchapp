@@ -194,7 +194,8 @@
         "FieldInvalidName": "Invalid email.",
         "FieldMinLength6":"At least 6 characters.",
         "FieldOnlyNumberMinLength6":"Numbers only and at least 6 characters.",
-        "MustBeGreaterThanZero":"The price must be greater than zero (0)."
+        "MustBeGreaterThanZero":"The price must be greater than zero (0).",
+        "RequiredCourt":"You must select a court."
     },
     "Error":
     {
