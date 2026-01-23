@@ -138,9 +138,33 @@ export class CompanyCustomerComponent implements OnInit {
   
   onFileSelected(event: Event) {
     const input = event.target as HTMLInputElement;
-    if (input.files && input.files.length > 0) {
-      this.selectedFile = input.files[0];
+
+    if (!input.files || input.files.length === 0) return;
+
+    const file = input.files[0];
+
+    // Validar tipo MIME
+    if (!file.type.startsWith('image/')) {
+      this.notificationService.ErrorNotification(
+        this.translate.instant('Validations.OnlyImagesAllowed')
+      );
+      input.value = ''; // limpia el input
+      this.selectedFile = null;
+      return;
     }
+
+    // (Opcional) validar tamaño máximo (ej: 2MB)
+    const maxSize = 2 * 1024 * 1024;
+    if (file.size > maxSize) {
+      this.notificationService.ErrorNotification(
+        this.translate.instant('Validations.MaxImageSize')
+      );
+      input.value = '';
+      this.selectedFile = null;
+      return;
+    }
+
+    this.selectedFile = file;
   }
 
   onUploadLogo() {
