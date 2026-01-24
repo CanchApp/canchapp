@@ -218,7 +218,8 @@
         "FieldMinLength6":"Al menos 6 caractres.",
         "FieldOnlyNumberMinLength6":"Solo números y al menos 6 caracteres.",
         "MustBeGreaterThanZero":"El precio debe ser mayor a cero (0).",
-        "RequiredCourt":"Debe seleccionar una cancha."
+        "RequiredCourt":"Debe seleccionar una cancha.",
+        "OnlyImagesAllowed":"Solo se permiten archivos de imagen."
     },
     "Error":
     {

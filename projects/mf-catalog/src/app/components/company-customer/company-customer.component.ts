@@ -145,9 +145,7 @@ export class CompanyCustomerComponent implements OnInit {
 
     // Validar tipo MIME
     if (!file.type.startsWith('image/')) {
-      this.notificationService.ErrorNotification(
-        this.translate.instant('Validations.OnlyImagesAllowed')
-      );
+      this.notificationService.ErrorNotification(this.translate.instant('Validations.OnlyImagesAllowed'));
       input.value = ''; // limpia el input
       this.selectedFile = null;
       return;
