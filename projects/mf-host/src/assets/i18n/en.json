@@ -195,7 +195,8 @@
         "FieldMinLength6":"At least 6 characters.",
         "FieldOnlyNumberMinLength6":"Numbers only and at least 6 characters.",
         "MustBeGreaterThanZero":"The price must be greater than zero (0).",
-        "RequiredCourt":"You must select a court."
+        "RequiredCourt":"You must select a court.",
+        "OnlyImagesAllowed":"Only image files are allowed."
     },
     "Error":
     {
