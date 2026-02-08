@@ -36,6 +36,8 @@ export class AuthService {
     return this.http.post<any>(`${this.apiUrl}LoginAdmin`, auth).pipe(
       tap<ILoginToken>(response => {
         // Almacena el token en localStorage si la autenticación fue exitosa
+        this.authLibService.setCompanies(response.companies);
+        this.authLibService.setRoleModules(response.roleModules);
         this.authLibService.setToken(response.token, response.isProvisional);
         this.authLibService.setAdmin(true);
         this.router.navigate(['/admin']);
