@@ -244,6 +244,7 @@
         "Catalog": "Catalog"
     },
     "SideMenu": {
+        "Admin": "Administration",
         "Dashboard": "Dashboard",
         "UserManagement": "User management",
         "Users": "Users",

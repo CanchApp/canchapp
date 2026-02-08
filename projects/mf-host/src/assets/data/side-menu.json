@@ -1,5 +1,11 @@
 [
     {
+        "namei18n": "Admin",
+        "modules": ["Admin"],
+        "icon": "fa-cogs",
+        "route": "/admin/modules"
+    },
+    {
         "namei18n": "Dashboard",
         "modules": ["Dashboard"],
         "icon": "fa-home",

@@ -267,6 +267,7 @@
         "Catalog": "Catálogo"
     },
     "SideMenu": {
+        "Admin": "Administración",
         "Dashboard": "Dashboard",
         "UserManagement": "Administrar usuarios",
         "Users": "Usuarios",
